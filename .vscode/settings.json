@@ -9,16 +9,24 @@
     {
       "name": "latexmk-xe",
       "command": "latexmk",
-      "args": ["-xelatex", "-interaction=nonstopmode", "-synctex=1", "%DOC%"]
+      "args": [
+        "-xelatex",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "%DOC%"
+      ]
     },
     {
-      "name": "clean-glob",
-      "command": "latexmk",
-      "args": ["-C", "%DOC%"]
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"]
     }
   ],
   "latex-workshop.latex.recipes": [
-    { "name": "latexmk (XeLaTeX)", "tools": ["latexmk-xe"] }
+    {
+      "name": "XeLaTeX → BibTeX → XeLaTeX (2x)",
+      "tools": ["latexmk-xe", "bibtex", "latexmk-xe", "latexmk-xe"]
+    }
   ],
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.autoBuild.run": "never"

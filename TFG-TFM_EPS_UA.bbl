@@ -1,3 +1,293 @@
 \begin{thebibliography}{}
 
+\bibitem [\protect \citeauthoryear {%
+Ali%
+}{%
+Ali%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+Ali2023}
+\APACinsertmetastar {%
+Ali2023}%
+\begin{APACrefauthors}%
+Ali, S\BPBI A\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Anomaly Detection in Telecommunication Networks: Towards
+  Proactive Management} {Anomaly detection in telecommunication networks:
+  Towards proactive management}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{KUEY Journal}{30}{5}{}.
+\newblock
+\begin{APACrefURL}
+  \url{https://kuey.net/index.php/kuey/article/download/3849/2547/8832}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Auth0%
+}{%
+Auth0%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+JWT}
+\APACinsertmetastar {%
+JWT}%
+\begin{APACrefauthors}%
+Auth0.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Introduction to JSON Web Tokens.} {Introduction to json web
+  tokens.}
+\newblock
+\APAChowpublished {\url{https://jwt.io/introduction/}}.
+\newblock
+\APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Community%
+}{%
+Community%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+Vue}
+\APACinsertmetastar {%
+Vue}%
+\begin{APACrefauthors}%
+Community, V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Vue.js -- The Progressive JavaScript Framework.} {Vue.js -- the
+  progressive javascript framework.}
+\newblock
+\APAChowpublished {\url{https://vuejs.org/}}.
+\newblock
+\APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Developers%
+}{%
+Developers%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+ChartJS}
+\APACinsertmetastar {%
+ChartJS}%
+\begin{APACrefauthors}%
+Developers, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Chart.js Documentation.} {Chart.js documentation.}
+\newblock
+\APAChowpublished {\url{https://www.chartjs.org/}}.
+\newblock
+\APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Edozie%
+, Shuaibu%
+\BCBL {}\ \BBA {} Sadiq%
+}{%
+Edozie%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+Edozie2025}
+\APACinsertmetastar {%
+Edozie2025}%
+\begin{APACrefauthors}%
+Edozie, E.%
+, Shuaibu, A\BPBI N.%
+\BCBL {}\ \BBA {} Sadiq, B\BPBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Artificial intelligence advances in anomaly detection
+  for telecom networks} {Artificial intelligence advances in anomaly detection
+  for telecom networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Artificial Intelligence Review}{}{}{}.
+\newblock
+\begin{APACrefURL}
+  \url{https://link.springer.com/article/10.1007/s10462-025-11108-x}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Moharam%
+}{%
+Moharam%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+Moharam2025}
+\APACinsertmetastar {%
+Moharam2025}%
+\begin{APACrefauthors}%
+Moharam, M\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Anomaly detection using machine learning and adopted
+  digital twin concepts in radio environments} {Anomaly detection using machine
+  learning and adopted digital twin concepts in radio environments}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Scientific Reports}{15}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://www.nature.com/articles/s41598-025-02759-5}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ramírez%
+}{%
+Ramírez%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+FastAPI}
+\APACinsertmetastar {%
+FastAPI}%
+\begin{APACrefauthors}%
+Ramírez, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {FastAPI Documentation.} {Fastapi documentation.}
+\newblock
+\APAChowpublished {\url{https://fastapi.tiangolo.com/}}.
+\newblock
+\APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Schummer%
+}{%
+Schummer%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+Schummer2024}
+\APACinsertmetastar {%
+Schummer2024}%
+\begin{APACrefauthors}%
+Schummer, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Machine Learning-Based Network Anomaly Detection:
+  Design, Implementation, and Evaluation} {Machine learning-based network
+  anomaly detection: Design, implementation, and evaluation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{AI}{5}{4}{2967--2983}.
+\newblock
+\begin{APACrefURL} \url{https://www.mdpi.com/2673-2688/5/4/143}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Team%
+}{%
+Team%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+Bootstrap}
+\APACinsertmetastar {%
+Bootstrap}%
+\begin{APACrefauthors}%
+Team, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Bootstrap Documentation.} {Bootstrap documentation.}
+\newblock
+\APAChowpublished {\url{https://getbootstrap.com/}}.
+\newblock
+\APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Technologies%
+}{%
+Technologies%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+GNS3}
+\APACinsertmetastar {%
+GNS3}%
+\begin{APACrefauthors}%
+Technologies, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {GNS3 -- Graphical Network Simulator.} {Gns3 -- graphical
+  network simulator.}
+\newblock
+\APAChowpublished {\url{https://www.gns3.com/}}.
+\newblock
+\APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ylonen%
+\ \BBA {} Lonvick%
+}{%
+Ylonen%
+\ \BBA {} Lonvick%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+SSH}
+\APACinsertmetastar {%
+SSH}%
+\begin{APACrefauthors}%
+Ylonen, T.%
+\BCBT {}\ \BBA {} Lonvick, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+\APACrefbtitle {The Secure Shell (SSH) Protocol Architecture} {The secure shell
+  (ssh) protocol architecture}\ \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}.
+\newblock
+\APACaddressInstitution{}{IETF}.
+\newblock
+\begin{APACrefURL} \url{https://www.rfc-editor.org/rfc/rfc4251}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
 \end{thebibliography}

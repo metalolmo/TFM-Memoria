@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex TFG-TFM_EPS_UA"] 1755285033.56721 "TFG-TFM_EPS_UA.aux" "TFG-TFM_EPS_UA.bbl" "TFG-TFM_EPS_UA" 1755285059.9516 0
-  "./bibliografia/bibliografia.bib" 1755285002 67 5b0ba0fff9c3a5679eb1c21f4f8480f2 ""
+["bibtex TFG-TFM_EPS_UA"] 1755372684.45083 "TFG-TFM_EPS_UA.aux" "TFG-TFM_EPS_UA.bbl" "TFG-TFM_EPS_UA" 1755372703.64111 0
+  "./bibliografia/bibliografia.bib" 1755371655 3014 534ccdaaeea9cfd36dd5230bab000db2 ""
   "C:/Users/USUARIO/AppData/Roaming/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "TFG-TFM_EPS_UA.aux" 1755285049 4960 e90aea7c82bc764d5441ed85d4ebe93b "xelatex"
+  "TFG-TFM_EPS_UA.aux" 1755372700 6160 7fc0d762ec3db4b4a6af565e4a898d38 "xelatex"
   (generated)
   "TFG-TFM_EPS_UA.bbl"
   "TFG-TFM_EPS_UA.blg"
   (rewritten before read)
-["xdvipdfmx"] 1755285052.80475 "TFG-TFM_EPS_UA.xdv" "TFG-TFM_EPS_UA.pdf" "TFG-TFM_EPS_UA" 1755285060.02945 0
-  "TFG-TFM_EPS_UA.xdv" 1755285049 57976 1877cf4343052737033f37ea0523e8ad "xelatex"
+["xdvipdfmx"] 1755359103.0341 "TFG-TFM_EPS_UA.xdv" "TFG-TFM_EPS_UA.pdf" "TFG-TFM_EPS_UA" 1755359110.3556 0
+  "TFG-TFM_EPS_UA.xdv" 1755372700 135996 9ede033283be94422b39b2d9b4c33a52 "xelatex"
   (generated)
   "TFG-TFM_EPS_UA.pdf"
   (rewritten before read)
-["xelatex"] 1755285034.48467 "c:/Users/USUARIO/Desktop/UNIVERSIDAD/AAA MÁSTER 2/TFM/latex/PlantillaPLENS/TFG-TFM_EPS_UA.tex" "TFG-TFM_EPS_UA.xdv" "TFG-TFM_EPS_UA" 1755285059.95273 0
+["xelatex"] 1755372685.4001 "c:/Users/USUARIO/Desktop/UNIVERSIDAD/AAA MÁSTER 2/TFM/latex/PlantillaPLENS/TFG-TFM_EPS_UA.tex" "TFG-TFM_EPS_UA.xdv" "TFG-TFM_EPS_UA" 1755372703.64312 2
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768654 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1233951848 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1233951848 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -361,18 +361,19 @@
   "C:/Users/USUARIO/AppData/Roaming/MiKTeX/tex/latex/zref/zref-abspage.sty" 1750428951 2269 2de6c7a5fd634dfef00a960544463a38 ""
   "C:/Users/USUARIO/AppData/Roaming/MiKTeX/tex/latex/zref/zref-base.sty" 1750428951 20785 198a9cb2e04238d92c320d0d9edbd76a ""
   "TFG-TFM_EPS_UA.acr" 0 -1 0 ""
-  "TFG-TFM_EPS_UA.aux" 1755285049 4960 e90aea7c82bc764d5441ed85d4ebe93b "xelatex"
-  "TFG-TFM_EPS_UA.bbl" 1755285034 52 0eba253fc001332e731e8aba3f23127b "bibtex TFG-TFM_EPS_UA"
-  "TFG-TFM_EPS_UA.lof" 1755285049 385 32aad89851368b0165651729d8ce72c8 "xelatex"
-  "TFG-TFM_EPS_UA.lol" 1755285049 385 32aad89851368b0165651729d8ce72c8 "xelatex"
-  "TFG-TFM_EPS_UA.lot" 1755285049 385 32aad89851368b0165651729d8ce72c8 "xelatex"
-  "TFG-TFM_EPS_UA.tex" 1755285008 6265 4dcdff2493e8adeda11d574577ab929b ""
-  "TFG-TFM_EPS_UA.toc" 1755285049 1209 02a8a6f37657b7d2e9481a4dc090e06a "xelatex"
+  "TFG-TFM_EPS_UA.aux" 1755372700 6160 7fc0d762ec3db4b4a6af565e4a898d38 "xelatex"
+  "TFG-TFM_EPS_UA.bbl" 1755372685 6675 6f575c032f8a4abb53c876ffee9cf0f4 "bibtex TFG-TFM_EPS_UA"
+  "TFG-TFM_EPS_UA.lof" 1755372700 405 cd9cdec83ef6830d3dee02f1e2ef1cce "xelatex"
+  "TFG-TFM_EPS_UA.lol" 1755372700 405 cd9cdec83ef6830d3dee02f1e2ef1cce "xelatex"
+  "TFG-TFM_EPS_UA.lot" 1755372700 405 cd9cdec83ef6830d3dee02f1e2ef1cce "xelatex"
+  "TFG-TFM_EPS_UA.tex" 1755371670 6359 0ca61b605f55ecdad069021fec92f325 ""
+  "TFG-TFM_EPS_UA.toc" 1755372700 1346 79f14508fa6970b1f2642a544d191012 "xelatex"
   "anexos/acronimos.tex" 1681164506 2108 d90d6032d6aa0ec5f9e1ca96acbc171c ""
   "anexos/anexo_2.tex" 1755285012 406 d98171afa7566645f79726bc93250eed ""
   "anexos/anexo_I.tex" 1755285012 340 711fa7820f806d4dd53b43cbfd30ca3c ""
-  "c:/Users/USUARIO/Desktop/UNIVERSIDAD/AAA MÁSTER 2/TFM/latex/PlantillaPLENS/TFG-TFM_EPS_UA.tex" 1755285008 6265 4dcdff2493e8adeda11d574577ab929b ""
-  "capitulos/Introduccion.tex" 1755283835 348 decd5131db0912392b526d57ef5312a3 ""
+  "c:/Users/USUARIO/Desktop/UNIVERSIDAD/AAA MÁSTER 2/TFM/latex/PlantillaPLENS/TFG-TFM_EPS_UA.tex" 1755371670 6359 0ca61b605f55ecdad069021fec92f325 ""
+  "capitulos/Introduccion.tex" 1755372415 1440 6f811022762b81a730b1c46bba11421b ""
+  "capitulos/abstract.tex" 1755359057 2425 5aaa5ddff12c586843b140c4c7cab9b8 ""
   "capitulos/analisis.tex" 1755284583 344 39d9fa04d70dc14df262459f23795ea9 ""
   "capitulos/conclusiones.tex" 1755284759 368 4d2217fb6c4f4b07f5df79f4f809b6b3 ""
   "capitulos/diseño.tex" 1755284582 342 3198d735f1551a1aaa536ae4bb40dd3c ""
@@ -384,11 +385,11 @@
   "capitulos/preliminaresconagradecimientos.tex" 1755283835 350 6e37f5b660cef9aa5b230d01724ef1c8 ""
   "capitulos/pruebas.tex" 1755284752 342 a8914fadb09262624d326509b6629b1e ""
   "capitulos/resultados.tex" 1755284759 344 4b305d59d67feccf20f5c9da9db48f6b ""
-  "capitulos/resumen.tex" 1755283835 342 7b9c16c4d0a591f9390b62af1164d63d ""
+  "capitulos/resumen.tex" 1755358675 2587 482c17f08c4a1e00f6b776d649da25a0 ""
   "capitulos/trabajo futuro.tex" 1755284751 349 e297702a148f86be16fecb9634e0a2e5 ""
-  "include/configuracioninicial.tex" 1755280427 11141 0056b6be49e4be0c0a1b393cb34501ba ""
-  "include/configuraciontitulacion.tex" 1681164506 14153 1ecd01b1e89d787dadf1c1c8745cddc0 ""
-  "include/estiloscodigoprogramacion.tex" 1681164506 7446 4c270620f08e03e5055018bc373ca411 ""
+  "include/configuracioninicial.tex" 1755370708 11165 b422ea8d4cdbf837d092f904b1fd22f2 ""
+  "include/configuraciontitulacion.tex" 1755366701 14189 bbbe230fe73e9e6325cf118f8ab053a4 ""
+  "include/estiloscodigoprogramacion.tex" 1755366701 7482 30f3a59a5815990575506b2ce41e12ea ""
   "include/logos-titulaciones/LogoTelecoBlanco.eps" 1681164506 1597426 cdcdb99cbfa85925cce3f6905c3be0c0 ""
   "include/logos-titulaciones/LogoTelecoNegro.eps" 1681164506 1645342 b182443a6f267887bf8ab017b95c040e ""
   "include/logos-universidad/LogoEPSBlanco.eps" 1681164506 3351302 78ca325b312a3b7ce5ffec58f52e8de8 ""

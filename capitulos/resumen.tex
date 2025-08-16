@@ -6,4 +6,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Resumen}
+En la actualidad, la infraestruturas de red presentan un grado creciente de complejidad debido a la diversidad de dispositivos y servicios que las componen. Esta situación exige herramientas avanzadas que permitan supervisar el estado de la red en tiempo real, detectar incidencias de manera temprana y facilitar la toma de decisiones por parte de los administradores.
 
+El siguiente Trabajo Final de Máster se aborda el diseño e implementación de un sistema web de monitorización de red con capacidad de detección de anomalías. El objetivo principal es una plataforma integral que permita obtener la información relevante de los dispositivos de red, analizar su comportamiento y representar los resultados en una interfaz visual clara e interactiva.
+
+La solución se ha desarrollado siguiendo una arquitectura cliente-servidor. El backend, implementado en Python mediante el framework FastAPI, establece conexión con router Cisco del emulador GNS3 utilizando el protocolo SSH (a través de la librería Paramiko) para extraer métricas como el estado de las interfaces, tráfico de entrada y salida, utilización de CPU y memoria, así como cambios de configuración en los dispositivos. Por su parte, el frontend se ha construido con Vue.js Bootstrap y Chart.js, ofreciendo visualización dinámica de los datos mediante gráficos en tiempo real, tablas interactivas y barras de progreso que facilitan la interpretación de los parámetros monitorizados.
+
+Además, el sistema incorpora mecanismo de seguridad y gestión de usuarios mediante autenticación basada en JSON Web Tokens (JWT) Lo que garantiza el acceso restringido a la aplicación. También se ha implementado un módulo de generación automática de informes en formato PDF y su envío por correo electrónico en caso de detección de errores.
+
+Los resultados obtenidos evidencia que la solución propuesta cumple los objetivos planteados: permite monitorizar en tiempo real distintos dispositivos de red, detectar anomalías en su funcionamiento y presentar la información de forma accesible y comprensible. Este sistema constituye una herramienta de apoyo útil para la gestión de redes de telecomunicaciones, con potencial de apliación hacia entornos más complejos.

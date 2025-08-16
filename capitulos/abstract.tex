@@ -1,0 +1,17 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Escuela Politécnica Superior de la Universidad de Alicante
+% Realizado por: Jose Manuel Requena Plens
+% Contacto: info@jmrplens.com / Telegram:@jmrplens
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Abstract}
+In today's context, network infrastructures present an increasing degree of complexity due to the diversity of devices and services they encompass. This situation requires advanced tools capable of continuously supervising the network status in real time, detecting incidents at an early stage, and facilitating decision-making for administrators.  
+
+This Master’s Thesis addresses the design and implementation of a web-based network monitoring system with anomaly detection capabilities. The main objective is to provide an integral platform that allows the retrieval of relevant information from network devices, the analysis of their behavior, and the representation of results through a clear and interactive visual interface.  
+
+The solution has been developed following a client-server architecture. The backend, implemented in Python using the FastAPI framework, connects to Cisco routers in the GNS3 emulator via the SSH protocol (through the Paramiko library) to extract metrics such as interface status, inbound and outbound traffic, CPU and memory utilization, as well as configuration changes in the devices. The frontend, developed with Vue.js, Bootstrap, and Chart.js, offers a dynamic visualization of the data through real-time charts, interactive tables, and progress bars that facilitate the interpretation of monitored parameters.  
+
+In addition, the system integrates security mechanisms and user management through JSON Web Token (JWT) authentication, ensuring restricted access to the application. An automatic report generation module in PDF format and its delivery via email in case of error detection has also been implemented.  
+
+The results obtained demonstrate that the proposed solution meets the established objectives: it enables real-time monitoring of different network devices, detects anomalies in their operation, and presents the information in an accessible and understandable manner. This system constitutes a valuable support tool for the management of telecommunication networks, with potential for extension to more complex environments.

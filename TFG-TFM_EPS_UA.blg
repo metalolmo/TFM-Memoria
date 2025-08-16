@@ -1,9 +1,9 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TFG-TFM_EPS_UA.aux
-Reallocating 'name_of_file' (item size: 1) to 26 items.
 Reallocating 'name_of_file' (item size: 1) to 8 items.
 The style file: apacite.bst
+Reallocating 'name_of_file' (item size: 1) to 26 items.
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 4000000 items.
@@ -15,44 +15,44 @@ Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: bibliografia/bibliografia.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
-You've used 0 entries,
+You've used 11 entries,
             6951 wiz_defined-function locations,
-            1268 strings with 10679 characters,
-and the built_in function-call counts, 43 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 1
-:= -- 32
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            1340 strings with 12173 characters,
+and the built_in function-call counts, 17569 in all, are:
+= -- 2190
+> -- 131
+< -- 788
++ -- 737
+- -- 24
+* -- 1057
+:= -- 3177
+add.period$ -- 51
+call.type$ -- 11
+change.case$ -- 187
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 22
+duplicate$ -- 409
+empty$ -- 774
+format.name$ -- 182
+if$ -- 3479
 int.to.chr$ -- 0
-int.to.str$ -- 0
+int.to.str$ -- 33
 missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+newline$ -- 274
+num.names$ -- 88
+pop$ -- 561
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 44
 quote$ -- 0
-skip$ -- 1
+skip$ -- 1019
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 825
+swap$ -- 221
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 0
+type$ -- 880
 warning$ -- 0
-while$ -- 0
+while$ -- 65
 width$ -- 0
-write$ -- 2
+write$ -- 306

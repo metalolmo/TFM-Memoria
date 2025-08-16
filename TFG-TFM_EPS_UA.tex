@@ -68,7 +68,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%%%
 																		%
-\def\IDtitulo{1} % INTRODUCE LA ID DE TU TITULACIÓN						%
+\def\IDtitulo{A} % INTRODUCE LA ID DE TU TITULACIÓN						%
 																		%
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,6 +92,8 @@ pdftitle = {\titulo},
 % INICIO DEL DOCUMENTO
 % A partir de aquí debes empezar a realizar tu TFG/TFM
 %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{apacite}
+\usepackage[hidelinks]{hyperref} % opcional
 \begin{document}
 
 % Números romanos hasta el mainmatter.
@@ -104,6 +106,7 @@ pdftitle = {\titulo},
 %%%%% PREAMBULO
 % Incluye el .tex que contiene el preámbulo, agradecimientos y dedicatorias.
 \input{capitulos/resumen} 
+\input{capitulos/abstract} 
 \input{capitulos/preliminaresconagradecimientos} 
 
 % Incluye después del archivo anterior el indice y lista de figuras, tablas y códigos.
@@ -135,8 +138,9 @@ pdftitle = {\titulo},
 % CONTENIDO. BIBLIOGRAFÍA.
 %%%%
 \nocite{*} %incluye TODOS los documentos de la base de datos bibliográfica sean o no citados en el texto
-\bibliography{bibliografia/bibliografia} % Archivo que contiene la bibliografía
 \bibliographystyle{apacite}
+\bibliography{bibliografia/bibliografia} % Archivo que contiene la bibliografía
+
 
 %%%%
 % CONTENIDO. LISTA DE ACRÓNIMOS. Comenta las líneas si no lo deseas incluir.

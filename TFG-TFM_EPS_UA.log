@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  15 AUG 2025 21:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  16 AUG 2025 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -285,7 +285,7 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 \c@LT@chunks=\count306
 \LT@p@ftn=\toks19
 )
-Class scrbook Info: longtable captions redefined on input line 113.
+Class scrbook Info: longtable captions redefined on input line 114.
  (C:\Users\USUARIO\AppData\Roaming\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen161
@@ -1399,6 +1399,24 @@ Package glossaries Info: Writing glossary file TFG-TFM_EPS_UA.glo on input line 
 
 Package glossaries Info: Writing glossary file TFG-TFM_EPS_UA.acn on input line 88.
  (anexos/acronimos.tex)
+
+! LaTeX Error: Option clash for package hyperref.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.97 \begin
+           {document}
+The package hyperref has already been loaded with options:
+  [pdfborder={000}]
+There has now been an attempt to load it with options
+  [hidelinks]
+Adding the global options:
+  pdfborder={000},hidelinks
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
 Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           Using `bookmark' together with `hyperref' is recommended,
 (scrbook)           because of handling of possible bookmark level gaps.
@@ -1406,8 +1424,8 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 95.
- (C:\Users\USUARIO\AppData\Roaming\MiKTeX\tex/latex/bookmark\bookmark.sty
+(scrbook)           before \begin{document} on input line 97.
+(C:\Users\USUARIO\AppData\Roaming\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (C:\Users\USUARIO\AppData\Roaming\MiKTeX\tex/latex/bookmark\bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
@@ -1415,36 +1433,36 @@ File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 )) (TFG-TFM_EPS_UA.aux)
 \openout1 = `TFG-TFM_EPS_UA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-Package scrbase Info: activating spanish \partname on input line 95.
-Package scrbase Info: activating spanish \chaptername on input line 95.
-Package scrbase Info: activating spanish \appendixname on input line 95.
-Package scrbase Info: activating spanish \figurename on input line 95.
-Package scrbase Info: activating spanish \tablename on input line 95.
-Package scrbase Info: activating spanish \contentsname on input line 95.
-Package scrbase Info: activating spanish \listfigurename on input line 95.
-Package scrbase Info: activating spanish \listtablename on input line 95.
-Package scrbase Info: activating spanish \bibname on input line 95.
-Package scrbase Info: activating spanish \indexname on input line 95.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+Package scrbase Info: activating spanish \partname on input line 97.
+Package scrbase Info: activating spanish \chaptername on input line 97.
+Package scrbase Info: activating spanish \appendixname on input line 97.
+Package scrbase Info: activating spanish \figurename on input line 97.
+Package scrbase Info: activating spanish \tablename on input line 97.
+Package scrbase Info: activating spanish \contentsname on input line 97.
+Package scrbase Info: activating spanish \listfigurename on input line 97.
+Package scrbase Info: activating spanish \listtablename on input line 97.
+Package scrbase Info: activating spanish \bibname on input line 97.
+Package scrbase Info: activating spanish \indexname on input line 97.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1493,56 +1511,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 95.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 95.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 95.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 95.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 95.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 95.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 95.
-LaTeX Font Info:    Redeclaring math accent \check on input line 95.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 95.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 95.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 95.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 95.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 97.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 97.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 97.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 97.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 97.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 97.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 97.
+LaTeX Font Info:    Redeclaring math accent \check on input line 97.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 97.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 97.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 97.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 97.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 95.
+(Font)              `operators' in the math version `normal' on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 95.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 97.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 95.
+(Font)              `operators' in the math version `bold' on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 95.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 95.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 95.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 95.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 95.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 95.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 95.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 95.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 95.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 95.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 97.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
@@ -1559,13 +1577,13 @@ Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 ))
-Package hyperref Info: Link coloring OFF on input line 95.
+Package hyperref Info: Link coloring OFF on input line 97.
 
 
-Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 95.
+Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 97.
 
 \c@lstlisting=\count453
-Package tocbasic Info: setting babel extension for `lol' on input line 95.
+Package tocbasic Info: setting babel extension for `lol' on input line 97.
 \scr@dte@lstlisting@maxnumwidth=\skip194
 (include/portada/portada_color.tex
 
@@ -1784,18 +1802,27 @@ Overfull \hbox (20.35634pt too wide) in paragraph at lines 65--85
 
 ]
 chapter without number
-) (capitulos/preliminaresconagradecimientos.tex
+) (capitulos/abstract.tex
 
 [5]
 
 [6
 
 
-])
+]
+chapter without number
+) (capitulos/preliminaresconagradecimientos.tex
 
 [7]
 
 [8
+
+
+])
+
+[9]
+
+[10
 
 
 ] (TFG-TFM_EPS_UA.toc)
@@ -1804,9 +1831,9 @@ chapter without number
 
 
 
-[9]
+[11]
 
-[10
+[12
 
 
 ] (TFG-TFM_EPS_UA.lof)
@@ -1815,9 +1842,9 @@ chapter without number
 
 
 
-[11]
+[13]
 
-[12
+[14
 
 
 ] (TFG-TFM_EPS_UA.lot)
@@ -1826,9 +1853,9 @@ chapter without number
 
 
 
-[13]
+[15]
 
-[14
+[16
 
 
 ] (TFG-TFM_EPS_UA.lol)
@@ -1837,9 +1864,9 @@ chapter without number
 
 
 
-[15]
+[17]
 
-[16
+[18
 
 
 ] (capitulos/Introduccion.tex
@@ -1955,8 +1982,16 @@ chapter 12.
 
 ]
 chapter without number
-
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
+! Undefined control sequence.
+\BNUM ->n\sptext 
+                 {o}
+l.285 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
+                                                  .
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 )
 No file TFG-TFM_EPS_UA.acr.
@@ -1980,7 +2015,7 @@ chapter A.
 chapter B.
 )
 
-Package caption Warning: Unused \captionsetup[lstlisting] on input line 74.
+Package caption Warning: Unused \captionsetup[lstlisting] on input line 75.
 See the caption package documentation for explanation.
 
 
@@ -1992,12 +2027,12 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 59912 strings out of 403249
- 1438061 string characters out of 5465214
- 2234053 words of memory out of 5000000
- 87340 multiletter control sequences out of 15000+600000
- 636146 words of font info for 99 fonts, out of 8000000 for 9000
+ 59980 strings out of 403249
+ 1439517 string characters out of 5465214
+ 2245067 words of memory out of 5000000
+ 87401 multiletter control sequences out of 15000+600000
+ 636170 words of font info for 102 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  113i,19n,110p,11083b,758s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TFG-TFM_EPS_UA.xdv (45 pages, 57976 bytes).
+Output written on TFG-TFM_EPS_UA.xdv (47 pages, 135996 bytes).
