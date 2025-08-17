@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Análisis DAFO – TFM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --------- Reset y base --------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.5;
+    }
+
+    /* --------- Página A4 apaisada para imprimir --------- */
+    @page {
+      size: A4 landscape;
+      margin: 1.5cm;
+    }
+    @media print {
+      .toolbar { display: none !important; }
+      .sheet {
+        width: auto; height: auto; 
+        box-shadow: none; border: 1px solid #e5e7eb;
+      }
+    }
+
+    /* --------- Lienzo / hoja --------- */
+    .sheet {
+      width: 1123px;          /* ~A4 landscape a 96dpi aprox */
+      height: 794px;
+      margin: 24px auto;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+
+    /* --------- Encabezado --------- */
+    .header {
+      padding: 18px 28px 12px 28px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #555;
+    }
+    .accent { color: #6f42c1; } /* lila acento */
+
+    /* --------- Matriz 2×2 --------- */
+    .matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+      height: calc(100% - 68px);
+    }
+    .quadrant {
+      padding: 22px 22px 18px 22px;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    .quadrant:nth-child(2),
+    .quadrant:nth-child(4) { border-right: none; }
+    .quadrant:nth-child(3),
+    .quadrant:nth-child(4) { border-bottom: none; }
+
+    .q-head {
+      display: flex; align-items: baseline; gap: 10px;
+      margin-bottom: 10px; padding-bottom: 10px;
+      border-bottom: 3px solid #6f42c1;       /* barra de acento */
+    }
+    .q-title {
+      font-size: 15px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #111;
+    }
+    .q-meta {
+      font-size: 12px; color: #6f42c1; font-weight: 600;
+    }
+
+    .q-list { list-style: none; margin-top: 8px; }
+    .q-list li {
+      position: relative; padding-left: 14px; margin: 8px 0;
+      font-size: 13px; color: #222;
+    }
+    .q-list li::before {
+      content: ""; width: 6px; height: 6px; border-radius: 1px;
+      background: #6f42c1; position: absolute; left: 0; top: 8px;
+    }
+
+    /* --------- Barra de herramientas --------- */
+    .toolbar {
+      display: flex; gap: 8px; justify-content: center; margin-top: 8px;
+    }
+    .btn {
+      background: #6f42c1; color: #fff; border: 0; border-radius: 6px;
+      padding: 10px 14px; cursor: pointer; font-weight: 600; font-size: 14px;
+    }
+    .btn.secondary { background: #444; }
+  </style>
+</head>
+<body>
+
+  <div class="sheet" id="sheet">
+    <div class="header">
+      <div class="title">Análisis <span class="accent">DAFO</span></div>
+      <div class="subtitle">
+        Sistema web de monitorización de red con detección de anomalías ·
+        TFM — Francisco José Olmo Valverde
+      </div>
+    </div>
+
+    <div class="matrix">
+      <!-- Fortalezas -->
+      <section class="quadrant">
+        <div class="q-head">
+          <div class="q-title">Fortalezas</div>
+          <div class="q-meta">Interno · Positivo</div>
+        </div>
+        <ul class="q-list">
+          <li>Stack moderno: FastAPI, Vue, Bootstrap, Chart.js.</li>
+          <li>Autenticación JWT e integración modular.</li>
+          <li>Datos casi en tiempo real con routers Cisco (SSH).</li>
+          <li>Alto valor académico y aplicabilidad inmediata.</li>
+        </ul>
+      </section>
+
+      <!-- Debilidades -->
+      <section class="quadrant">
+        <div class="q-head">
+          <div class="q-title">Debilidades</div>
+          <div class="q-meta">Interno · Negativo</div>
+        </div>
+        <ul class="q-list">
+          <li>Experiencia limitada en detección de anomalías (ML).</li>
+          <li>Recursos de laboratorio y tiempo ajustados.</li>
+          <li>Curva de aprendizaje en SSH/IOS de Cisco.</li>
+          <li>Portabilidad inicial a un solo fabricante.</li>
+        </ul>
+      </section>
+
+      <!-- Oportunidades -->
+      <section class="quadrant">
+        <div class="q-head">
+          <div class="q-title">Oportunidades</div>
+          <div class="q-meta">Externo · Positivo</div>
+        </div>
+        <ul class="q-list">
+          <li>Orientación académica: apoyo al aprendizaje en ingeniería de telecomunicación.</li>
+          <li>Facilita la comprensión práctica de métricas de tráfico y detección de anomalías.</li>
+          <li>Herramienta base para experimentar con nuevas técnicas de análisis en el aula.</li>
+          <li>Potencial evolución hacia entornos docentes más complejos.</li>
+        </ul>
+      </section>
+
+      <!-- Amenazas -->
+      <section class="quadrant">
+        <div class="q-head">
+          <div class="q-title">Amenazas</div>
+          <div class="q-meta">Externo · Negativo</div>
+        </div>
+        <ul class="q-list">
+          <li>Rápida evolución de las ciberamenazas.</li>
+          <li>Soluciones comerciales consolidadas (Nagios, Zabbix, Prometheus, etc.).</li>
+          <li>Limitaciones para implantación en entornos productivos frente a grandes competidores.</li>
+          <li>Cambios en las interfaces de configuración que afecten a la compatibilidad.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+
+</body>
+</html>

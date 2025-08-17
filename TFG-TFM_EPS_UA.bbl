@@ -1,6 +1,32 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
+AG%
+}{%
+AG%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+paessler2025}
+\APACinsertmetastar {%
+paessler2025}%
+\begin{APACrefauthors}%
+AG, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {Database Monitoring with PRTG.} {Database monitoring with
+  prtg.}
+\newblock
+\begin{APACrefURL} \url{https://www.paessler.com/database-monitoring}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Ali%
 }{%
 Ali%
@@ -51,6 +77,33 @@ Auth0.%
 \APAChowpublished {\url{https://jwt.io/introduction/}}.
 \newblock
 \APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+BetterStack%
+}{%
+BetterStack%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+betterstack2025}
+\APACinsertmetastar {%
+betterstack2025}%
+\begin{APACrefauthors}%
+BetterStack.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {Comparación: Nagios vs Zabbix vs Prometheus.} {Comparación:
+  Nagios vs zabbix vs prometheus.}
+\newblock
+\begin{APACrefURL}
+  \url{https://betterstack.com/community/comparisons/nagios-vs-zabbix-vs-prometheus/}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -135,6 +188,58 @@ Edozie, E.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Group%
+}{%
+Group%
+}{%
+{\protect \APACyear {2025}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+prometheusdatasheet2025}
+\APACinsertmetastar {%
+prometheusdatasheet2025}%
+\begin{APACrefauthors}%
+Group, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {Prometheus Platform Data Sheet.} {Prometheus platform data
+  sheet.}
+\newblock
+\begin{APACrefURL} \url{https://www.prometheusgroup.com/solutions}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Group%
+}{%
+Group%
+}{%
+{\protect \APACyear {2025}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+prometheus2025}
+\APACinsertmetastar {%
+prometheus2025}%
+\begin{APACrefauthors}%
+Group, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {Prometheus Solutions Overview.} {Prometheus solutions
+  overview.}
+\newblock
+\begin{APACrefURL} \url{https://www.prometheusgroup.com/solutions}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Moharam%
 }{%
 Moharam%
@@ -159,6 +264,31 @@ Moharam, M\BPBI H.%
 \newblock
 \begin{APACrefURL} \url{https://www.nature.com/articles/s41598-025-02759-5}
   \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nagios~Enterprises%
+}{%
+Nagios~Enterprises%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+nagios2014}
+\APACinsertmetastar {%
+nagios2014}%
+\begin{APACrefauthors}%
+Nagios~Enterprises, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+\APACrefbtitle {Nagios Resellers Datasheet.} {Nagios resellers datasheet.}
+\newblock
+\begin{APACrefURL} \url{http://www.nagios.com/products/nagiosxi}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -210,6 +340,81 @@ Schummer, P.%
 \newblock
 \begin{APACrefURL} \url{https://www.mdpi.com/2673-2688/5/4/143}
   \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+SIA%
+}{%
+SIA%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+zabbix2024}
+\APACinsertmetastar {%
+zabbix2024}%
+\begin{APACrefauthors}%
+SIA, Z.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Zabbix Datasheet.} {Zabbix datasheet.}
+\newblock
+\begin{APACrefURL} \url{https://www.zabbix.com} \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+SolarWinds%
+}{%
+SolarWinds%
+}{%
+{\protect \APACyear {2025}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+solarwinds2025}
+\APACinsertmetastar {%
+solarwinds2025}%
+\begin{APACrefauthors}%
+SolarWinds.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025{\protect \BCnt {1}}}{}{}.
+\newblock
+\APACrefbtitle {SolarWinds Network Performance Monitor.} {Solarwinds network
+  performance monitor.}
+\newblock
+\begin{APACrefURL} \url{https://www.solarwinds.com/network-performance-monitor}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+SolarWinds%
+}{%
+SolarWinds%
+}{%
+{\protect \APACyear {2025}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+solarwindsdatasheet2025}
+\APACinsertmetastar {%
+solarwindsdatasheet2025}%
+\begin{APACrefauthors}%
+SolarWinds.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025{\protect \BCnt {2}}}{}{}.
+\newblock
+\APACrefbtitle {SolarWinds Network Performance Monitor Datasheet.} {Solarwinds
+  network performance monitor datasheet.}
+\newblock
+\begin{APACrefURL} \url{https://www.solarwinds.com} \end{APACrefURL}
+\newblock
+\APACrefnote{Último acceso: febrero de 2025}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
