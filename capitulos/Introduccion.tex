@@ -12,3 +12,29 @@
 La gestión de redes de telecomunicaciones se enfrenta a un escenario cada vez más complejo, en el que la administración manual de dispositivos resulta ineficiente y propensa a errores. La creciente demanda de disponibilidad y rapidez en la resolución de incidencias ha impulsado la necesidad de automatizar procesos de monitorización y configuración. En este contexto, el uso de APIs para interactuar con dispositivos de red se ha convertido en un elemento clave para agilizar tareas de supervisión, mejorar la interoperabilidad y reducir los tiempos de respuesta de los administradores.
 
 La motivación de este proyecto surge precisamente de esta necesidad: desarrollar un sistema que integre tecnologías web y APIs para obtener información en tiempo real de los routers y automatizar tanto la supervisión como ciertas operaciones de gestión. Tal y como indican trabajos recientes en la literatura, la incorporación de automatización y monitorización mejora la capacidad de respuesta y refuerza la fiabilidad de las infraestructuras \citep{Schummer2024}.
+
+\section{Objetivo General}
+
+El objetivo general de este Trabajo final de Máster es el desarrollo de un sistema web de monitorización de red con detección de anomalías, capaz de supervisar de manera centralizada y remota distintos dispositivos Cisco en un entorno de laboratorio simulado mediante GNS3. La plataforma debe ser capaz de:
+\begin{itemize}
+    \item Extraer métricas relevantes de los routers (estado de interfaces, tráfico, errores, uso de CPU y memoria, cambios de configuración).
+    \item Presentar los resultados mediante una interfaz gráfica clara e interactiva en tiempo real.
+    \item Incorporar funcionalidades de seguridad, autenticación de usuarios y generación deinformes automáticos en PDF con envío por correo electrónico en caso de incidencias.  
+\end{itemize}
+Este enfoque está en línea con distintos trabajos realizados quienes demuestran aplicabilidad de automatización para mejorar la detección de anomalías y reforzar la monitorización de sistemas de comunicaciones \citep{Schummer2024}. 
+
+\section{Contenidos Previos}
+
+El proyecto se apoya en un conjunto de contenidos previos adquiridos durante el máster en telecomunicaciones y el grado en ingeniería en sonido e imagen en telecomunicaciones y en el uso de herramientas de amplio reconocimeinto en el ámbito de la informática y las telecomunicaciones:
+\begin{itemize}
+    \item Emulador GNS3, ampliamente utilizado para simular redes basadas en routers Cisco, proporcionando un entorno controlado para pruebas y validación \citep{GNS3}.
+    \item Protocolo SSH, estándar seguro para la administración remota de dispositivos de red (RFC 4251) \citep{SSH}.
+    \item FastAPI, framework de Python para el desarrollo de APIs rápidas y eficientes, utilizado en el backend \citep{FastAPI}.
+    \item Vue.js y Bootstrap, frameworks modernos de desarrollo web que permiten construir interface dinámicas e intuitivas en el frontend \citep{Vue}, \citep{Bootstrap}.
+    \item Chart.js, librería especializada en la visualización de datos en tiempo real mediante gráficos \citep{ChartJS}.
+    \item JSON Web Tokens(JWT). tecnología de autenticación que asegura la gestión de usuarios y el acceso restringido en aplicaciones distribuidas \citep{JWT}.
+\end{itemize}
+
+Gracias a esta combinación de conocimientos y herramientas, se ha podido desarrollar un sistema que constituye una herramienta de apoyo para la gestión de redes de telecomunicaciones, con potencial de evolución a escenarios de mayor complejidad.
+
+%\section{}
