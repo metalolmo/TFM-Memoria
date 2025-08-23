@@ -78,6 +78,23 @@
 
 % Información añadida a las propiedades del archivo PDF.
 \usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{hyperref} % si usas referencias
+
+%Para añadir la tabla:
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{xltabular}      % = longtable + tabularx
+\usepackage[table]{xcolor}  % evita que salga "3gray!10white"
+
+
+% Definición de un nuevo tipo de columna (en el preámbulo)
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
 \hypersetup{
 pdfauthor = {\miNombre~(\miEmail)},
 pdftitle = {\titulo},

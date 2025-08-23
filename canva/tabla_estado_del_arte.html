@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabla 1 — Comparativa de Sistemas de Monitorización</title>
+  <style>
+    /* Estilo académico/TFM: sobrio, imprimible y legible */
+    :root{
+      --text: #222;
+      --muted: #555;
+      --line: #cfcfcf;
+      --head-bg: #f2f2f2;
+      --alt-row: #fafafa;
+      --emph-col: #eef5ff; /* Columna "Sistema Propuesto" */
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      background: #fff;
+      color: var(--text);
+      font-family: "Times New Roman", Georgia, "Liberation Serif", serif;
+      line-height: 1.45;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 16px;
+    }
+
+    .page {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    /* Título y leyenda (estilo LaTeX-like) */
+    .caption {
+      margin: 0 0 10px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .caption b {
+      color: var(--text);
+      font-variant: small-caps;
+      letter-spacing: .02em;
+    }
+
+    /* Contenedor con scroll horizontal si hace falta, sin efectos */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 0.98rem;
+    }
+
+    thead th {
+      background: var(--head-bg);
+      color: var(--text);
+      font-weight: 600;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-right: 1px solid var(--line);
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    th:last-child, td:last-child { border-right: 0; }
+
+    tbody tr { border-top: 1px solid var(--line); }
+    tbody tr:nth-child(even) td { background: var(--alt-row); }
+
+    /* Primera columna (característica) más ancha y con seminegrita */
+    td:first-child, th:first-child {
+      width: 22%;
+      font-weight: 600;
+    }
+
+    /* Columna destacada para el sistema propuesto: énfasis sutil */
+    th:last-child, td:last-child {
+      background: var(--emph-col);
+      font-weight: 600;
+    }
+
+    /* Nota al pie opcional */
+    .note {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Accesible en móviles sin perder seriedad */
+    @media (max-width: 768px) {
+      body { padding: 20px 12px; }
+      table { font-size: 0.95rem; }
+      td:first-child, th:first-child { width: 36%; }
+    }
+
+    /* Preparado para impresión A4 al estilo memoria */
+    @media print {
+      @page { size: A4; margin: 2.5cm 2cm; }
+      body { padding: 0; }
+      .table-wrap { border: 0; border-radius: 0; }
+      table { font-size: 11pt; }
+      thead { display: table-header-group; } /* Repetir cabecera en cada página */
+      tr, img { page-break-inside: avoid; }
+      a[href]:after { content: ""; } /* sin URLs explícitas */
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="caption"><b>Tabla&nbsp;1.</b> Comparativa de sistemas de monitorización y propuesta del sistema desarrollado.</p>
+
+    <div class="table-wrap" role="region" aria-label="Tabla comparativa" tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>Nagios</th>
+            <th>Zabbix</th>
+            <th>Prometheus</th>
+            <th>SolarWinds NPM</th>
+            <th>PRTG Network Monitor</th>
+            <th>Sistema Propuesto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Modelo de Monitorización</td>
+            <td>Monitorización basada en estado de dispositivos</td>
+            <td>Monitorización de infraestructuras IT</td>
+            <td>Monitorización basada en series temporales</td>
+            <td>Monitorización empresarial con análisis de tráfico</td>
+            <td>Monitorización basada en sensores</td>
+            <td>Monitorización web centralizada</td>
+          </tr>
+          <tr>
+            <td>Método de Recolección de Datos</td>
+            <td>Push</td>
+            <td>Push y agentes</td>
+            <td>Pull</td>
+            <td>Push y SNMP</td>
+            <td>Push y sondas remotas</td>
+            <td>Push y Pull (según necesidad)</td>
+          </tr>
+          <tr>
+            <td>Sistema de Alertas</td>
+            <td>Sí, configuración manual</td>
+            <td>Sí, reglas avanzadas</td>
+            <td>Sí, con Alertmanager</td>
+            <td>Sí, con AIOps (sin IA avanzada)</td>
+            <td>Sí, altamente configurable</td>
+            <td>Sí, alertas configurables por usuarios</td>
+          </tr>
+          <tr>
+            <td>Visualización y Dashboards</td>
+            <td>Interfaz básica con plugins</td>
+            <td>Dashboards personalizables</td>
+            <td>Grafana como complemento</td>
+            <td>Paneles dinámicos personalizables</td>
+            <td>Visualización integrada</td>
+            <td>Panel de control propio con personalización</td>
+          </tr>
+          <tr>
+            <td>Escalabilidad</td>
+            <td>Limitada</td>
+            <td>Alta</td>
+            <td>Alta (soporta Kubernetes)</td>
+            <td>Alta, optimizado para grandes redes</td>
+            <td>Alta, con sondas remotas</td>
+            <td>Limitada o Alta, dependiendo del alcance</td>
+          </tr>
+          <tr>
+            <td>Integración con APIs REST</td>
+            <td>Mediante plugins</td>
+            <td>Integración nativa</td>
+            <td>Sí, API nativa</td>
+            <td>Sí, con integraciones empresariales</td>
+            <td>Sí, mediante API REST</td>
+            <td>API REST nativa</td>
+          </tr>
+          <tr>
+            <td>Compatibilidad con Protocolos de Red</td>
+            <td>SNMP, ICMP, SSH</td>
+            <td>SNMP, IPMI, JMX, SSH</td>
+            <td>SNMP, HTTP, gRPC</td>
+            <td>SNMP, NetFlow, sFlow, WMI</td>
+            <td>SNMP, WMI, NetFlow, iFlow</td>
+            <td>SNMP, NetFlow, HTTP, WebSockets</td>
+          </tr>
+          <tr>
+            <td>Monitorización Distribuida</td>
+            <td>No</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Sí</td>
+          </tr>
+          <tr>
+            <td>Configuración y Facilidad de Uso</td>
+            <td>Configuración manual compleja</td>
+            <td>Interfaz intuitiva, requiere configuración inicial</td>
+            <td>Configuración basada en archivos YAML</td>
+            <td>Fácil de usar, configuración automatizada</td>
+            <td>Interfaz intuitiva y sencilla</td>
+            <td>Configuración simplificada con interfaz intuitiva</td>
+          </tr>
+          <tr>
+            <td>Funcionalidades Innovadoras</td>
+            <td>Extensible mediante plugins, pero poco automatizado</td>
+            <td>Automatización de tareas de monitorización sin IA</td>
+            <td>Almacenamiento optimizado de métricas con etiquetado avanzado</td>
+            <td>Análisis de tráfico con NetPath y PerfStack</td>
+            <td>Modelo de sensores flexibles para adaptación personalizada</td>
+            <td>Funcionalidades innovadoras con interfaz intuitiva</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Fuente: elaboración propia a partir del análisis de cada herramienta.</p>
+  </main>
+</body>
+</html>

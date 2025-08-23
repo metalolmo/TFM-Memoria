@@ -21,11 +21,15 @@ Por último, entre las \textbf{amenazas} se encuentran la rápida evolución de 
 La Figura~\ref{fig:dafo} muestra de forma esquemática este análisis aplicado
 al proyecto desarrollado.
 
-\begin{landscape}
-\begin{figure}[H]
-  \centering
-  \includegraphics[height=\textwidth]{canva/DAFO.pdf}
-  \caption{Análisis DAFO del proyecto}
-  \label{fig:dafo}
-\end{figure}
-\end{landscape}
+% EN EL CUERPO
+\includepdf[
+  pages=1,
+  landscape,         % fuerza apaisado
+  angle=360,         % “al revés”
+  fitpaper=true,     % ocupa toda la hoja
+  pagecommand={%
+    \thispagestyle{plain}%
+    \vspace*{0.5em}\centering
+    \captionof{figure}{Análisis DAFO del proyecto}\label{fig:dafo}%
+  }
+]{canva/DAFO.pdf}

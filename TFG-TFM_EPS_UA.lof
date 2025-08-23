@@ -2,14 +2,20 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{spanish}Análisis DAFO del proyecto}}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{spanish}Análisis DAFO del proyecto}}{4}{figure.2.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual de Nagios XI \citep {nagios2014}}}{9}{figure.caption.9}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual de Nagios Fusion \citep {nagios2014}.}}{10}{figure.caption.10}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual de Nagios Incident Manager \citep {nagios2014}.}}{10}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{spanish}Ejemplo Visual de Nagios Network Analyzer \citep {nagios2014}.}}{11}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{spanish}Tabla comparativa con los sistemas de monitorización analizados.}}{12}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual de Nagios XI \citep {nagios2014}}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual de Nagios Fusion \citep {nagios2014}.}}{8}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual de Nagios Incident Manager \citep {nagios2014}.}}{8}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{spanish}Ejemplo Visual de Nagios Network Analyzer \citep {nagios2014}.}}{9}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{spanish}Escalabilidad del software Zabbix \citep {zabbix2024}.}}{10}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{spanish}Arquitectura empleada \citep {zabbix2024}.}}{11}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{spanish}Ejemplo viual de la pantalla de Alertas \citep {prometheus2025}}}{12}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual del software SolarWinds Network Performance Monitor, \citep {solarwinds2025}}}{14}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \xpg@aux {}{spanish}Vista en forma de rayos de sol de toda la configuración de monitoreo \citep {paessler2025}.}}{15}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \xpg@aux {}{spanish}Sensor de espacios de tabla de Oracle en PRTG \citep {paessler2025}.}}{16}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \xpg@aux {}{spanish}Mapa PRTG personalizado para la monitorización de MS SQL \citep {paessler2025}.}}{17}{figure.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
