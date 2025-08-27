@@ -20,6 +20,10 @@
 \contentsline {section}{\numberline {4.6}Comparativa de herramientas}{17}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Conclusiones del estado del arte}{20}{section.4.7}%
 \contentsline {chapter}{\numberline {5}Metodología y Planificación}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Metodología de trabajo}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Herramientas utilizadas}{22}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Planificación temporal}{22}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Herramientas de gestión}{22}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Análisis}{23}{chapter.6}%
 \contentsline {chapter}{\numberline {7}Diseño}{25}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Implementación}{27}{chapter.8}%
@@ -27,7 +31,7 @@
 \contentsline {chapter}{\numberline {10}Resultados}{31}{chapter.10}%
 \contentsline {chapter}{\numberline {11}Conclusiones}{33}{chapter.11}%
 \contentsline {chapter}{\numberline {12}Trabajo Futuro}{35}{chapter.12}%
-\contentsline {chapter}{\nonumberline Bibliografía}{37}{chapter*.19}%
+\contentsline {chapter}{\nonumberline Bibliografía}{37}{chapter*.20}%
 \contentsline {chapter}{\numberline {A}Anexo I}{39}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Páginas horizontales}{41}{appendix.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

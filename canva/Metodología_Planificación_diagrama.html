@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagrama de Fases - TFM</title>
+  <style>
+    body{
+      font-family: "Times New Roman", Georgia, serif;
+      background: #fff;
+      margin:0; padding:20px;
+      display:flex; justify-content:center; align-items:center;
+    }
+    .container{
+      max-width: 1000px;
+      width:100%;
+      border:1px solid #000;
+      padding:20px;
+    }
+    .title{ text-align:center; font-size:20px; font-weight:bold; margin:0 0 6px 0;}
+    .subtitle{ text-align:center; font-size:14px; margin:0 0 20px 0; font-style:italic;}
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom: 20px;
+      gap:12px;
+    }
+    .phase{
+      flex:0 0 auto;
+      border:1px solid #000;
+      border-radius:6px;
+      padding:14px 20px;
+      width:200px;
+      text-align:center;
+      font-weight:bold;
+      font-size:14px;
+    }
+    .arrow{
+      width:40px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .arrow svg{ width:100%; height:12px; }
+    .download-btn{
+      display:block;
+      margin-left:auto;
+      margin-bottom:10px;
+      border:1px solid #000;
+      background:#fff;
+      padding:6px 12px;
+      cursor:pointer;
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="diagram">
+    <button class="download-btn" onclick="downloadDiagram()">Descargar PNG</button>
+    <h1 class="title">Metodología del Proyecto</h1>
+    <p class="subtitle">Monitorización de redes — Fases de desarrollo</p>
+
+    <!-- Fila 1 -->
+    <div class="row">
+      <div class="phase">Análisis de requisitos</div>
+      <div class="arrow">
+        <svg viewBox="0 0 60 12"><line x1="0" y1="6" x2="52" y2="6" stroke="#000" stroke-width="1.5"/><polygon points="60,6 52,10 52,2" fill="#000"/></svg>
+      </div>
+      <div class="phase">Diseño del sistema</div>
+      <div class="arrow">
+        <svg viewBox="0 0 60 12"><line x1="0" y1="6" x2="52" y2="6" stroke="#000" stroke-width="1.5"/><polygon points="60,6 52,10 52,2" fill="#000"/></svg>
+      </div>
+      <div class="phase">Desarrollo del backend</div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="row">
+      <div class="phase">Desarrollo del frontend</div>
+      <div class="arrow">
+        <svg viewBox="0 0 60 12"><line x1="0" y1="6" x2="52" y2="6" stroke="#000" stroke-width="1.5"/><polygon points="60,6 52,10 52,2" fill="#000"/></svg>
+      </div>
+      <div class="phase">Pruebas y validación</div>
+      <div class="arrow">
+        <svg viewBox="0 0 60 12"><line x1="0" y1="6" x2="52" y2="6" stroke="#000" stroke-width="1.5"/><polygon points="60,6 52,10 52,2" fill="#000"/></svg>
+      </div>
+      <div class="phase">Documentación</div>
+    </div>
+  </div>
+
+  <!-- Script para exportar como PNG -->
+  <script>
+    function loadHtml2Canvas(cb){
+      if(window.html2canvas) return cb();
+      const s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      s.onload=cb;
+      document.head.appendChild(s);
+    }
+    function downloadDiagram(){
+      const el=document.getElementById('diagram');
+      loadHtml2Canvas(()=>{
+        html2canvas(el,{backgroundColor:'#ffffff',scale:2}).then(canvas=>{
+          const link=document.createElement('a');
+          link.download='diagrama-fases-tfm.png';
+          link.href=canvas.toDataURL('image/png');
+          link.click();
+        });
+      });
+    }
+  </script>
+</body>
+</html>

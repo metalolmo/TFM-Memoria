@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  23 AUG 2025 18:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  27 AUG 2025 22:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2486,21 +2486,23 @@ Overfull \hbox (0.61307pt too wide) in paragraph at lines 293--293
 
 ]
 chapter 5.
-) (capitulos/analisis.tex
+File: imagenes/image15.png Graphic file (type bmp)
+<imagenes/image15.png>
+
 
 [21
 
 
-]
+]) (capitulos/analisis.tex
 
-[22
-
-
-]
+[22]
 chapter 6.
 ) (capitulos/diseño.tex
 
-[23]
+[23
+
+
+]
 
 [24
 
@@ -2609,10 +2611,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 60380 strings out of 403249
- 1447460 string characters out of 5465214
+ 60394 strings out of 403249
+ 1447714 string characters out of 5465214
  2285652 words of memory out of 5000000
- 87759 multiletter control sequences out of 15000+600000
+ 87772 multiletter control sequences out of 15000+600000
  642010 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  113i,20n,114p,11008b,944s stack positions out of 10000i,1000n,20000p,200000b,200000s
