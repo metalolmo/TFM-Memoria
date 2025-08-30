@@ -31,7 +31,68 @@ La metodología adoptada también completó un proceso de pruebas continuas. Cad
 
 
 \section{Herramientas utilizadas}
+
+El desarrollo del sistema requirió el uso de un conjunto variado de herramientas, tanto de software como de red, que facilitaron la implementación, las pruebas y la gestión del proyecto. La selección de estas herramientas no fue arbitraria, sino que respondió a las necesidades específicas del trabajo.
+
+En primer lugar, se empleó GNS3 como entorno de simulación de red \citep{GNS3}. Esta herramienta permitió emular routers Cisco de manera flexible y reproducir escenarios de laboratorio realistas, lo que resultó fundamental para validar la conectividad y la extracción de información a través de SSH \citep{SSH}. GNS3 se encuentra ampliamente validado en el ámbito educativo y profesional, ya que facilita la integración de laboratorios virtuales y físicos en la formación en telecomunicaciones \citep{Kumar2015,Santos2021}. Gracias a GNS3, fue posible repetir pruebas sin depender de hardware físico, reduciendo costes y asegurando un entorno de experimentación controlado.
+
+Para el desarrollo del backend se utilizó Python junto con el framework FastAPI \citep{FastAPI}, que ofreció un entorno ligero, modular y con soporte nativo para la creación de APIs REST. Esta elección permitió implementar de forma clara distintos endpoints para la obtención de información de los routers y la gestión de usuarios. La librería {Paramiko} se empleó como componente clave para establecer conexiones SSH con los dispositivos de red, lo que convirtió a esta combinación en el núcleo del sistema. Además, FastAPI ha sido reconocida en la literatura como una alternativa eficiente para aplicaciones web de alto rendimiento \citep{Tolo2022} e incluso en proyectos de monitorización integrados con Prometheus y Grafana \citep{Mwaura2023}.
+
+El frontend se desarrolló con Vue.js \citep{Vue}, acompañado del framework visual Bootstrap \citep{Bootstrap} y de la librería Chart.js \citep{ChartJS,ChartJSmanual2024} para la representación gráfica de métricas en tiempo real. Esta combinación permitió construir una interfaz moderna, intuitiva y adaptable, en la que el usuario puede visualizar el estado del router, las estadísticas de tráfico y los errores detectados de forma clara. Asimismo, el archivo de configuración environment.json se incorporó para facilitar la personalización de parámetros como tiempos de refresco o colores de visualización sin necesidad de modificar el código.
+
+En lo relativo a la gestión del proyecto se utilizó Git y GitHub como sistemas de control de versiones, lo que facilitó el mantenimiento de un registro ordenado de cambios, así como recuperar versiones anteriores en caso de error.
+
+Finalmente, se destaca el uso de librerías adicionales que complementaron el sistema, como ReportLab para la generación automática de informes en PDF con los errores detectados, y smtplib para el envío de dichos informes por correo electrónico al usuario autenticado. Además, se integró el uso de JSON Web Tokens (JWT) como mecanismo de autenticación segura en el acceso a la plataforma \citep{JWT}.
+
+Como resumen se proporciona la siguiente tabla~\ref{tab:desarrollo} con las herramientas utilizadas y su función.
+
+
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{Herramientas utilizadas en el desarrollo del sistema de monitorización.}\label{tab:desarrollo}\\
+\label{tab:herramientas}
+\begin{tabular}{p{3.5cm} p{10.5cm}}
+\toprule
+\textbf{Herramienta} & \textbf{Función en el proyecto} \\
+\midrule
+\textbf{GNS3} & Simulación de red mediante routers Cisco. Permite recrear escenarios de laboratorio y validar la conectividad SSH sin necesidad de hardware físico. \\
+\textbf{Python + FastAPI} & Desarrollo del backend y de la API REST. Definición de endpoints para obtención de información de los routers, gestión de usuarios y control del sistema. \\
+\textbf{Paramiko} & Librería de Python para establecer conexiones SSH con routers Cisco y ejecutar comandos IOS. \\
+\textbf{Vue.js} & Desarrollo del frontend dinámico e interactivo para la visualización de datos en la web. \\
+\textbf{Bootstrap} & Framework visual utilizado para dar estilo moderno e intuitivo a la interfaz web. \\
+\textbf{Chart.js} & Representación gráfica de métricas en tiempo real (uso de CPU, tráfico, errores en interfaces). \\
+\textbf{environment.json} & Archivo de configuración que permite personalizar parámetros del frontend (tiempo de refresco, colores, router por defecto, etc.). \\
+\textbf{Git y GitHub} & Control de versiones y gestión del código fuente. Facilita la colaboración y la trazabilidad de cambios. \\
+\textbf{LaTeX} & Redacción de la memoria del proyecto con formato profesional, integración de tablas comparativas, figuras y referencias cruzadas. \\
+\textbf{ReportLab} & Generación automática de informes en PDF con los errores detectados en las interfaces de red. \\
+\textbf{smtplib} & Envío de los informes en PDF al correo electrónico del usuario autenticado. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 \section{Planificación temporal}
-\section{Herramientas de gestión}
+
+La planificacion temporal del proyecto se organizó de acuerdo con un enfoque secuencial, en el que cada fase dependía directamente de la finalización de la anterior. Dada la complejidad inicial para establecer la conectividad con los routers en el entorno de simulación, los primeros meses (febrero-abril) se dedicaron integramente a resolver eta problemática. Durante este periodo se realizaron las configuraciones necesarias para garantizar la comunicación entre el emulador y el sistema anfitrión, así como la validación de los accesos mediante el protocolo SSH.
+
+Una vez conseguida la conectividad, se dio inicio al desarrollo del backend (mayo-junio), centrado en la implementación de la lógica del sistema, la integración de librerías para conexiones seguras (Pramiko), la definición de los endpoints en FastAPI. Posteriormente, se abordó el desarrollo del forntend (junio-Julio), en el que se miplementó la interfaz de usuario utilizando Vue.js, Bootstrap y Chart.js, con especial atención a la visualización de me´tricas en tiempo real y a la personalización mediante un archivo enviroment.json. Para finalizar, se incorporó mecanismos de autenticación y generación de informes.
+
+La fase final del proyecto (Julio) se dedicó a la validación del sistema en su conjunto, a través de pruebas de funcionamiento, simulaciones de errores y comprobación de alertas. En la Figura~\ref{fig:gantt} se presenta el diagrama de Gantt que resume esta planificación temporal y refleja los 
+hitos más relevantes alcanzados a lo largo del proyecto.
 
 
+% EN EL CUERPO
+\includepdf[
+  pages=1,
+  landscape,         % fuerza apaisado
+  angle=360,         % “al revés”
+  fitpaper=true,     % ocupa toda la hoja
+  pagecommand={%
+    \thispagestyle{plain}%
+    \vspace*{0.5em}\centering
+    \captionof{figure}{Diagrama de Gantt}\label{fig:gantt}%
+  }
+]{canva/GANTT.pdf}

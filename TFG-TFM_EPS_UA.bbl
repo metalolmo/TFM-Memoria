@@ -132,6 +132,31 @@ Community, V.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Contributors%
+}{%
+Contributors%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+ChartJSmanual2024}
+\APACinsertmetastar {%
+ChartJSmanual2024}%
+\begin{APACrefauthors}%
+Contributors, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Chart.js: Open Source HTML5 Charts for Modern Web Apps.}
+  {Chart.js: Open source html5 charts for modern web apps.}
+\newblock
+\APAChowpublished {\url{https://www.chartjs.org/docs/latest/}}.
+\newblock
+\APACrefnote{Último acceso: agosto de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Developers%
 }{%
 Developers%
@@ -240,6 +265,35 @@ Group, P.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Kumar%
+\ \BBA {} Singh%
+}{%
+Kumar%
+\ \BBA {} Singh%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Kumar2015}
+\APACinsertmetastar {%
+Kumar2015}%
+\begin{APACrefauthors}%
+Kumar, S.%
+\BCBT {}\ \BBA {} Singh, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Integration of Physical and Virtual Labs Using GNS3 for
+  Networking Education} {Integration of physical and virtual labs using gns3
+  for networking education}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint}{arXiv:1510.00482}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://arxiv.org/abs/1510.00482} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Moharam%
 }{%
 Moharam%
@@ -263,6 +317,34 @@ Moharam, M\BPBI H.%
 \APACjournalVolNumPages{Scientific Reports}{15}{}{}.
 \newblock
 \begin{APACrefURL} \url{https://www.nature.com/articles/s41598-025-02759-5}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mwaura%
+}{%
+Mwaura%
+}{%
+{\protect \APACyear {2023}}%
+}]{%
+Mwaura2023}
+\APACinsertmetastar {%
+Mwaura2023}%
+\begin{APACrefauthors}%
+Mwaura, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Monitoring FastAPI Applications with Prometheus and
+  Grafana: A Step-by-Step Guide} {Monitoring fastapi applications with
+  prometheus and grafana: A step-by-step guide}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Dev.to Tutorials}{}{}{}.
+\newblock
+\begin{APACrefURL}
+  \url{https://dev.to/ken_mwaura1/getting-started-monitoring-a-fastapi-app-with-grafana-and-prometheus-a-step-by-step-guide-3fbn}
   \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
@@ -313,6 +395,34 @@ Ramírez, S.%
 \APAChowpublished {\url{https://fastapi.tiangolo.com/}}.
 \newblock
 \APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Santos%
+\ \BBA {} Ribeiro%
+}{%
+Santos%
+\ \BBA {} Ribeiro%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+Santos2021}
+\APACinsertmetastar {%
+Santos2021}%
+\begin{APACrefauthors}%
+Santos, C.%
+\BCBT {}\ \BBA {} Ribeiro, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Evaluation of Network Simulation Tools in Engineering
+  Education: A Case with GNS3} {Evaluation of network simulation tools in
+  engineering education: A case with gns3}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Engineering
+  Education}{37}{6}{1502--1513}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -464,6 +574,37 @@ Technologies, G.%
 \APAChowpublished {\url{https://www.gns3.com/}}.
 \newblock
 \APACrefnote{Accessed: 2025-08-16}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tolo%
+\ \BBA {} Nguyen%
+}{%
+Tolo%
+\ \BBA {} Nguyen%
+}{%
+{\protect \APACyear {2022}}%
+}]{%
+Tolo2022}
+\APACinsertmetastar {%
+Tolo2022}%
+\begin{APACrefauthors}%
+Tolo, A.%
+\BCBT {}\ \BBA {} Nguyen, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2022}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {FastAPI for High-Performance Web Applications: An
+  Experimental Study} {Fastapi for high-performance web applications: An
+  experimental study}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Software Engineering and
+  Applications}{15}{11}{504--517}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.4236/jsea.2022.1511030}
+  \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

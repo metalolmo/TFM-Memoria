@@ -172,7 +172,7 @@ PRTG Network Monitor representa un referente importante en la monitorización de
 % Aquí copias lo de PRTG.
 
 \section{Comparativa de herramientas}
-Con el fin de obtener una visión global, en la Figura~\ref{fig:comparativa} se presenta una tabla comparativa que sintetiza las características principales de las herramientas analizadas.
+Con el fin de obtener una visión global, en la tabla~\ref{tab:comparativa} se presenta una tabla comparativa que sintetiza las características principales de las herramientas analizadas.
 
 \begin{landscape} % de pdflscape (no lscape)
 \setlength{\tabcolsep}{6pt}
@@ -206,7 +206,7 @@ Modelo de Monitorización
 & Monitorización basada en series temporales
 & Monitorización empresarial con análisis de tráfico
 & Monitorización basada en sensores
-& Monitorización web centralizada
+& Monitorización web centralizada orientada a routers Cisco (estado, rendimiento y errores de interfaces)
 \\
 
 Método de Recolección de Datos
@@ -215,7 +215,7 @@ Método de Recolección de Datos
 & Pull
 & Push y SNMP
 & Push y sondas remotas
-& Push y Pull (según necesidad)
+& Pull vía SSH (CLI Cisco IOS) con sondeos periódicos; notificación por email ante nuevos errores
 \\
 
 Sistema de Alertas
@@ -224,7 +224,7 @@ Sistema de Alertas
 & Sí, con Alertmanager
 & Sí, con AIOps (sin IA avanzada)
 & Sí, altamente configurable
-& Sí, alertas configurables por usuarios
+& Sí; umbrales y detección de errores en interfaces con envío de correo y PDF adjunto
 \\
 
 Visualización y Dashboards
@@ -233,7 +233,7 @@ Visualización y Dashboards
 & Grafana como complemento
 & Paneles dinámicos personalizables
 & Visualización integrada
-& Panel de control propio con personalización
+& Panel web propio (Vue + Bootstrap + Chart.js), auto-refresco, filtros por router/interfaz
 \\
 
 Escalabilidad
@@ -242,7 +242,7 @@ Escalabilidad
 & Alta (soporta Kubernetes)
 & Alta, optimizado para grandes redes
 & Alta, con sondas remotas
-& Limitada o Alta, dependiendo del alcance
+& Media: multi-router configurable en una instancia; ampliable con más instancias/servicios
 \\
 
 Integración con APIs REST
@@ -251,7 +251,7 @@ Integración con APIs REST
 & Sí, API nativa
 & Sí, con integraciones empresariales
 & Sí, mediante API REST
-& API REST nativa
+& API REST propia (FastAPI) con autenticación JWT; endpoints de estado, tráfico, errores y acciones
 \\
 
 Compatibilidad con Protocolos de Red
@@ -260,7 +260,7 @@ Compatibilidad con Protocolos de Red
 & SNMP, HTTP, gRPC
 & SNMP, NetFlow, sFlow, WMI
 & SNMP, WMI, NetFlow, iFlow
-& SNMP, NetFlow, HTTP, WebSockets
+& SSH/CLI Cisco IOS; HTTP/JSON para la API
 \\
 
 Monitorización Distribuida
@@ -269,7 +269,7 @@ Monitorización Distribuida
 & Sí
 & Sí
 & Sí
-& Sí
+& No nativa; posible mediante múltiples instancias accediendo a la misma base de datos/cola
 \\
 
 Configuración y Facilidad de Uso
@@ -278,7 +278,7 @@ Configuración y Facilidad de Uso
 & Configuración basada en archivos YAML
 & Fácil de usar, configuración automatizada
 & Interfaz intuitiva y sencilla
-& Configuración simplificada con interfaz intuitiva
+& Interfaz web intuitiva; edición de IP/descripción y acciones (shutdown/no-shutdown); parámetros en \texttt{environment.json}
 \\
 
 Funcionalidades Innovadoras
@@ -287,11 +287,12 @@ Funcionalidades Innovadoras
 & Almacenamiento optimizado de métricas con etiquetado avanzado
 & Análisis de tráfico con NetPath y PerfStack
 & Modelo de sensores flexibles para adaptación personalizada
-& Funcionalidades innovadoras con interfaz intuitiva
+& Detección de errores de interfaz con generación automática de PDF y envío por email; gráficos en tiempo real y control de interfaces
 \\
 
 \end{xltabular}
 \end{landscape}
+
 
 
 \section{Conclusiones del estado del arte}
