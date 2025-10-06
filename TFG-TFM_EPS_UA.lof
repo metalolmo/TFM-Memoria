@@ -13,11 +13,12 @@
 \contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{spanish}Escalabilidad del software Zabbix \citep {zabbix2024}.}}{10}{figure.caption.13}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{spanish}Arquitectura empleada \citep {zabbix2024}.}}{11}{figure.caption.14}%
 \contentsline {figure}{\numberline {4.8}{\ignorespaces \xpg@aux {}{spanish}Ejemplo viual de la pantalla de Alertas \citep {prometheus2025}}}{12}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \xpg@aux {}{spanish}Vista en forma de rayos de sol de toda la configuración de monitoreo \citep {paessler2025}.}}{15}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \xpg@aux {}{spanish}Sensor de espacios de tabla de Oracle en PRTG \citep {paessler2025}.}}{15}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces \xpg@aux {}{spanish}Mapa PRTG personalizado para la monitorización de MS SQL \citep {paessler2025}.}}{16}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \xpg@aux {}{spanish}Ejemplo visual del software SolarWinds Network Performance Monitor, \citep {solarwinds2025}}}{14}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \xpg@aux {}{spanish}Vista en forma de rayos de sol de toda la configuración de monitoreo \citep {paessler2025}.}}{15}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \xpg@aux {}{spanish}Sensor de espacios de tabla de Oracle en PRTG \citep {paessler2025}.}}{16}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \xpg@aux {}{spanish}Mapa PRTG personalizado para la monitorización de MS SQL \citep {paessler2025}.}}{17}{figure.caption.19}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}Diagrama de fases}}{23}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}Diagrama de fases}}{23}{figure.caption.20}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{spanish}Diagrama de Gantt}}{27}{figure.5.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
