@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {4.2}Zabbix: Sistema de Monitorización de Redes}{9}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Prometheus: Sistema de Monitorización de Redes}{12}{section.4.3}%
 \contentsline {section}{\numberline {4.4}SolarWinds Network Performance Monitor}{13}{section.4.4}%
-\contentsline {section}{\numberline {4.5}PRTG Network Monitor}{15}{section.4.5}%
+\contentsline {section}{\numberline {4.5}PRTG Network Monitor}{14}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Comparativa de herramientas}{17}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Conclusiones del estado del arte}{21}{section.4.7}%
 \contentsline {chapter}{\numberline {5}Metodología y Planificación}{23}{chapter.5}%

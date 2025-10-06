@@ -84,15 +84,9 @@ La fase final del proyecto (Julio) se dedicó a la validación del sistema en su
 hitos más relevantes alcanzados a lo largo del proyecto.
 
 
-% EN EL CUERPO
-\includepdf[
-  pages=1,
-  landscape,         % fuerza apaisado
-  angle=360,         % “al revés”
-  fitpaper=true,     % ocupa toda la hoja
-  pagecommand={%
-    \thispagestyle{plain}%
-    \vspace*{0.5em}\centering
-    \captionof{figure}{Diagrama de Gantt}\label{fig:gantt}%
-  }
-]{canva/GANTT.pdf}
+\begin{landscape}
+\begin{center}
+  \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{canva/GANTT.pdf}
+  \captionof{figure}{Diagrama de Gantt}\label{fig:gantt}
+\end{center}
+\end{landscape}

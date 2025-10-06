@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Diagrama de Gantt - Planificación TFM</title>
   <style>
-    /* Estilo sobrio, académico */
     * { box-sizing: border-box; }
     body{
       margin:0; padding:24px; background:#ffffff; color:#111;
-      font-family:"Times New Roman", Georgia, "DejaVu Serif", serif;
+      font-family: Georgia, "Times New Roman", "DejaVu Serif", serif;
     }
 
-    /* Botón fuera del diagrama para no capturarlo en PNG */
+    /* Controles (no se capturan en el PDF vectorial) */
     .actions{
-      max-width:1400px; margin:0 auto 12px auto; display:flex; justify-content:flex-end;
+      max-width:1400px; margin:0 auto 12px auto; display:flex; gap:8px; align-items:center; justify-content:flex-end;
+      flex-wrap:wrap;
     }
     .btn{
       border:1px solid #1f3b64; background:#f7f9fc; color:#1f3b64;
@@ -22,27 +22,22 @@
     }
 
     .container{
-      max-width: 1400px; margin: 0 auto; border:1px solid #000;
+      max-width: 1400px; margin: 0 auto; border:1px solid #000; background:#fff;
     }
 
-    /* Cabecera de la línea temporal */
+    /* Cabecera y celdas */
     .timeline-header{
-      display:grid;
-      grid-template-columns: 320px repeat(6, 1fr);
-      background:#f2f4f7; border-bottom:1px solid #000;
-      font-weight:700; font-size:13px;
+      display:grid; grid-template-columns: 320px repeat(6, 1fr);
+      background:#f2f4f7; border-bottom:1px solid #000; font-weight:700; font-size:13px;
     }
-    .timeline-header div{
-      padding:8px 10px; text-align:center; border-right:1px solid #d9dee7;
-    }
-    .timeline-header div:first-child{
-      text-align:left; border-right:1px solid #000;
-    }
+    .timeline-header div{ padding:8px 10px; text-align:center; border-right:1px solid #d9dee7; }
+    .timeline-header div:first-child{ text-align:left; border-right:1px solid #000; }
 
-    /* Filas */
     .gantt-row{
       display:grid; grid-template-columns: 320px repeat(6, 1fr);
       min-height:44px; border-bottom:1px solid #e6e9ef; align-items:center;
+      break-inside: avoid;           /* evita cortes en impresión */
+      page-break-inside: avoid;
     }
     .task-name{
       padding:8px 10px; border-right:1px solid #e6e9ef; background:#fff;
@@ -50,52 +45,86 @@
     .phase-name{ font-weight:700; font-size:14px; color:#0e2238; }
     .subtask-name{ font-size:13px; color:#2b3a4a; padding-left:16px; }
 
-    /* Celdas de tiempo */
+    /* Fix de espaciado para exportaciones */
+    .task-name, .phase-name, .subtask-name{
+      font-variant-ligatures: none;
+      font-kerning: none;
+      letter-spacing: 0;
+      word-spacing: .12em;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     .timeline-cell{
       padding:6px; position:relative; border-right:1px solid #f0f2f6;
       height:44px; display:flex; align-items:center;
     }
 
-    /* Barras (colores sobrios) */
+    /* Barras */
     .task-bar{
       border:1px solid #243b6b; border-radius:3px; padding:0 6px;
       display:flex; align-items:center; justify-content:center;
       font-size:11px; line-height:1;
     }
-    .phase-bar{ height:22px; background:#d7e3f6; }   /* azul muy suave */
-    .subtask-bar{ height:14px; background:#e5eaf0; border-color:#6b7a99; }
+    .phase-bar{ height:22px; }
+    .subtask-bar{ height:14px; }
 
-    /* Hitos */
-    .milestone{
-      width:14px; height:14px; background:#1f2a44; transform: rotate(45deg); margin:0 auto;
-    }
+    /* Colores por fase */
+    .bar-conn { background:#d7e3f6; border-color:#27446e; }
+    .sub-conn { background:#e6eef9; border-color:#5a7397; }
+    .bar-back { background:#e3f1e7; border-color:#2d5a3b; }
+    .sub-back { background:#edf7f0; border-color:#5d7d69; }
+    .bar-front { background:#efe7f6; border-color:#523c74; }
+    .sub-front { background:#f5effa; border-color:#7b6a91; }
+    .bar-int { background:#f6efe7; border-color:#6a4d1f; }
+    .sub-int { background:#f8f3ec; border-color:#8a6a3f; }
+    .bar-test { background:#eaeef2; border-color:#3b4b63; }
+    .sub-test { background:#f2f5f8; border-color:#6a7a8f; }
 
-    /* Leyenda */
-    .legend{
-      padding:12px 14px; border-top:1px solid #000; background:#fff;
-    }
+    /* Hitos y leyenda */
+    .milestone{ width:14px; height:14px; background:#1f2a44; transform: rotate(45deg); margin:0 auto; }
+    .legend{ padding:12px 14px; border-top:1px solid #000; background:#fff; }
     .legend h3{ margin:0 0 8px 0; font-size:14px; }
     .legend-items{ display:flex; gap:18px; flex-wrap:wrap; }
     .legend-item{ display:flex; align-items:center; gap:8px; font-size:12px; }
-    .legend-swatch{ width:30px; height:12px; border:1px solid #243b6b; background:#d7e3f6; }
-    .legend-swatch.sub{ border-color:#6b7a99; background:#e5eaf0; }
-    .legend-swatch.ms{ width:12px; height:12px; transform:rotate(45deg); background:#1f2a44; border:none; }
+    .legend-swatch{ width:30px; height:12px; border:1px solid #243b6b; }
+    .swatch-conn { background:#d7e3f6; border-color:#27446e; }
+    .swatch-back { background:#e3f1e7; border-color:#2d5a3b; }
+    .swatch-front{ background:#efe7f6; border-color:#523c74; }
+    .swatch-int  { background:#f6efe7; border-color:#6a4d1f; }
+    .swatch-test { background:#eaeef2; border-color:#3b4b63; }
+    .legend-ms   { width:12px; height:12px; background:#1f2a44; transform:rotate(45deg); border:none; }
 
-    @media print{
-      body{ padding:0; }
-      .actions{ display:none; }
-      .container{ border:none; }
+    /* —— MODO IMPRESIÓN VECTORIAL: 1 página A3 apaisado —— */
+    @media print {
+      @page {
+        size: A3 landscape;       /* cambia a A4/A2 si lo prefieres */
+        margin: 10mm;
+      }
+      html, body { width: 420mm; height: 297mm; padding: 0; }
+      .actions{ display:none !important; }
+      .container{
+        border:none;              /* evita que el borde provoque overflow */
+        width: 400mm;             /* cabe dentro de los márgenes */
+        margin: 0 auto;
+      }
+      .timeline-header, .gantt-row, .legend {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Botón fuera del contenedor (no sale en la exportación) -->
+  <!-- Controles -->
   <div class="actions">
-    <button class="btn" onclick="downloadPDF()">Descargar PDF</button>
+    <button class="btn" onclick="window.print()">Imprimir PDF (vectorial, 1 página A3)</button>
+    <button class="btn" onclick="downloadPDF()">Descargar PDF (imagen)</button>
   </div>
 
   <div class="container" id="gantt">
-    <!-- Sin título: solo el diagrama -->
+    <!-- Cabecera -->
     <div class="timeline-header">
       <div>Fases y tareas</div>
       <div>Febrero 2025</div>
@@ -109,34 +138,34 @@
     <!-- Fase 1: Conectividad (Feb–Abr) -->
     <div class="gantt-row">
       <div class="task-name phase-name">1. Conectividad en GNS3 y acceso a routers Cisco</div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-conn" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-conn" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-conn" style="width:100%;"></div></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Creación de laboratorio en GNS3</div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-conn" style="width:100%;"></div></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Configuración de interfaces y direccionamiento IP</div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:60%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:60%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-conn" style="width:60%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-conn" style="width:60%;"></div></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Validación de conectividad desde el anfitrión</div>
       <div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-conn" style="width:100%;"></div></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Acceso SSH y extracción de datos (CLI Cisco IOS)</div>
       <div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:55%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-conn" style="width:55%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-conn" style="width:100%;"></div></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
     </div>
     <!-- Hito Conectividad -->
@@ -151,21 +180,21 @@
     <div class="gantt-row">
       <div class="task-name phase-name">2. Desarrollo del backend</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-back" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-back" style="width:100%;"></div></div>
       <div class="timeline-cell"></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Conexión SSH con Paramiko</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-back" style="width:100%;"></div></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Endpoints en FastAPI</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:55%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:55%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-back" style="width:55%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-back" style="width:55%;"></div></div>
       <div class="timeline-cell"></div>
     </div>
     <!-- Hito Backend -->
@@ -182,33 +211,33 @@
       <div class="task-name phase-name">3. Desarrollo del frontend</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:55%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-front" style="width:55%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-front" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Interfaz en Vue.js con Bootstrap</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:60%;"></div></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:60%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-front" style="width:60%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-front" style="width:60%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Dashboards con Chart.js</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-front" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Configuración mediante environment.json</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-front" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Visualización de tráfico, errores y uso de CPU</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-front" style="width:100%;"></div></div>
     </div>
     <!-- Hito Frontend -->
     <div class="gantt-row">
@@ -223,60 +252,63 @@
       <div class="task-name phase-name">4. Integración final (tras frontend)</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-int" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Autenticación JWT (ajustes back/front)</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-int" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Informes PDF automáticos</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-int" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Notificaciones por correo</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-int" style="width:100%;"></div></div>
     </div>
 
-    <!-- Fase 5: Validación (Jul) -->
+    <!-- Fase 5: Pruebas y validación (Jul) -->
     <div class="gantt-row">
       <div class="task-name phase-name">5. Pruebas y validación</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar phase-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar phase-bar bar-test" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Pruebas de funcionamiento y estabilidad</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-test" style="width:100%;"></div></div>
     </div>
     <div class="gantt-row">
       <div class="task-name subtask-name">• Simulación de errores y comprobación de alertas</div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div><div class="timeline-cell"></div>
       <div class="timeline-cell"></div><div class="timeline-cell"></div>
-      <div class="timeline-cell"><div class="task-bar subtask-bar" style="width:100%;"></div></div>
+      <div class="timeline-cell"><div class="task-bar subtask-bar sub-test" style="width:100%;"></div></div>
     </div>
 
     <!-- Leyenda -->
     <div class="legend">
-      <h3>Leyenda</h3>
+      <h3>Leyenda (significado de colores)</h3>
       <div class="legend-items">
-        <div class="legend-item"><div class="legend-swatch"></div><span>Fases principales</span></div>
-        <div class="legend-item"><div class="legend-swatch sub"></div><span>Subtareas</span></div>
-        <div class="legend-item"><div class="legend-swatch ms"></div><span>Hitos</span></div>
+        <div class="legend-item"><span class="legend-swatch swatch-conn"></span> Conectividad (GNS3, SSH, CLI)</div>
+        <div class="legend-item"><span class="legend-swatch swatch-back"></span> Backend (Paramiko, FastAPI, endpoints)</div>
+        <div class="legend-item"><span class="legend-swatch swatch-front"></span> Frontend (Vue, Bootstrap, Chart.js)</div>
+        <div class="legend-item"><span class="legend-swatch swatch-int"></span> Integración final (JWT, PDF, email)</div>
+        <div class="legend-item"><span class="legend-swatch swatch-test"></span> Pruebas y validación</div>
+        <div class="legend-item"><span class="legend-ms"></span> Hitos</div>
       </div>
     </div>
   </div>
 
-  <!-- Exportar PNG (botón fuera del contenedor) -->
- <script>
+  <!-- Librerías para la opción "imagen" -->
+  <script>
     function ensureLibs(cb){
       let loaded = 0;
       function done(){ if(++loaded === 2) cb(); }
@@ -294,18 +326,35 @@
       } else done();
     }
 
-    function downloadPDF(){
-      const el=document.getElementById('gantt');
-      ensureLibs(()=>{
-        html2canvas(el,{backgroundColor:'#ffffff',scale:2}).then(canvas=>{
-          const { jsPDF } = window.jspdf;
-          const pdf = new jsPDF('l','pt','a4'); // formato horizontal
-          const imgData = canvas.toDataURL('image/png');
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-          pdf.addImage(imgData,'PNG',0,0,pdfWidth,pdfHeight);
-          pdf.save('gantt-tfm.pdf');
+    async function downloadPDF(){
+      const el = document.getElementById('gantt');
+
+      ensureLibs(async ()=>{
+        const canvas = await html2canvas(el, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          windowWidth: el.scrollWidth,
+          windowHeight: el.scrollHeight
         });
+
+        const { jsPDF } = window.jspdf;
+
+        // 1 página A3 apaisado escalada para encajar
+        const pdf = new jsPDF('l', 'pt', 'a3');
+        const pdfW = pdf.internal.pageSize.getWidth();
+        const pdfH = pdf.internal.pageSize.getHeight();
+
+        const scale = Math.min(pdfW / canvas.width, pdfH / canvas.height);
+        const drawW = canvas.width * scale;
+        const drawH = canvas.height * scale;
+        const marginX = (pdfW - drawW) / 2;
+        const marginY = (pdfH - drawH) / 2;
+
+        const imgData = canvas.toDataURL('image/jpeg', 0.95);
+        pdf.addImage(imgData, 'JPEG', marginX, marginY, drawW, drawH, undefined, 'FAST');
+        pdf.save('gantt-tfm_una-pagina_a3_imagen.pdf');
       });
     }
   </script>

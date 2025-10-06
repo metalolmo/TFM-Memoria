@@ -107,6 +107,32 @@ BetterStack.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Blog%
+}{%
+Blog%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+o11yPrometheus2025}
+\APACinsertmetastar {%
+o11yPrometheus2025}%
+\begin{APACrefauthors}%
+Blog, O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {Understanding the Prometheus Pull Model.} {Understanding the
+  prometheus pull model.}
+\newblock
+\APAChowpublished
+  {\url{https://o11y.eu/blog/prometheus-pull-model/#:~:text=1.,apparent%20and%20recorded%20as%20offline.}}
+\newblock
+\APACrefnote{Último acceso: octubre de 2025}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Community%
 }{%
 Community%
@@ -291,6 +317,33 @@ Kumar, S.%
 \APACjournalVolNumPages{arXiv preprint}{arXiv:1510.00482}{}{}.
 \newblock
 \begin{APACrefURL} \url{https://arxiv.org/abs/1510.00482} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Learn%
+}{%
+Learn%
+}{%
+{\protect \APACyear {2025}}%
+}]{%
+microsoftAKS2025}
+\APACinsertmetastar {%
+microsoftAKS2025}%
+\begin{APACrefauthors}%
+Learn, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+\APACrefbtitle {Supervisión de la red de contenedores en Azure Kubernetes
+  Service (AKS).} {Supervisión de la red de contenedores en azure kubernetes
+  service (aks).}
+\newblock
+\APAChowpublished
+  {\url{https://learn.microsoft.com/es-es/azure/aks/container-network-observability-how-to?tabs=cilium}}.
+\newblock
+\APACrefnote{Último acceso: octubre de 2025}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

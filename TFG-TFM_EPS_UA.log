@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  30 AUG 2025 20:55
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  6 OCT 2025 21:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1854,24 +1854,6 @@ LaTeX Warning: Label `fig:enter-label' multiply defined.
 
 LaTeX Warning: Label `fig:enter-label' multiply defined.
 
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
 )
 \openout1 = `TFG-TFM_EPS_UA.aux'.
 
@@ -2328,12 +2310,6 @@ chapter 1.
 
 [2]
 chapter 2.
-File: canva/DAFO.pdf Graphic file (type pdf)
-<use canva/DAFO.pdf>
-File: canva/DAFO.pdf Graphic file (type pdf)
-<use canva/DAFO.pdf, page 1>
-File: canva/DAFO.pdf Graphic file (type pdf)
-<use canva/DAFO.pdf, page 1>
 
 
 [3
@@ -2341,19 +2317,18 @@ File: canva/DAFO.pdf Graphic file (type pdf)
 
 ]
 File: canva/DAFO.pdf Graphic file (type pdf)
-<use canva/DAFO.pdf, page 1>
-File: canva/DAFO.pdf Graphic file (type pdf)
-<use canva/DAFO.pdf, page 1>
+<use canva/DAFO.pdf>
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 35.
+(caption)                particular \caption on input line 26.
 See the caption package documentation for explanation.
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-File: canva/DAFO.pdf Graphic file (type pdf)
-<use canva/DAFO.pdf, page 1>
+
+
 [4
 
 ]) (capitulos/objetivos.tex
@@ -2361,6 +2336,7 @@ chapter 3.
 ) (capitulos/estado del arte.tex
 
 [5
+
 
 
 ]
@@ -2380,28 +2356,28 @@ File: imagenes/image3.png Graphic file (type bmp)
 File: imagenes/image4.png Graphic file (type bmp)
 <imagenes/image4.png>
 
-Underfull \vbox (badness 2426) has occurred while \output is active []
+Underfull \vbox (badness 7151) has occurred while \output is active []
 
 
 
 [8]
 File: imagenes/image5.png Graphic file (type bmp)
 <imagenes/image5.png>
+File: imagenes/image17.png Graphic file (type bmp)
+<imagenes/image17.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 [9]
 File: imagenes/image6.png Graphic file (type bmp)
 <imagenes/image6.png>
-File: imagenes/image7.png Graphic file (type bmp)
-<imagenes/image7.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 [10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: imagenes/image7.png Graphic file (type bmp)
+<imagenes/image7.png>
 
 
 [11]
@@ -2410,64 +2386,62 @@ File: imagenes/image8.png Graphic file (type bmp)
 
 
 [12]
-File: imagenes/image9.png Graphic file (type bmp)
-<imagenes/image9.png>
+
+[13]
+File: imagenes/image10.png Graphic file (type bmp)
+<imagenes/image10.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[13]
-
 [14]
-File: imagenes/image10.png Graphic file (type bmp)
-<imagenes/image10.png>
 File: imagenes/image11.png Graphic file (type bmp)
 <imagenes/image11.png>
 
 
 [15]
-Underfull \vbox (badness 1226) has occurred while \output is active []
+File: imagenes/image12.png Graphic file (type bmp)
+<imagenes/image12.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [16]
-File: imagenes/image12.png Graphic file (type bmp)
-<imagenes/image12.png>
-
 
 [17]
-Underfull \hbox (badness 2165) in paragraph at lines 293--293
+Underfull \hbox (badness 2165) in paragraph at lines 300--300
 []|\TU/lmr/bx/n/10 Visualización y Dash-
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 293--293
+Underfull \hbox (badness 3428) in paragraph at lines 300--300
 []|\TU/lmr/bx/n/10 Integración con APIs
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--293
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
 []|\TU/lmr/bx/n/10 Compatibilidad con
  []
 
 
-Underfull \hbox (badness 5652) in paragraph at lines 293--293
+Underfull \hbox (badness 5652) in paragraph at lines 300--300
 []|\TU/lmr/bx/n/10 Monitorización Distri-
  []
 
 
-Overfull \hbox (14.95306pt too wide) in paragraph at lines 293--293
+Overfull \hbox (14.95306pt too wide) in paragraph at lines 300--300
 \TU/lmtt/m/n/10 environment.json|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--293
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
 []|\TU/lmr/bx/n/10 Funcionalidades Inno-
  []
 
 
-Overfull \hbox (3.72307pt too wide) in paragraph at lines 293--293
+Overfull \hbox (3.72307pt too wide) in paragraph at lines 300--300
 []|\TU/lmr/m/n/10 Almacenamiento 
  []
 
@@ -2507,36 +2481,26 @@ l.55 ...e monitorización.}\label{tab:desarrollo}\\
 
 [25]
 
-LaTeX Warning: Reference `fig:gantt' on page 26 undefined on input line 83.
-
-File: canva/GANTT.pdf Graphic file (type pdf)
-<use canva/GANTT.pdf>
-File: canva/GANTT.pdf Graphic file (type pdf)
-<use canva/GANTT.pdf, page 1>
-File: canva/GANTT.pdf Graphic file (type pdf)
-<use canva/GANTT.pdf, page 1>
-
-
 [26]
 File: canva/GANTT.pdf Graphic file (type pdf)
-<use canva/GANTT.pdf, page 1>
-File: canva/GANTT.pdf Graphic file (type pdf)
-<use canva/GANTT.pdf, page 1>
+<use canva/GANTT.pdf>
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 98.
+(caption)                particular \caption on input line 90.
 See the caption package documentation for explanation.
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-File: canva/GANTT.pdf Graphic file (type pdf)
-<use canva/GANTT.pdf, page 1>
+
+
 [27
 
 ]) (capitulos/analisis.tex
 
 [28
+
 
 
 ]
@@ -2605,19 +2569,31 @@ chapter 12.
 ]
 chapter without number
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--350
-[][][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][] [] [][] [] [][][][
-][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][] [] [][][][]
-[][][][][][][] [] [][] []
+Underfull \hbox (badness 10000) in paragraph at lines 120--134
+[][][][][][][][][][] [] [][][][][] [] [][][][][][] [] [] [] [] [] [][][][] [] [
+] [] [] [] [][][][][][][][][] [] [][][][][] [] [][][][][][][][][][] [] [][][][]
+ [] [][][][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 333--348
+[]\TU/lmr/m/n/10.95 Learn, M.  (2025).  \TU/lmr/m/it/10.95 Supervisión de la re
+d de contenedores en azure kubernetes
  []
 
 
 
 [43]
+Underfull \hbox (badness 10000) in paragraph at lines 387--403
+[][][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][] [] [][] [] [][][][
+][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][] [] [][][][]
+[][][][][][][] [] [][] []
+ []
+
 ! Undefined control sequence.
 \BNUM ->n\sptext 
                  {o}
-l.631 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
+l.684 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
                                                   .
 ? 
 )
@@ -2652,19 +2628,16 @@ L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 60433 strings out of 403249
- 1448463 string characters out of 5465214
+ 60462 strings out of 403249
+ 1448822 string characters out of 5465214
  2284652 words of memory out of 5000000
- 87805 multiletter control sequences out of 15000+600000
- 642034 words of font info for 133 fonts, out of 8000000 for 9000
+ 87825 multiletter control sequences out of 15000+600000
+ 644964 words of font info for 146 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,20n,114p,11008b,944s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,21n,114p,11008b,944s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on TFG-TFM_EPS_UA.pdf (65 pages).

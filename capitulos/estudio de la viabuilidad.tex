@@ -18,18 +18,11 @@ Respecto a las \textbf{oportunidades}, el sistema se orienta principalmente prin
 
 Por último, entre las \textbf{amenazas} se encuentran la rápida evolución de las ciberamenazas y las soluciones comerciales ya consolidadas en el mercado (Nagios, Zabbix, Prometheus, entre otras),que pueden limitar la implantación del sistema en entornos productivos. Además, los posibles cambios en las interfaces de configuración de los fabricantes podrían afectar a la compatibilidad a largo plazo.
 
-La Figura~\ref{fig:dafo} muestra de forma esquemática este análisis aplicado
-al proyecto desarrollado.
+La Figura~\ref{fig:dafo} muestra de forma esquemática este análisis aplicado al proyecto desarrollado.
 
-% EN EL CUERPO
-\includepdf[
-  pages=1,
-  landscape,         % fuerza apaisado
-  angle=360,         % “al revés”
-  fitpaper=true,     % ocupa toda la hoja
-  pagecommand={%
-    \thispagestyle{plain}%
-    \vspace*{0.5em}\centering
-    \captionof{figure}{Análisis DAFO del proyecto}\label{fig:dafo}%
-  }
-]{canva/DAFO.pdf}
+\begin{landscape}
+\begin{center}
+  \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{canva/DAFO.pdf}
+  \captionof{figure}{Análisis DAFO del proyecto.}\label{fig:dafo}
+\end{center}
+\end{landscape}

@@ -18,34 +18,34 @@ Uno de los principales productos de Nagios es Nagios XI, el cual proporciona un 
     \centering
     {\includegraphics[width=0.7\linewidth]{imagenes/image2.png}}
     \caption{Ejemplo visual de Nagios XI \citep{nagios2014}}
-    \label{fig:enter-label}
+    %\label{fig:enter-label}
 \end{figure}
 
-Otro componente relevante es Nagio Fusion, diseñado para proporcionar una vista consolidad de múltiples instancias de Nagios \citep{nagios2014}. A gran escala, esta herramienta resulta especialmente útil, ya que permite gestionar diferentes servidores de monitoreo desde una única plataforma \citep{nagios2014}.
+Otro componente relevante es Nagio Fusion, diseñado para proporcionar una vista consolidada de múltiples instancias de Nagios \citep{nagios2014}. A gran escala, esta herramienta resulta especialmente útil, ya que permite gestionar diferentes servidores de monitoreo desde una única plataforma \citep{nagios2014}.
 
 \begin{figure}[H]
     \centering
     {\includegraphics[width=0.7\linewidth]{imagenes/image3.png}}
     \caption{Ejemplo visual de Nagios Fusion \citep{nagios2014}.}
-    \label{fig:enter-label}
+    %\label{fig:enter-label}
 \end{figure}
 
 En el ámbito de la gestión de incidentes, Nagios Incident Manager facilita  la administración de alertas y eventos críticos detectados por Nagios XI \citep{nagios2014}. Su integración permite la creación y la asignación de tickets en tiempo real, fomentando la colaboración entre equipos IT y agilizando la resolución de problemas.
 
 \begin{figure}[H]
     \centering
-    {\includegraphics[width=0.7\linewidth]{imagenes/image4.png}}
+    {\includegraphics[width=0.9\linewidth]{imagenes/image4.png}}
     \caption{Ejemplo visual de Nagios Incident Manager \citep{nagios2014}.}
-    \label{fig:enter-label}
+    %\label{fig:enter-label}
 \end{figure}
 
 Por otro lado, Nagios Network Analyzer se enfoca en el análisis de tráfico de red \citep{nagios2014}. Esta herramienta permite supervisar el uso del ancho de banda y detectar patrones de tráfico que pueden indicar problemas o posibles amenazas de seguridad. Su compatibilidad con tecnologías como NetFlow y sFlow permite recopilar información detallada sobre el tráfico en la red, alertando a los administradores en caso de picos inusuales o comportamientos anómalos. Además, su capacidad de generar gráficos avanzados facilita la interpretación de datos y el diagnóstico de problemas en la red \citep{nagios2014}.
 
 \begin{figure}[H]
     \centering
-    {\includegraphics[width=0.7\linewidth]{imagenes/image5.png}}
+    {\includegraphics[width=0.9\linewidth]{imagenes/image5.png}}
     \caption{Ejemplo Visual de Nagios Network Analyzer \citep{nagios2014}.}
-    \label{fig:enter-label}
+    %\label{fig:enter-label}
 \end{figure}
 
 Dentro del contexto del Trabajo final de Máster, Nagios representa un modelo robusto que puede servir de referencia. En particular, Nagios XI y Nagios Network Analyzer, la posibilidad de personalizar dashboards, gestionar alertas en tiempo real y analizar tráfico de red son clave en la planificación y el diseño del trabajo.
@@ -56,13 +56,20 @@ Sin embargo, también es importante indicar las limitaciones del software. Aunqu
 \section{Zabbix: Sistema de Monitorización de Redes}
 Zabbix es una plataforma de monitorización de código abierto que ha sido ampliamente adoptada en la industria debido a su flexibilidad, escalabilidad y capacidad de integración con diversas tecnologías. Diseñada para proporcionar un monitoreo integral del rendimiento y disponibilidad de servidores, dispositivos de red, aplicaciones y servicios en la nube.
 
-Una de las principales características de Zabbix es su capacidad de recopilar y analizar grandes volúmenes de datos en tiempo real \citep{zabbix2024}. Este sistema permite la supervisión de más de 10 millones de métricas simultáneamente. A diferencia de otras soluciones, Zabbix soporta múltiples protocolos de comunicación, como SNMP, IPMI, WMI y SSH, lo que le permite monitorear una gran variedad de dispositivos, desde routers y switches hasta máquinas virtuales y servicios en la nube \citep{nagios2014}.
+\begin{figure}[H]
+    \centering
+    {\includegraphics[width=0.7\linewidth]{imagenes/image17.png}}
+    \caption{Ejemplo Visual de zabbix \citep{zabbix2024}.}
+    \label{fig:enter-label}
+\end{figure}
+
+Una de las principales características de Zabbix es su capacidad de recopilar y analizar grandes volúmenes de datos en tiempo real \citep{zabbix2024}. Este sistema permite la supervisión de más de 10 millones de métricas simultáneamente. A diferencia de otras soluciones, Zabbix soporta múltiples protocolos de comunicación, como SNMP, IPMI, WMI y SSH, lo que le permite monitorizar una gran variedad de dispositivos, desde routers y switches hasta máquinas virtuales y servicios en la nube \citep{nagios2014}.
 
 \begin{figure}[H]
     \centering
     {\includegraphics[width=0.7\linewidth]{imagenes/image6.png}}
     \caption{Escalabilidad del software Zabbix \citep{zabbix2024}.}
-    \label{fig:enter-label}
+    %\label{fig:enter-label}
 \end{figure}
 
 Otro de sus aspectos más destacados es el sistema de alertas, este mecanismo permite configurar notificaciones avanzadas en función de métricas específicas y eventos definidos por el ususario \citep{zabbix2024}. Las alertas pueden enviarse a través de múltiples canales, como correo electrónico, SMS o plataformas de mensajería instantánea. Además, el sistema de escalado de alertas facilita la distribución de incidentes entre distintos niveles de administración.
@@ -73,9 +80,9 @@ Uno de los aspectos clave de Zabbix es su arquitectura distribuida, la cual perm
 
 \begin{figure}[H]
     \centering
-    {\includegraphics[width=0.7\linewidth]{imagenes/image7.png}}
+    {\includegraphics[width=0.5\linewidth]{imagenes/image7.png}}
     \caption{Arquitectura empleada \citep{zabbix2024}.}
-    \label{fig:enter-label}
+    %\label{fig:enter-label}
 \end{figure}
 
 En términos de seguridad, proporciona múltiples mecanismos de autenticación y control de acceso \citep{zabbix2024}. La autenticación mediante LDAP o Activae Directory permite gestionar usuarios y permisos de manera eficiente. Asímismo, la encriptación de datos TLS y SSL garantiza la confidencialidad e integridad de la información transmitida a través de la red.
@@ -86,7 +93,7 @@ Prometheus es una plataforma de monitorización y alerta de código abierto dise
 
 Una de las características más destacadas de Prometheus es su arquitectura centrada en la recopliación de series temporales de datos, donde cada métrica registrada asociada a una marca de tiempo y etiquetas descriptivas que facilitan su consulta y análisis \citep{prometheusdatasheet2025}. Este modelo permite gestionar eficientemente grandes volúmenes de información sin comprometer el rendimiento.
 
-La recolección de métricas en Prometheus se basa en un modelo pull, lo que significa que el sistema consulta activamente las fuentes de datos en lugar de recibir datos pasivamente \citep{prometheusdatasheet2025}. Este enfoque minimiza la carga en los dispositivos monitoreados y permite una mayor flexibilidad a la hora de integrar nuevas fuentes de información. Además, Prometheus es compatible con una amplia variedad de exportadores.
+La recolección de métricas en Prometheus se basa en un modelo pull \citep{o11yPrometheus2025}, lo que significa que el sistema consulta activamente las fuentes de datos en lugar de recibir datos pasivamente \citep{prometheusdatasheet2025}. Este enfoque minimiza la carga en los dispositivos monitoreados y permite una mayor flexibilidad a la hora de integrar nuevas fuentes de información. Además, Prometheus es compatible con una amplia variedad de exportadores.
 
 Otro de los aspectos clave de Prometheus es su sistema de alertas, el cual está gestionado por Alertmanager \citep{prometheus2025}. Este componente permite definir reglas de alerta basadas en métricas específicas y noficar a los administradores a través de múltiples canales, como correo electrónico, Slack o PagerDuty. Además, cuenta con mecanismo avanzados para la agrupación y supresión de alertas, evitando redundancias y optimizando la gestión de incidentes.
 
@@ -97,9 +104,9 @@ Otro de los aspectos clave de Prometheus es su sistema de alertas, el cual está
     \label{fig:enter-label}
 \end{figure}
 
-Un de los aspecto en contra es que Prometheus no incluye una tinterfaz gráfica avanzada de forma nativa, se integra fácilmente con Grafana, una de las herramientas más utilizadas para la visulización de métricas en entronos de monitoreo \citep{prometheus2025}. Esta combinación premite crear paneles interactivos y gráficos personalizados que facilitan la interpretación de datos en tiempo real.
+Uno de los aspectos en contra es que Prometheus no incluye una interfaz gráfica avanzada de forma nativa, se integra fácilmente con Grafana, una de las herramientas más utilizadas para la visulización de métricas en entronos de monitoreo \citep{prometheus2025}. Esta combinación premite crear paneles interactivos y gráficos personalizados que facilitan la interpretación de datos en tiempo real.
 
-Uno de los puntos fuertes de Prometheus es su escalabilidad \citep{prometheus2025}. Su arquitectura distribuida permite manejar múltiples instancia y federar la recopliación de métricas en entornos de gran tamaño. Asímismo, su compatibilidad con Kubernetes lo convierte en una de la soluciones más utilizadas en la monitorización de infraestructuras basadas en contenedores y microservicios.
+Uno de los puntos fuertes de Prometheus es su escalabilidad \citep{prometheus2025}. Su arquitectura distribuida permite manejar múltiples instancia y federar la recopliación de métricas en entornos de gran tamaño. Asímismo, su compatibilidad con Kubernetes \citep{microsoftAKS2025} lo convierte en una de la soluciones más utilizadas en la monitorización de infraestructuras basadas en contenedores y microservicios.
 
 En términos de seguridad, Prometheus permite la integración con mecanismos de autenticación y control de acceso mediante protocolos como TLS/SSL y OAuth2. Aunque estas funciones no están implementadas de forma nativa en el sistema, la comunidad ha desarrollado múltiples soluciones para garantizar la protección de datos y restringir el acceso a usuarios autorizados \citep{prometheus2025}.
 
@@ -112,24 +119,24 @@ Dentro del contexto del Trabajo Final de Máster, Prometheus representa un model
 \section{SolarWinds Network Performance Monitor}
 Solar Winds Network Performance Monitor (NPM) es una solución comercial diseñada para proporcionar una visión integral del estado y rendimiento de infraestructuras de redes de comunicaciones. A diferencia de herramientas de código abierto como Nagios, Zabbix y Prometheus, que requieren una configuración más detallada y, en ocasiones, el desarrollo de scripts personalizados para su integración \citep{solarwinds2025}, SolarWinds ofrece una solución preconfigurada con un enfoque intuitivo que facilita su implementación.
 
-\begin{figure}[H]
-    \centering
-    {\includegraphics[width=0.7\linewidth]{imagenes/image9.png}}
-    \caption{Ejemplo visual del software SolarWinds Network Performance Monitor, \citep{solarwinds2025}}
-    \label{fig:enter-label}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     {\includegraphics[width=0.9\linewidth]{imagenes/image9.png}}
+%     \caption{Ejemplo visual del software SolarWinds Network Performance Monitor, \citep{solarwinds2025}}
+%     \label{fig:enter-label}
+% \end{figure}
 
-Una de las característica más destacas de SolarWinds NPM es su capacidad para monitorizar redes híbridas y entornos distribuidos, abarcando infraestructuras locales, en la nube y mixtas \citep{solarwindsdatasheet2025}. Este enfoque permite a los administradores obtener una visión centralizada de todos los dispositivos de la red, desde routers y switches hasta servidores y aplicaciones críticas. La herramienta proporciona una detección automática de dispositivos y conexiones, lo que facilita la configuración inicial.
+Una de las características más destacas de SolarWinds NPM es su capacidad para monitorizar redes híbridas y entornos distribuidos, abarcando infraestructuras locales, en la nube y mixtas \citep{solarwindsdatasheet2025}. Este enfoque permite a los administradores obtener una visión centralizada de todos los dispositivos de la red, desde routers y switches hasta servidores y aplicaciones críticas. La herramienta proporciona una detección automática de dispositivos y conexiones, lo que facilita la configuración inicial.
 
 El sistema de visualización es otro de sus puntos fuertes. La plataforma ofrece paneles de control personalizables, donode los usuarios pueden configurar vistas detalladas de métricas clave, como el uso del ancho de banda, la latencia de red y la disponibilidad de dispositivos \citep{solarwindsdatasheet2025}. Además, cuenta con funciones avanzadas de análisis de gráfico, permintiendo a los administradores observar patrones históricos y detectar anomalías en el tráfico de red de forma rápica y eficiente. Esta capacidad resulta particulamente útil en la prevención de fallos y la optimización del redimiento de la infraestructura.
 
 En cuanto a las gestión de alertas, SolarWinds NPM incorpora un sistema inteligente de notificaciones, que permite detectar problemas en tiempo real y enviar alertas mediante múltiples canales, como correo electrónico, SMS y plataformas de mensajería instantánea \citep{solarwinds2025}. Su sistema de AIOps (Artificial Intellgigence for IT Operations) emplea algoritmos de aprendizaje automático para correlacionar eventos y reducir la sobrecarga de alertas repetitivas.
 
-Otro aspecto relevante de SolaWinds es su integración con tecnología de seguridad y análisis de vulnerabilidades. La plataforma permite identificas configuraciones erróneas y detectar tráfico sospechoso en la red, lo que contribuye a la prevención de incidentes de seguridad \citep{solarwinds2025}. Además, la herramienta ofrece soporte para NetFlow y sFlow, dos protocolos ampliamente utilizados en el análisis del tráfico de red, lo que facilita la supervisión de flujo de datos y la identificación de anomlías en el comportamiento de los dispositivos.
+Otro aspecto relevante de SolaWinds es su integración con tecnología de seguridad y análisis de vulnerabilidades. La plataforma permite identificar configuraciones erróneas y detectar tráfico sospechoso en la red, lo que contribuye a la prevención de incidentes de seguridad \citep{solarwinds2025}. Además, la herramienta ofrece soporte para NetFlow y sFlow, dos protocolos ampliamente utilizados en el análisis del tráfico de red, lo que facilita la supervisión de flujo de datos y la identificación de anomlías en el comportamiento de los dispositivos.
 
 En términos de escalabilidad, SolarWinds NPM ofrece múltiples opciones para adaptarse a redes de diferente tamaño \citep{solarwindsdatasheet2025}. Su arquitectura modular permite añaidr nuevos componentes a medida que crece la infraestructura monitoreada, lo que resulta especialmente útil en entornos empresariales en expansión. Además, la plataforma cuenta con opciones de despliegue tanto on-premises como en la nube, lo que le permite adaptarse a diferentes modelos de negocio.
 
-Desde el punto de vista de almacenamiento de datos, SolarWinds utiliza una base de datos optimizada para la gestión de métricas históricas, lo que facilita la consulta y el análisis de tendencias a largo plazo \citep{solarwindsdatasheet2025}. Esto permite a los adiministradores evaluar la evolución del rendimiento de la red y tomar decisiones informadas para su optimización.
+Desde el punto de vista de almacenamiento de datos, SolarWinds utiliza una base de datos optimizada para la gestión de métricas históricas, lo que facilita la consulta y el análisis de tendencias a largo plazo \citep{solarwindsdatasheet2025}. Esto permite a los administradores evaluar la evolución del rendimiento de la red y tomar decisiones informadas para su optimización.
 
 En el contexto del Trabajo Final de Máster, SolarWinds representa un modelo sólido de referencia en términos de monitorización de redes a nivel empresarial. Su enfoque en la automatización de procesos, la integración con sistemas de seguridad y su capacidad de análisis avanzado de tráfico de red pueden servir como base en el desarrollo de funcionalidades clave. Aunque sus sistema de alertas basado en inteligencia artificial y la capacidad de gestionar redes hípridas es bastante complejo para el sistema de monitorización propuesto.
 % Aquí copias lo de SolarWinds.
@@ -139,7 +146,7 @@ PRTG Network Monitor, desarrollado por Paessler AG, es una plataforma de monitor
 
 \begin{figure}[H]
     \centering
-    {\includegraphics[width=0.7\linewidth]{imagenes/image10.png}}
+    {\includegraphics[width=0.8\linewidth]{imagenes/image10.png}}
     \caption{Vista en forma de rayos de sol de toda la configuración de monitoreo \citep{paessler2025}.}
     \label{fig:enter-label}
 \end{figure}
@@ -163,7 +170,7 @@ Otro aspecto relevante de PRTG es su integración con múltiples protocolos y es
 
 \begin{figure}[H]
     \centering
-    {\includegraphics[width=0.7\linewidth]{imagenes/image12.png}}
+    {\includegraphics[width=0.9\linewidth]{imagenes/image12.png}}
     \caption{Mapa PRTG personalizado para la monitorización de MS SQL \citep{paessler2025}.}
     \label{fig:enter-label}
 \end{figure}
