@@ -21,6 +21,14 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}Diagrama de fases}}{23}{figure.caption.20}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{spanish}Diagrama de Gantt}}{27}{figure.5.2}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \xpg@aux {}{spanish}Adaptador de red Loopback-NSP creado en Windows.}}{33}{figure.caption.37}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \xpg@aux {}{spanish}Topología inicial en GNS3 utilizando el adaptador Loopback-NSP.}}{33}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \xpg@aux {}{spanish}Configuración del router Cisco 3660 en GNS3.}}{34}{figure.caption.40}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces \xpg@aux {}{spanish}IP asignada al router Cisco 3660 durante la primera prueba.}}{34}{figure.caption.42}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces \xpg@aux {}{spanish}Resultado de la primera prueba de conectividad entre el adaptador Loopback y el router Cisco.}}{35}{figure.caption.43}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces \xpg@aux {}{spanish}Máquina virtual Ubuntu creada para gestionar la comunicación con GNS3.}}{36}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces \xpg@aux {}{spanish}Direcciones IP configuradas en la máquina virtual Ubuntu.}}{36}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces \xpg@aux {}{spanish}Prueba de conectividad exitosa entre Ubuntu y el router Cisco.}}{37}{figure.caption.50}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
