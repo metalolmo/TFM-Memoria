@@ -29,7 +29,12 @@
 \contentsline {figure}{\numberline {6.6}{\ignorespaces \xpg@aux {}{spanish}Máquina virtual Ubuntu creada para gestionar la comunicación con GNS3.}}{36}{figure.caption.46}%
 \contentsline {figure}{\numberline {6.7}{\ignorespaces \xpg@aux {}{spanish}Direcciones IP configuradas en la máquina virtual Ubuntu.}}{36}{figure.caption.48}%
 \contentsline {figure}{\numberline {6.8}{\ignorespaces \xpg@aux {}{spanish}Prueba de conectividad exitosa entre Ubuntu y el router Cisco.}}{37}{figure.caption.50}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces \xpg@aux {}{spanish}Prueba de conectividad exitosa entre Ubuntu y el router Cisco.}}{39}{figure.caption.52}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces \xpg@aux {}{spanish}Esquema conceptual de la base de datos del sistema de monitorización.}}{40}{figure.caption.53}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \xpg@aux {}{spanish}Arquitectura general del sistema: interacción entre frontend, backend y routers Cisco.}}{43}{figure.caption.54}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces \xpg@aux {}{spanish}Topología de red empleada en GNS3 para la monitorización de los routers Cisco.}}{45}{figure.caption.58}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces \xpg@aux {}{spanish}Diagrama del flujo de comunicación entre el usuario, el backend y los routers Cisco.}}{49}{figure.caption.65}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

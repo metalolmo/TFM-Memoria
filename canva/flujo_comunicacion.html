@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flujo de comunicación</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: #f4f6f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #diagram-wrapper {
+      background-color: #ffffff;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    #diagram {
+      border: 1px solid #d0d4dd;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      min-width: 750px;
+      background-color: #ffffff;
+    }
+
+    .lane-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin-bottom: 0.35rem;
+      text-align: center;
+    }
+
+    .swimlane {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      padding: 0 0.5rem;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.3rem;
+    }
+
+    .box {
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      background: linear-gradient(to bottom, #ffffff, #f8f9fb);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.85rem;
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .box-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .box-subtitle {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .arrow-horizontal {
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 0.2rem 0;
+    }
+
+    .arrow-vertical {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 0.1rem 0;
+      color: #555;
+    }
+
+    .note-row {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    #download-btn {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid #0d6efd;
+      background-color: #0d6efd;
+      color: #ffffff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    #download-btn:hover {
+      background-color: #0b5ed7;
+      box-shadow: 0 2px 6px rgba(13, 110, 253, 0.35);
+    }
+
+    #download-btn:active {
+      background-color: #0a58ca;
+      box-shadow: none;
+    }
+
+    .note {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #666;
+      text-align: center;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flujo de comunicación del sistema de monitorización</h1>
+
+  <div id="diagram-wrapper">
+    <!-- DIAGRAMA EXPORTABLE -->
+    <div id="diagram">
+      <!-- Cabecera de carriles -->
+      <div class="row">
+        <div class="swimlane">
+          <div class="lane-label">Usuario</div>
+        </div>
+        <div class="swimlane">
+          <div class="lane-label">Frontend (Vue.js)</div>
+        </div>
+        <div class="swimlane">
+          <div class="lane-label">Backend (FastAPI)</div>
+        </div>
+        <div class="swimlane">
+          <div class="lane-label">Routers Cisco (SSH)</div>
+        </div>
+      </div>
+
+      <!-- Fila 1: Acción del usuario -->
+      <div class="row">
+        <div class="swimlane">
+          <div class="box">
+            <div class="box-title">Interacción</div>
+            <div class="box-subtitle">
+              El usuario selecciona un router o una opción de monitorización.
+            </div>
+          </div>
+        </div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">➡</div>
+        </div>
+        <div class="swimlane">
+        </div>
+        <div class="swimlane">
+        </div>
+      </div>
+
+      <!-- Fila 2: Petición HTTP -->
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="box">
+            <div class="box-title">Petición HTTP</div>
+            <div class="box-subtitle">
+              Vue.js envía una petición <span class="highlight">GET/POST</span> mediante Axios
+              al endpoint REST correspondiente.
+            </div>
+          </div>
+        </div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">➡</div>
+        </div>
+        <div class="swimlane"></div>
+      </div>
+
+      <!-- Fila 3: Validación y lógica -->
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="box">
+            <div class="box-title">Validación y lógica</div>
+            <div class="box-subtitle">
+              FastAPI valida el token <span class="highlight">JWT</span>, consulta la
+              configuración del router y prepara la operación.
+            </div>
+          </div>
+        </div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">➡</div>
+        </div>
+      </div>
+
+      <!-- Fila 4: Conexión SSH -->
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane"></div>
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="box">
+            <div class="box-title">Sesión SSH</div>
+            <div class="box-subtitle">
+              El backend abre una sesión SSH con Paramiko y ejecuta comandos IOS
+              (<code>show ip interface brief</code>, <code>show interfaces</code>, etc.).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flecha de vuelta desde router a backend -->
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">⬅</div>
+        </div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">⬅</div>
+        </div>
+      </div>
+
+      <!-- Fila 5: Procesado y respuesta JSON -->
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="box">
+            <div class="box-title">Procesamiento</div>
+            <div class="box-subtitle">
+              FastAPI analiza la salida del router y genera una respuesta
+              estructurada en formato <span class="highlight">JSON</span>.
+            </div>
+          </div>
+        </div>
+        <div class="swimlane"></div>
+      </div>
+
+      <!-- Fila 6: Respuesta al frontend -->
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">⬅</div>
+        </div>
+        <div class="swimlane">
+          <div class="arrow-horizontal">⬅</div>
+        </div>
+        <div class="swimlane"></div>
+      </div>
+
+      <div class="row">
+        <div class="swimlane"></div>
+        <div class="swimlane">
+          <div class="box">
+            <div class="box-title">Actualización de la interfaz</div>
+            <div class="box-subtitle">
+              Vue.js recibe el JSON, actualiza tablas y gráficas (Chart.js) y
+              muestra el estado actual de las interfaces y errores.
+            </div>
+          </div>
+        </div>
+        <div class="swimlane"></div>
+        <div class="swimlane"></div>
+      </div>
+
+      <!-- Fila 7: Loop de refresco -->
+      <div class="note-row">
+        Mediante un temporizador (<code>setInterval</code>), el frontend repite
+        periódicamente el ciclo de petición–respuesta para mantener la información
+        de monitorización actualizada.
+      </div>
+    </div>
+
+    <!-- BOTÓN DESCARGA -->
+    <div style="text-align:center;">
+      <button id="download-btn">Descargar diagrama en PNG</button>
+      <div class="note">
+        Guarda el archivo como <code>flujo_comunicacion.png</code> para incluirlo
+        en la memoria del TFM.
+      </div>
+    </div>
+  </div>
+
+  <!-- Librería para exportar el diagrama como imagen -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    const btn = document.getElementById("download-btn");
+    btn.addEventListener("click", () => {
+      const diagram = document.getElementById("diagram");
+
+      html2canvas(diagram, {
+        backgroundColor: "#ffffff",
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "flujo_comunicacion.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>

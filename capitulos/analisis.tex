@@ -151,7 +151,7 @@ Con el adaptador Loopback configurado, se procedió a crear la primera topologí
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{imagenes/image19.png}
+\includegraphics[width=0.9\textwidth]{imagenes/image19.png}
 \caption{Topología inicial en GNS3 utilizando el adaptador Loopback-NSP.}
 \label{fig:topologia_1}
 \end{figure}
@@ -160,7 +160,7 @@ El router se configuró a partir de la imagen C3660-JK.BIN, estableciendo el mod
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.65\textwidth]{imagenes/image20.png}
+\includegraphics[width=0.7\textwidth]{imagenes/image20.png}
 \caption{Configuración del router Cisco 3660 en GNS3.}
 \end{figure}
 
@@ -172,7 +172,7 @@ El comando "show ip interface brief" permitió confirmar que la interfaz del rou
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{imagenes/image21.png}
+\includegraphics[width=0.85\textwidth]{imagenes/image21.png}
 \caption{IP asignada al router Cisco 3660 durante la primera prueba.}
 \end{figure}
 
@@ -228,7 +228,7 @@ Finalmente, se realizó una nueva prueba de ping desde Ubuntu hacia el router Ci
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{imagenes/image25.png}
+\includegraphics[width=0.85\textwidth]{imagenes/image25.png}
 \caption{Prueba de conectividad exitosa entre Ubuntu y el router Cisco.}
 \label{fig:ping_ok}
 \end{figure}
@@ -314,5 +314,71 @@ ssh francisco@192.168.56.2
 # (Introducir la contraseña cuando sea solicitada)
 \end{lstlisting}
 
-Como resultado la conexión SSH se estableció correctamente desde Ubuntu, con autenticación local en el router y cifrado de la sesión, confirmando que el protocolo SSH queda operativo para su uso por el backend (FastAPI + Paramiko)
+Como se puede mostrar en la siguiente figura \ref{fig:ssh_ok} la conexión SSH se estableció correctamente desde Ubuntu, con autenticación local en el router y cifrado de la sesión, confirmando que el protocolo SSH queda operativo para su uso por el backend (FastAPI + Paramiko)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/image26.png}
+\caption{Prueba de conectividad exitosa entre Ubuntu y el router Cisco.}
+\label{fig:ssh_ok}
+\end{figure}
+
+\section{Esquema conceptual de la base de datos}
+
+Aunque la versión actual del sistema no incorpora una base de datos relacional para el almacenamiento persistente, resulta necesario definir un esquema conceptual que represente de forma estructurada las entidades fundamentales del sistema. Este modelo conceptual no describe una implementación concreta, si no que proporciona una visión abstracta que facilita la comprensión del dominio del problema, a la vez que establece una base sólida para futura aplicaciones del proyecto en las que se contemple la integración de una base de datos.
+
+A partir del análisis funcional realizado y de las necesidades detectadas en el proceso de monitorización, se han identificado cuatro entidades principales: \textbf{Usuario}, \textbf{Router}, \textbf{Interfaz} y \textbf{ErrorInterfaz}. Estas entidades representan a los actores y elementos clave del sistema, así como las relaciones lógicas entre ellos. La entidad \textbf{Usuario} recoge la información relativa a los usuarios autenticados, mientras que la entidad \textbf{Router} modela los dispositivos de red monitorizados. Cada router dispone de varias interfaces, agrupadas en la entidad \textbf{Interfaz}, y finalmente la entidad \textbf{ErrorInterfaz} recoge los errores o anomalías detectados durante el proceso de monitorización.
+
+En la figura~\ref{fig:esquema_bd} se muestra el esquema conceptual que resume las entidades identificadas y las relaciones existentes entre ellas. Este diagrama proporciona una visión clara del modelo de datos teórico, independientemente de la implementación actual basada en consultas en tiempo real mediante SSH.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\linewidth]{canva/esquema_bd.png}
+    \caption{Esquema conceptual de la base de datos del sistema de monitorización.}
+    \label{fig:esquema_bd}
+\end{figure}
+
+A continuación se describen con mayor detalle las entidades incluidas en el modelo conceptual:
+
+\begin{itemize}
+    \item Usuario. Representa a los usuarios del sistema que acceden mediante un proceso de autenticación. Sus atributos principales incluyen:
+    \begin{itemize}
+        \item id\_usuario: identificador único del usuario.
+        \item email: dirección de correo utilizada para autenticarse.
+        \item password\_hash: contraseña cifrada.
+        \item rol: tipo de usuario (administrador o usuario estándar).
+    \end{itemize}
+
+    \item Router. Esta entidad agrupa la información necesaria para identificar y gestionar los routers monitorizados.
+    \begin{itemize}
+        \item id\_router: identificador único del router.
+        \item hostname: nombre del router.
+        \item direccion\_ip: dirección IP de gestión.
+        \item modelo: modelo del dispositivo.
+        \item descripcion: información adicional asociada al router.
+    \end{itemize}
+
+    \item Interfaz. Cada router dispone de múltiples interfaces físicas o lógicas. Esta entidad permite representar la información asociada a cada una de ellas:
+    \begin{itemize}
+        \item id\_interfaz: identificador único de la interfaz.
+        \item id\_router: clave foránea que relaciona la interfaz con su router.
+        \item nombre: nombre de la interfaz (p.\,ej.\ FastEthernet0/0).
+        \item direccion\_ip: dirección IP configurada en la interfaz.
+        \item estado\_administrativo: estado administrativo (up/down).
+        \item estado\_operativo: estado real de funcionamiento (up/down).
+        \item descripcion: descripción opcional de la interfaz.
+    \end{itemize}
+
+    \item ErrorInterfaz. Esta entidad recoge los errores detectados en las interfaces durante la monitorización periódica del sistema.
+    \begin{itemize}
+        \item id\_error: identificador único del error registrado.
+        \item id\_interfaz: referencia a la interfaz donde se ha detectado el error.
+        \item tipo\_error: tipo de error (CRC, colisiones, \textit{input errors}, etc.).
+        \item contador: valor del contador de errores en el momento de la detección.
+        \item fecha\_deteccion: momento exacto de la detección del error.
+        \item notificado: indica si el error ha sido incluido en un informe PDF y notificado al usuario.
+    \end{itemize}
+
+\end{itemize}
+
 

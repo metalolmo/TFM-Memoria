@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arquitectura general del sistema</title>
+
+  <!-- Estilos sobrios, tipo memoria de TFM -->
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: #f4f6f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #diagram-wrapper {
+      background-color: #ffffff;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    #diagram {
+      min-width: 600px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #d0d4dd;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+
+    .layer {
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin: 0.5rem 0;
+      background: linear-gradient(to bottom, #ffffff, #f8f9fb);
+    }
+
+    .layer-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .layer-subtitle {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    .layer-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .arrow {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 0.4rem 0;
+      color: #555;
+    }
+
+    #download-btn {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid #0d6efd;
+      background-color: #0d6efd;
+      color: #ffffff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    #download-btn:hover {
+      background-color: #0b5ed7;
+      box-shadow: 0 2px 6px rgba(13, 110, 253, 0.35);
+    }
+
+    #download-btn:active {
+      background-color: #0a58ca;
+      box-shadow: none;
+    }
+
+    .note {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arquitectura general del sistema</h1>
+
+  <div id="diagram-wrapper">
+    <!-- DIAGRAMA A EXPORTAR -->
+    <div id="diagram">
+      <div class="layer">
+        <div class="layer-title">Capa de presentación (Frontend)</div>
+        <div class="layer-subtitle">Navegador web del usuario</div>
+        <ul class="layer-list">
+          <li>Aplicación web desarrollada en <strong>Vue.js</strong>.</li>
+          <li>Diseño responsivo con <strong>Bootstrap</strong>.</li>
+          <li>Consumo de API REST mediante <strong>Axios</strong>.</li>
+          <li>Visualización de tablas y gráficas de monitorización.</li>
+        </ul>
+      </div>
+
+      <div class="arrow">⬇</div>
+
+      <div class="layer">
+        <div class="layer-title">Capa lógica y de procesamiento (Backend)</div>
+        <div class="layer-subtitle">Servidor FastAPI</div>
+        <ul class="layer-list">
+          <li>Servicios REST implementados con <strong>FastAPI</strong>.</li>
+          <li>Gestión de sesiones SSH con <strong>Paramiko</strong>.</li>
+          <li>Autenticación y autorización mediante <strong>JWT</strong>.</li>
+          <li>Procesamiento de métricas y generación de respuestas JSON.</li>
+          <li>Generación de informes PDF y envío por correo electrónico.</li>
+        </ul>
+      </div>
+
+      <div class="arrow">⬇</div>
+
+      <div class="layer">
+        <div class="layer-title">Capa de dispositivos monitorizados</div>
+        <div class="layer-subtitle">Red de routers Cisco en GNS3</div>
+        <ul class="layer-list">
+          <li>Routers Cisco simulados en el entorno <strong>GNS3</strong>.</li>
+          <li>Acceso seguro mediante protocolo <strong>SSH</strong>.</li>
+          <li>Ejecución de comandos IOS (p.ej., <code>show ip interface brief</code>).</li>
+          <li>Obtención de estadísticas de tráfico, estado y errores.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTÓN DE DESCARGA -->
+    <div style="text-align:center;">
+      <button id="download-btn">Descargar diagrama en PNG</button>
+      <div class="note">
+        El archivo generado puede utilizarse como figura en la memoria del TFM
+        (por ejemplo, <code>arquitectura_general.png</code>).
+      </div>
+    </div>
+  </div>
+
+  <!-- Librería para capturar el diagrama como imagen -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    const btn = document.getElementById("download-btn");
+    btn.addEventListener("click", () => {
+      const diagram = document.getElementById("diagram");
+
+      html2canvas(diagram, {
+        backgroundColor: "#ffffff",
+        scale: 2  // mejora la resolución del PNG
+      }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "arquitectura_general.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>

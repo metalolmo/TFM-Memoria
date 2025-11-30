@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  23 OCT 2025 14:11
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  30 NOV 2025 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2527,18 +2527,12 @@ File: imagenes/image19.png Graphic file (type bmp)
 File: imagenes/image20.png Graphic file (type bmp)
 <imagenes/image20.png>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [33]
 File: imagenes/image21.png Graphic file (type bmp)
 <imagenes/image21.png>
 File: imagenes/image22.png Graphic file (type bmp)
 <imagenes/image22.png>
-
-Underfull \vbox (badness 3118) has occurred while \output is active []
-
 
 
 [34]
@@ -2567,24 +2561,24 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
-))
-(capitulos/diseño.tex
+)
+Underfull \vbox (badness 3895) has occurred while \output is active []
+
+
 
 [38]
-chapter 7.
-) (capitulos/implementacion.tex
-
-[39
-
-
-]
-
-[40
+File: imagenes/image26.png Graphic file (type bmp)
+<imagenes/image26.png>
+File: canva/esquema_bd.png Graphic file (type bmp)
+<canva/esquema_bd.png>
 
 
-]
-chapter 8.
-) (capitulos/pruebas.tex
+[39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[40]) (capitulos/diseño.tex
 
 [41]
 
@@ -2592,39 +2586,87 @@ chapter 8.
 
 
 ]
+chapter 7.
+File: canva/arquitectura_general.png Graphic file (type bmp)
+<canva/arquitectura_general.png>
+
+
+[43]
+Overfull \hbox (13.28679pt too wide) in paragraph at lines 36--37
+[]\TU/lmr/m/n/10.95 Los routers ejecutan comandos IOS tales como \TU/lmtt/m/n/1
+0.95 show ip interface brief\TU/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 show interfa
+ces
+ []
+
+
+
+[44]
+File: imagenes/image27.png Graphic file (type bmp)
+<imagenes/image27.png>
+
+
+[45]
+
+[46]
+
+[47]
+File: canva/flujo_comunicacion.png Graphic file (type bmp)
+<canva/flujo_comunicacion.png>
+
+Underfull \vbox (badness 3623) has occurred while \output is active []
+
+
+
+[48]
+
+[49]) (capitulos/implementacion.tex
+
+[50]
+chapter 8.
+) (capitulos/pruebas.tex
+
+[51
+
+
+]
+
+[52
+
+
+]
 chapter 9.
 ) (capitulos/resultados.tex
 
-[43]
+[53]
 
-[44
+[54
 
 
 ]
 chapter 10.
 ) (capitulos/conclusiones.tex
 
-[45]
+[55]
 
-[46
+[56
 
 
 ]
 chapter 11.
 ) (capitulos/trabajo futuro.tex
 
-[47]
+[57]
 
-[48
+[58
 
 
 ]
 chapter 12.
 ) (TFG-TFM_EPS_UA.bbl
 
-[49]
+[59]
 
-[50
+[60
 
 
 ]
@@ -2644,7 +2686,7 @@ d de contenedores en azure kubernetes
 
 
 
-[51]
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 387--403
 [][][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][] [] [][] [] [][][][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][] [] [][][][]
@@ -2661,23 +2703,23 @@ l.684 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
 No file TFG-TFM_EPS_UA.acr.
 (anexos/anexo_I.tex
 
-[52]
+[62]
 chapter A.
 ) (anexos/anexo_2.tex
 
-[53
+[63
 
 
 ]
 
-[54
+[64
 
 
 ]
 chapter B.
 )
 
-[55] (TFG-TFM_EPS_UA.aux)
+[65] (TFG-TFM_EPS_UA.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2688,12 +2730,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 60773 strings out of 403249
- 1453926 string characters out of 5465214
- 2690101 words of memory out of 5000000
- 88121 multiletter control sequences out of 15000+600000
+ 60829 strings out of 403249
+ 1455383 string characters out of 5465214
+ 2705172 words of memory out of 5000000
+ 88172 multiletter control sequences out of 15000+600000
  644972 words of font info for 147 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  113i,21n,114p,11008b,2139s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TFG-TFM_EPS_UA.pdf (73 pages).
+Output written on TFG-TFM_EPS_UA.pdf (83 pages).

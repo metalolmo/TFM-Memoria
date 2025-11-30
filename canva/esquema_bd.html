@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Esquema conceptual de datos - Sistema de monitorización de red</title>
+
+  <!-- Mermaid.js para generar el diagrama -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "base",
+      themeVariables: {
+        primaryColor: "#ffffff",
+        primaryBorderColor: "#1f2933",
+        primaryTextColor: "#111827",
+        lineColor: "#111827",
+        fontSize: "14px",
+        fontFamily: "Latin Modern Roman, Computer Modern, Times New Roman, serif",
+        noteBkgColor: "#f9fafb",
+        noteTextColor: "#111827"
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("downloadPngBtn");
+
+      btn.addEventListener("click", () => {
+        const svgElement = document.querySelector(".diagram-wrapper svg");
+
+        if (!svgElement) {
+          alert("El diagrama todavía no se ha generado. Recarga la página y espera un segundo.");
+          return;
+        }
+
+        // Serializar el SVG
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgElement);
+        const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+        const url = URL.createObjectURL(svgBlob);
+
+        const img = new Image();
+        img.onload = () => {
+          const width = svgElement.viewBox.baseVal.width || svgElement.clientWidth || 1200;
+          const height = svgElement.viewBox.baseVal.height || svgElement.clientHeight || 600;
+
+          const scale = 2; // más resolución para el TFM
+          const canvas = document.createElement("canvas");
+          canvas.width = width * scale;
+          canvas.height = height * scale;
+
+          const ctx = canvas.getContext("2d");
+          ctx.fillStyle = "#ffffff"; // fondo blanco para que quede limpio en el PDF
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          const pngData = canvas.toDataURL("image/png");
+          const link = document.createElement("a");
+          link.href = pngData;
+          link.download = "esquema_bd.png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        };
+
+        img.onerror = () => {
+          alert("No se ha podido generar la imagen PNG.");
+          URL.revokeObjectURL(url);
+        };
+
+        img.src = url;
+      });
+    });
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Latin Modern Roman", "Times New Roman", serif;
+      background-color: #f4f6f9;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 24px 24px 32px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    p.descr {
+      text-align: center;
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 24px;
+    }
+    .diagram-wrapper {
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 16px;
+      background-color: #f9fafb;
+      overflow: auto;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .btn-download {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid #9b1239;
+      background-color: #b91c1c;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease,
+                  box-shadow 0.15s ease;
+      box-shadow: 0 4px 10px rgba(185, 28, 28, 0.25);
+    }
+    .btn-download:hover {
+      background-color: #7f1d1d;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(127, 29, 29, 0.35);
+    }
+    .btn-download:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(127, 29, 29, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Esquema conceptual de la base de datos</h1>
+    <p class="descr">
+      Sistema vía web de monitorización de red con detección de anomalías.
+    </p>
+
+    <div class="diagram-wrapper">
+      <!-- Diagrama en sintaxis Mermaid -->
+      <pre class="mermaid">
+erDiagram
+  USUARIO {
+    int id_usuario
+    string email
+    string password_hash
+    string rol
+  }
+
+  ROUTER {
+    int id_router
+    string hostname
+    string direccion_ip
+    string modelo
+    string descripcion
+  }
+
+  INTERFAZ {
+    int id_interfaz
+    int id_router
+    string nombre
+    string direccion_ip
+    string estado_administrativo
+    string estado_operativo
+    string descripcion
+  }
+
+  ERROR_INTERFAZ {
+    int id_error
+    int id_interfaz
+    string tipo_error
+    int contador
+    datetime fecha_deteccion
+    bool notificado
+  }
+
+  USUARIO ||--o{ ROUTER : "gestiona"
+  ROUTER  ||--o{ INTERFAZ : "dispone de"
+  INTERFAZ ||--o{ ERROR_INTERFAZ : "genera"
+      </pre>
+    </div>
+
+    <div class="toolbar">
+      <button id="downloadPngBtn" class="btn-download">
+        Descargar diagrama como PNG
+      </button>
+    </div>
+  </div>
+</body>
+</html>
