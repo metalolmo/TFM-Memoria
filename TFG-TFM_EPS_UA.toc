@@ -31,12 +31,16 @@
 \contentsline {section}{\numberline {7.1}Arquitectura general del sistema}{43}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Diseño de la red en GNS3}{44}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Diseño de la comunicación y flujo de datos}{47}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Implementación}{51}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Pruebas}{53}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Resultados}{55}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{57}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Trabajo Futuro}{59}{chapter.12}%
-\contentsline {chapter}{\nonumberline Bibliografía}{61}{chapter*.68}%
-\contentsline {chapter}{\numberline {A}Anexo I}{63}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Páginas horizontales}{65}{appendix.B}%
+\contentsline {section}{\numberline {7.4}Diseño del backend.}{50}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Seguridad, manejo de errores y tareas en segundo plano}{52}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}Diseño del frontend.}{59}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Diseño de seguridad, alertas e informes.}{62}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Implementación}{65}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Pruebas}{67}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Resultados}{69}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{71}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Trabajo Futuro}{73}{chapter.12}%
+\contentsline {chapter}{\nonumberline Bibliografía}{75}{chapter*.113}%
+\contentsline {chapter}{\numberline {A}Anexo I}{77}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Páginas horizontales}{79}{appendix.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagrama de navegación - Frontend</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- html2canvas (export a PNG) -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .text-naranja {
+      color: orange !important;
+    }
+
+    .diagram-wrap {
+      background: #fff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+
+    .node {
+      border: 1px solid #dee2e6;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      min-width: 260px;
+    }
+
+    .node-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .node-sub {
+      color: #6c757d;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Layout */
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      justify-items: center;
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 740px;
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      font-weight: 600;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .arrow svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .badge-soft {
+      background: rgba(13,110,253,0.08);
+      color: #0d6efd;
+      border: 1px solid rgba(13,110,253,0.25);
+      font-weight: 600;
+    }
+
+    .badge-soft-success {
+      background: rgba(25,135,84,0.10);
+      color: #198754;
+      border: 1px solid rgba(25,135,84,0.25);
+      font-weight: 600;
+    }
+
+    .badge-soft-warning {
+      background: rgba(255,193,7,0.14);
+      color: #b58100;
+      border: 1px solid rgba(255,193,7,0.30);
+      font-weight: 600;
+    }
+
+    /* Print-friendly */
+    @media print {
+      .no-print { display: none !important; }
+      body { padding: 0; background: #fff; }
+      .diagram-wrap { box-shadow: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <span class="navbar-brand mb-0 h1 text-naranja">Monitor de Red</span>
+      <div class="no-print d-flex gap-2">
+        <button id="btnPng" class="btn btn-outline-light">
+          Descargar .png
+        </button>
+        <button class="btn btn-outline-light" onclick="window.print()">
+          Imprimir / PDF
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-3">
+      <div>
+        <h2 class="fw-bold text-dark mb-1">Diagrama de navegación del frontend</h2>
+        <p class="text-secondary mb-0">
+          Flujo principal de pantallas: autenticación, resumen global y acceso a módulos.
+        </p>
+      </div>
+      <span class="badge rounded-pill badge-soft no-print">TFM · Diseño (7.5)</span>
+    </div>
+
+    <!-- CAPTURE AREA -->
+    <div id="capture" class="diagram-wrap">
+      <div class="flow">
+
+        <!-- login -->
+        <div class="node">
+          <div class="node-title text-primary">
+            <i data-lucide="log-in"></i>
+            <span>login.html</span>
+            <span class="badge rounded-pill badge-soft-warning ms-auto">Autenticación</span>
+          </div>
+          <p class="node-sub">
+            Inicio de sesión y registro. Al autenticar, se almacena el token JWT en el navegador.
+          </p>
+        </div>
+
+        <div class="arrow">
+          <span>Acceso</span>
+          <i data-lucide="arrow-down"></i>
+        </div>
+
+        <!-- index -->
+        <div class="node">
+          <div class="node-title text-primary">
+            <i data-lucide="layout-dashboard"></i>
+            <span>index.html</span>
+            <span class="badge rounded-pill badge-soft ms-auto">Resumen Global</span>
+          </div>
+          <p class="node-sub">
+            Vista de entrada tras login: resumen de routers (IP, uptime) y accesos a módulos.
+          </p>
+        </div>
+
+        <div class="arrow">
+          <span>Navegación</span>
+          <i data-lucide="arrow-down"></i>
+        </div>
+
+        <!-- two branches -->
+        <div class="row-2">
+          <div class="node">
+            <div class="node-title text-success">
+              <i data-lucide="server"></i>
+              <span>frontend_parte_dos.html</span>
+              <span class="badge rounded-pill badge-soft-success ms-auto">Estado</span>
+            </div>
+            <p class="node-sub">
+              Estado del router: disponibilidad, CPU, memoria, uptime y acciones globales (hostname/timeout/guardar config).
+            </p>
+          </div>
+
+          <div class="node">
+            <div class="node-title text-success">
+              <i data-lucide="activity"></i>
+              <span>frontend_parte_uno.html</span>
+              <span class="badge rounded-pill badge-soft-success ms-auto">Interfaces</span>
+            </div>
+            <p class="node-sub">
+              Interfaces: listado, detalles, tráfico y errores. Acciones por interfaz (shutdown, IP, descripción) y gráficas.
+            </p>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <span class="badge rounded-pill text-bg-secondary">Control de acceso</span>
+          <span class="text-secondary">
+            Las vistas verifican la existencia del JWT y redirigen a <strong>login.html</strong> si no hay sesión.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-secondary mt-3">
+      Recomendación: inserta la imagen exportada como figura en el Capítulo 7 (apartado 7.5), junto con la explicación de navegación y estructura por vistas.
+    </p>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const btn = document.getElementById("btnPng");
+    btn.addEventListener("click", async () => {
+      const captureEl = document.getElementById("capture");
+
+      // Asegurar buena resolución: escala 2
+      const canvas = await html2canvas(captureEl, {
+        backgroundColor: "#ffffff",
+        scale: 2,
+        useCORS: true
+      });
+
+      const pngUrl = canvas.toDataURL("image/png");
+
+      const a = document.createElement("a");
+      a.href = pngUrl;
+      a.download = "diagrama_navegacion_frontend.png";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  </script>
+</body>
+</html>

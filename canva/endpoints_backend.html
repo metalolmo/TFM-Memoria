@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Especificación de Endpoints del Backend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap solo para maquetación básica -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Exportación a PNG -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <style>
+      /* Estilo formal tipo memoria */
+      body {
+        background: #ffffff;
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px 16px;
+      }
+
+      .doc-header {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+
+      .doc-title {
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .doc-subtitle {
+        margin-top: 6px;
+        font-size: 1.02rem;
+        color: #333;
+      }
+
+      .actions {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* Zona exportable */
+      #exportArea {
+        background: #ffffff;
+      }
+
+      /* Secciones */
+      .section {
+        border: 1px solid #cfcfcf;
+        border-radius: 6px;
+        padding: 14px;
+        margin-bottom: 16px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section-title {
+        font-weight: 700;
+        font-size: 1.08rem;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #d9d9d9;
+        padding-bottom: 6px;
+      }
+
+      /* Endpoint */
+      .endpoint {
+        border: 1px solid #e2e2e2;
+        border-radius: 6px;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .method {
+        display: inline-block;
+        min-width: 60px;
+        text-align: center;
+        font-weight: 700;
+        border: 1px solid #111;
+        border-radius: 999px;
+        padding: 2px 8px;
+        margin-right: 8px;
+        font-size: 0.9rem;
+      }
+
+      .path {
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 700;
+        font-size: 0.98rem;
+      }
+
+      .desc {
+        margin-top: 6px;
+        font-size: 0.98rem;
+        line-height: 1.25rem;
+      }
+
+      .note {
+        margin-top: 6px;
+        font-size: 0.95rem;
+        color: #444;
+      }
+
+      .footer {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 0.92rem;
+        color: #555;
+      }
+
+      @media print {
+        .actions {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="doc-header">
+        <h2 class="doc-title">Especificación de Endpoints del Backend</h2>
+        <p class="doc-subtitle">
+          Sistema web de monitorización de red – API REST basada en FastAPI
+        </p>
+      </div>
+
+      <div class="actions">
+        <button id="btnPng" class="btn btn-outline-secondary btn-sm">
+          Exportar a PNG
+        </button>
+      </div>
+
+      <!-- CONTENIDO EXPORTABLE -->
+      <div id="exportArea">
+        <!-- 1 -->
+        <div class="section">
+          <div class="section-title">1. Autenticación y control de acceso</div>
+
+          <div class="endpoint">
+            <span class="method">POST</span>
+            <span class="path">/register</span>
+            <div class="desc">
+              Registro de usuario con almacenamiento seguro de credenciales y envío
+              de enlace de confirmación por correo electrónico.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">POST</span>
+            <span class="path">/login</span>
+            <div class="desc">
+              Inicio de sesión. Devuelve un token JWT que debe incluirse como
+              <em>Bearer Token</em> en peticiones posteriores.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/confirmar-correo?token=...</span>
+            <div class="desc">
+              Confirmación del correo electrónico mediante token de verificación.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="section">
+          <div class="section-title">2. Monitorización de interfaces</div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/interfaces</span>
+            <div class="desc">
+              Lista global de interfaces de todos los routers monitorizados.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/interfaces/{router_id}</span>
+            <div class="desc">
+              Interfaces de un router específico con IP, estado y descripción.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/interfaces/{router_id}/detalles</span>
+            <div class="desc">
+              Información detallada por interfaz: tráfico, errores, velocidad y
+              dúplex.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/interfaces/errors/{router_id}</span>
+            <div class="desc">
+              Devuelve únicamente interfaces con errores detectados.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="section">
+          <div class="section-title">3. Acciones sobre interfaces</div>
+
+          <div class="endpoint">
+            <span class="method">POST</span>
+            <span class="path">/interfaces/{router_id}/{if}/shutdown</span>
+            <div class="desc">
+              Deshabilita una interfaz de red de forma remota.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">POST</span>
+            <span class="path">/interfaces/{router_id}/{if}/noshutdown</span>
+            <div class="desc">
+              Habilita una interfaz previamente deshabilitada.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">PATCH</span>
+            <span class="path">/interfaces/{router_id}/{if}/description</span>
+            <div class="desc">
+              Modifica la descripción de una interfaz.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">PATCH</span>
+            <span class="path">/interfaces/{router_id}/{if}/ip</span>
+            <div class="desc">
+              Modifica la dirección IP y la máscara de una interfaz.
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="section">
+          <div class="section-title">4. Estado y recursos del router</div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/router/{router_id}</span>
+            <div class="desc">
+              Información general del router (modelo, versión, uptime, memoria).
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/resources/cpu/{router_id}</span>
+            <div class="desc">
+              Uso de CPU (5 segundos, 1 minuto y 5 minutos).
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/resources/memory/{router_id}</span>
+            <div class="desc">
+              Uso de memoria total, usada y libre.
+            </div>
+          </div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/ping/{router_id}</span>
+            <div class="desc">
+              Verificación básica de conectividad con el router.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="section">
+          <div class="section-title">5. Alertas e informes</div>
+
+          <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/monitorizar-errores/{router_id}</span>
+            <div class="desc">
+              Detecta nuevos errores en interfaces y, si existen cambios, genera
+              un informe y lo envía por correo al usuario autenticado.
+            </div>
+            <div class="note">
+              Nota: la generación del informe se ejecuta como tarea en segundo plano.
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          Documento gráfico para anexar a la memoria del TFM.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("btnPng").addEventListener("click", async () => {
+        const area = document.getElementById("exportArea");
+
+        const canvas = await html2canvas(area, {
+          scale: 2,
+          backgroundColor: "#ffffff",
+          useCORS: true,
+        });
+
+        const link = document.createElement("a");
+        link.download = "endpoints_backend_tfm.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    </script>
+  </body>
+</html>

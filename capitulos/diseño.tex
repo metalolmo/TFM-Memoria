@@ -202,3 +202,393 @@ Para garantizar la monitorización en tiempo real, el frontend realiza solicitud
     \item Se solicitan los datos actualizados del router.
     \item La interfaz vuelve a generarse con los nuevos valores.
 \end{enumerate}
+
+\section{Diseño del backend.}
+
+El backend constituye la capa de servicio del sistema de monitorización y actúa como intermediario entre el frotend web y los dispositivos de red. Su función es doble: por un lado, proporcionar una \textit{API REST} que permita consultar métricas de operación (estado de interfaces, tráfico, consumo de CPU y meomoria, etc.) y, por otro, habilitar acciones de gestión remota (p. \ ej., habilitar/deshabilitar interfaces o modificar parámetros básico de configuración). Adicionalmente, el backend integra mecanismos de autenticación y soporte de alertas, permitiendo generar informes y notificaciones automáticas cuando se detectan eventos relevantes.
+
+La implementación se apoya en FastAPI como framework para la exposición de endpoints HTTP, y Paramiko como biblioteca de acceso ñremoto por SSH hacia routers Ciscos IOS. Este enfoque permite obtener información mediante comantos \texttt{show} y, cuando es necesario, aplicar cambios de configuración mediante secuencias de comandos en modo privilegiado, aseguranco un flujo consistente entre consulta, diagnóstico y actuación. 
+
+La Figura~\ref{fig:backend_diagrama} resume la arquitectura lógica del backend y la interacción entre los componentes principales: frontend, API REST, módulo de autenticación, capa de comunicación SSH con los routers y subsistema de alertas e informes. 
+
+\begin{figure}[H]
+    \centering
+    % Ajusta el nombre/ruta del fichero a tu proyecto
+    \includegraphics[width=0.99\textwidth]{canva/diagrama_backend_tfm.png}
+    \caption{Arquitectura lógica del backend del sistema de monitorización}
+    \label{fig:backend_diagrama}
+\end{figure}
+
+\subsection*{Decisiones de diseño del backend}
+
+\subsubsection*{Elección de FastAPI.}
+\vspace*{0.5cm}
+
+Se selecciona FastAPI por su adecuación al desarrollo de servicios REST, su rendimiento y su integración con Pydantic para la validación de entradas y salidas. Este enfoque permite definir un contrato de datos explícito y consistente, simplificando el consumo de la API desde el frontend y reduciendo errores derivados de parámetros mal formados.
+
+\subsubsection*{Acceso a dispositivos mediante SSH y CLI.}
+\vspace*{0.5cm}
+
+La comunicación con routers Cisco se realiza mediante SSH y ejecución de comandos CLI. Esta decisión aporta flexibilidad para:
+
+\begin{itemize}
+    \item Obtener información con alta granularidad usando comandos \texttt{show} (estado, tráfico, errores, recursos).
+    \item Ejecutar acciones de operación y configuración (p.\ ej., \texttt{shutdown/no shutdown}, cambio de IP, actualización de descripciones).
+    \item Mantener la solución alineada con prácticas habituales de administración en entornos Cisco IOS.
+\end{itemize}
+
+\subsubsection*{Inventario de routers.}
+\vspace*{0.5cm}
+
+El backend gestiona un inventario de routers identificativo mediante  \texttt{router\_id} (por ejemplo, \texttt{R1}, \texttt{R2}, \texttt{R3}). En el alcance el trabajo, el inventario se mantiene en la memoria como solución simple y controlada, adecuada a un entorno de laboratorio. Como mejora futura, podría persistirse en base de datos y administrarse desde el propio sistema.
+
+\subsection*{Arquitectura interna y ciclo de vida de una petición}
+
+El backend aplica un flujo homogéneo de procesamiento, cuya finalidad es transformar la salida textual de comandos IOS en respuestas JSON estructuradas para su representación en la interfaz web. De forma general, el ciclo de vida de una petición sigue las siguientes etapas:
+
+\begin{enumerate}
+    \item \textbf{Validación de entrada:} los parámetros de ruta y los cuerpos JSON se validan mediante modelos Pydantic (por ejemplo, actualización de IP, descripción o timeout), asegurando tipos y formatos correctos.
+    \item \textbf{Resolución del router:} el \texttt{router\_id} se normaliza y se verifica en el inventario. Si el router no existe, se devuelve un error HTTP 404.
+    \item \textbf{Ejecución remota por SSH:} se establece sesión SSH con Paramiko. Para consultas se utiliza ejecución directa de comandos; para operaciones de configuración se emplea un canal interactivo que permite encadenar comandos en el contexto adecuado (modo privilegiado y \texttt{configure terminal}).
+    \item \textbf{Procesamiento y normalización:} la salida se analiza mediante reglas de parsing y expresiones regulares, extrayendo los campos relevantes (estado, contadores, errores, etc.) y generando estructuras JSON consistentes.
+    \item \textbf{Respuesta al cliente:} se devuelve una respuesta JSON con contexto (router, IP) y los datos solicitados (interfaces, métricas, resultados de acciones), facilitando su consumo desde el frontend.
+\end{enumerate}
+
+Para reducir duplicidad y homogeneizar la comunicación de dispositivos, el backend encapsula la ejecución SSH en funciones auxiliares que centralizan la conexión, el envío de comandos y el cierre de sesión, además de un tratamiento uniforme de errores.
+
+\subsection{Seguridad, manejo de errores y tareas en segundo plano}
+
+\subsubsection*{Registro, autenticación y tokens JWT.}
+\vspace*{0.5cm}
+
+El sistema integra un flujo de registro e inició de sesión basado en email y contraseña. Las contraseñas se almacenan de forma segura mediante hash. Tras autenticación correcta, el backend emite un token JWT tipo \textit{Bearer} con caducidad temporal, utilizado posteriormente para autorizar el acceso a endpoints protegidos. Adicionalmente, se incluye un mecanismo de confirmación de correo mediante enlace firmado, reforzando el control de alta de usuarios.
+
+\subsubsection*{Manejo de errores.}
+\vspace*{0.5cm}
+
+Las condiciones de fallo se comunican al cliente utilizando códigos HTTP y mensajes descriptivos:
+\begin{itemize}
+    \item \textbf{401:} credenciales inválidas (login) o problemas de autenticación.
+    \item \textbf{404:} router no presente en el inventario o recurso inexistente.
+    \item \textbf{500:} errores internos, fallos de conexión SSH, o parsing no esperado.
+\end{itemize}
+
+Esta estrategia permite al frontend diferenciar fallos de autentiación, ausencia de recursos y errores internos, ofreciendo mensajes y acciones correctivas adecuadas.
+
+\subsubsection*{Ejecución asíncrona de alertas e informes.}
+\vspace*{0.5cm}
+
+Cuando se detectan nuevos errores en interfaces, el backend puede generar un informe en PDF y enviarlo por correo al usuario autenticado. Para evitar bloquear la respuesta HTTP, estas tareas se ejecutan en segundo plano mediante \texttt{BackgroundTasks}. De este modo, el endpoint devuelve de forma inmediata el estado de errores, mientras que el envío del informe se realiza de forma asíncrona.
+
+\subsection*{Diseño de la API: endpoints y contrato de datos}
+
+La API se organiza por recursos funcionales (autentiación, interfaces y estado del router). Dado que el frontend requiere refresco periódico, se ha priorizado que las respuestas sean ligeras, estructuradas y estables en su formato. A continuación se describen los endpoints más relevantes y el contrato de datos asociado.
+
+\subsubsection*{Autenticación}
+
+\paragraph*{\texttt{POST /register}}
+\vspace*{1cm}
+
+Crea un usuario y desencadena el envío de un correo de confirmación con enlace firmado.
+\begin{itemize}
+    \item \textbf{Entrada:} \texttt{\{email, password\}}
+    \item \textbf{Salida:} confirmación de creación y verificación.
+\end{itemize}
+
+\paragraph*{\texttt{POST /login}}
+\vspace*{1cm}
+
+Valida credenciales y devuelve un token JWT para autenticación en el resto de peticiones.
+\begin{verbatim}
+Respuesta (ejemplo):
+{
+  "access_token": "<jwt>",
+  "token_type": "bearer"
+}
+\end{verbatim}
+
+\subsubsection*{Interfaces}
+
+\paragraph*{\texttt{GET /interfaces}}
+\vspace*{1cm}
+
+Devuelve un listado agregado de interfaces con IP asignada para todos los routers, incluyendo estado físico y de protocolo.
+\begin{verbatim}
+Respuesta (estructura):
+[
+  {
+    "router": "R1",
+    "ip": "<ip_router>",
+    "interfaces": [
+      {
+        "nombre": "FastEthernet0/0",
+        "direccion_ip": "<ip>",
+        "metodo": "manual",
+        "estatus": "up",
+        "protocolo": "up"
+      }
+    ]
+  }
+]
+\end{verbatim}
+
+\paragraph*{\texttt{GET /interfaces/\{router\_id\}}}
+\vspace*{1cm}
+
+Devuelve interfaces de un router concreto e incorpora la descripción de interfaz, facilitando la identificación de enlaces.
+\begin{verbatim}
+Respuesta (estructura):
+{
+  "router": "R1",
+  "ip": "<ip_router>",
+  "interfaces": [
+    {
+      "nombre": "FastEthernet0/1",
+      "direccion_ip": "<ip>",
+      "metodo": "manual",
+      "estatus": "up",
+      "protocolo": "up",
+      "descripcion": "Enlace a ..."
+    }
+  ]
+}
+\end{verbatim}
+
+\paragraph*{\texttt{GET /interfaces/\{router\_id\}/detalles}}
+
+
+Devuelve información de diagnóstico por interfaz activa: tráfico, errores, velocidad y dúplex, diseñada para análisis y visualización avanzada.
+\begin{verbatim}
+Respuesta (estructura):
+{
+  "router": "R1",
+  "ip": "<ip_router>",
+  "detalles": [
+    {
+      "nombre": "FastEthernet0/1",
+      "trafico_in": "... packets input ...",
+      "trafico_out": "... packets output ...",
+      "errores": "0 input errors ... / 0 output errors ...",
+      "velocidad": "MTU ... BW ...",
+      "duplex": "Full-duplex, ..."
+    }
+  ]
+}
+\end{verbatim}
+
+\subsubsection*{Detección de errores, alertas e informes}
+
+\paragraph*{\texttt{GET /monitorizar-errores/\{router\_id\}}}
+
+Analiza errores actuales por interfaz y los compara con la muestra anterior. Si se detectan nuevos errores, se genera un PDF y se envía por correo 
+al usuario autenticado de forma asíncrona.
+\begin{verbatim}
+Respuesta (ejemplo):
+{
+  "errores": [
+    {"interfaz":"FastEthernet0/1","errores_entrada":3,"errores_salida":2}
+  ]
+}
+\end{verbatim}
+
+\subsubsection*{Gestión remota}
+
+\paragraph*{\texttt{POST /interfaces/\{router\_id\}/\{interfaz\}/shutdown} \;\; y \;\; \texttt{/noshutdown}}
+
+
+Permiten deshabilitar o habilitar interfaces mediante secuencias de comandos IOS en modo de configuración. La respuesta devuelve información 
+contextual y la salida del dispositivo, útil para auditoría y depuración.
+
+\paragraph*{\texttt{PATCH /interfaces/\{router\_id\}/\{interfaz\}/ip}}
+
+
+Modifica la IP de una interfaz a partir de un cuerpo JSON con validación de formato, reforzando la consistencia de entradas.
+
+\paragraph*{\texttt{PATCH /interfaces/\{router\_id\}/\{interfaz\}/description}}
+
+Actualiza la descripción de interfaz, mejorando la interpretabilidad del inventario y del estado operativo.
+
+\subsubsection*{Estado y recursos del router}
+
+\paragraph*{\texttt{GET /router/\{router\_id\}}}
+
+Devuelve información general del router (modelo, versión, uptime, memoria) extraída de \texttt{show version}.
+
+\paragraph*{\texttt{GET /resources/cpu/\{router\_id\}} \;\; y \;\; \texttt{GET /resources/memory/\{router\_id\}}}
+Devuelven métricas de CPU y memoria normalizadas para su representación gráfica en el frontend.
+
+\paragraph*{\texttt{GET /traffic-summary/\{router\_id\}}}
+
+Devuelve un resumen de tráfico agregado (entrada/salida) a partir de contadores por interfaz.
+
+\subsubsection*{Esquema final de los endpoints realizados}
+
+Con el objetivo de formalizar el diseño de la interfaz entre el \textit{frontend} y el \textit{backend}, a continuación se presenta el esquema final de endpoints implementados en la API REST. Esta documentación permite verificar que los requisitos funcionales definidos para la monitorización y la gestión de la red quedan cubiertos mediante operaciones claramente identificadas, con un contrato de datos coherente y reutilizable.
+
+Los endpoints se han organizado por áreas funcionales para facilitar su comprensión y mantenimiento. En primer lugar, se incluyen las operaciones de autenticación y gestión de usuarios, que constituyen el mecanismo de control de acceso al sistema y permiten proteger aquellas funcionalidades que implican acciones sensibles o envío de notificaciones. En segundo lugar, se documentan los endpoints de interfaces de red, que proporcionan la base del diagnóstico operativo al exponer el estado, la configuración y las métricas relevantes de cada interfaz.
+
+Además, se incorpora un bloque específico de monitorización de errores, alertas e informes, orientado a detectar cambios relevantes en las interfaces y generar informes automáticos, posibilitando la notificación proactiva al usuario. Finalmente, se detallan los endpoints destinados a la obtención del estado general del router y uso de recursos (CPU, memoria, conectividad) y, por último, las operaciones de administración que permiten aplicar cambios de configuración de manera remota.
+
+Desde el punto de vista del contrato de datos, la API utiliza intercambio en formato \texttt{JSON}, con parámetros de tres tipos: (i) \textit{path parameters} para identificar recursos (\texttt{router\_id} o \texttt{nombre} de interfaz), (ii) \textit{query parameters} para activar modos de operación (por ejemplo, ejecución simulada), y (iii) cuerpos de petición (\textit{request body}) en operaciones de modificación (cambio de IP, descripción, hostname o timeout). Esta estructura permite un consumo directo desde el cliente web y facilita la validación de datos mediante modelos.
+
+Las Figuras~\ref{fig:api-auth}--\ref{fig:api-admin} muestran la documentación visual final de los endpoints implementados, agrupados por sección funcional.
+\clearpage % o \newpage
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{canva/01_autenticacion.png}
+  \caption{Diseño de la API: endpoints de autenticación y gestión de usuario.}
+  \label{fig:api-auth}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{canva/02_interfaces.png}
+  \caption{Diseño de la API: endpoints para la consulta y gestión de interfaces de red.}
+  \label{fig:api-interfaces}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{canva/03_monitorizacion.png}
+  \caption{Diseño de la API: endpoint de monitorización de errores, generación de informes y envío de alertas.}
+  \label{fig:api-monitorizacion}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{canva/04_estado_recursos.png}
+  \caption{Diseño de la API: endpoints para la obtención del estado del router y uso de recursos.}
+  \label{fig:api-estado}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{canva/05_administracion.png}
+  \caption{Diseño de la API: endpoints de administración y modificación remota de la configuración.}
+  \label{fig:api-admin}
+\end{figure}
+
+  
+
+\section{Diseño del frontend.}
+
+La capa de presentación del sistema se ha diseñado como una aplicación web orientada a la visualización en tiempo real del estado de los routers y sus interfaces, así como a la ejecución de acciones de gestión de forma controlada. Para ello, se ha empleado \textit{Vue
+3} como framework de desarrollo en el cliente, \textit{Axios} para la comunicación con el backend mediante peticiones HTTP, \textit{Bootstrap 5} para el diseño visual y \textit{Vue.js} junto con \textit{Lucide Icons} para la representación gráfica e inconográfica de los datos.
+
+A diferencia ñde un enfoque basado en una única aplicación monolítica, el frontend se ha estructurado en distintas vistas HTML independientes, cada una asociada a un módulo funcional concreto. Este diseño favoraece la claridad y el mantenimiento del proyecto, ya que cada vista contiene la lógica estrictamente necesaria para su propósito, manteniendo una experiencia de usuario homogénea mediante el uso de estilos comunes y una barra de navegación coherente en todas las pantallas.
+
+\subsection*{Estructura por vistas  y navegación de usuario}
+
+El frontend del sistema se ha diseñado siguiendo el enfoque basado en vistas web independientes, cada una asociada a un módulo funcional específico del sistema de monitorización. Esta organización pemrmite separar claramente las responsabilidades de cada pantalla, facilitando tanto la comprensión del sistema como su mantenimiento y extensión futura.
+
+La navegación del usuario se inicia en la vista de autenticación (\texttt{login.html}), que actúa como punto de entrada al sistema. Desde esta pantalla, el usuario puede iniciar sesión oregistrarse, y únicamente tras una autenticación correcta se permite el acceso al resto de vistas. Una vez validado el usuario, se accede a la vista de resumen global (\texttt{index.html}), que representa una visión general del sistema de monitorización y sirve como nodo central de navegación.
+
+Desde el resumen global, el usuario puede acceder a los dos módulos praincipales del frontend:
+
+\begin{itemize}
+    \item El módulo de \textit{Estado del Router},
+    orientado a la visualización del estado general de los dispositivos, el consumo de
+    recursos y la ejecución de acciones de gestión global.
+    \item El módulo de \textit{Interfaces de Red},
+    centrado en la monitorización detallada de las interfaces, el análisis de tráfico y
+    errores, y la realización de acciones administrativas a nivel de interfaz.
+\end{itemize}
+
+Este esquema de navegación garantiza el flujo de uso claro y coherente, evitando la sobrecarga de información en una única vista y permitiendo al usuario acceder directamente al módulo que mejor se ajusta a su objetivo en cada momento. Además, todas las vistas comparten una estructura visual común, con una barra de navegación superior que proporciona identidad al sistema y acceso a funcionalidades básicas como el cierre de sesión.
+
+La Figura~\ref{fig:diagrama-navegacion-frontend} muestra de forma esquemática la estructura de vista del frontend y el flujo principal de navegación del usuario, desde la autenticación inicial hasta el acceso a los distintos módulos de monitorización.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{canva/diagrama_navegacion_frontend.png}
+    \caption{Diagrama de navegación del frontend del sistema de monitorización.}
+    \label{fig:diagrama-navegacion-frontend}
+\end{figure}
+
+Adicionalmente, el diseño del frontend incorpora un control de acceso en el lado del cliente, de forma que las vistas de monitorización verifican la existencia de una sesión válida antes de cargarse. En caso contrario, el usuario es redirigido automáticamente a la pantalla de autenticación, reforzando la seguridad y coherencia del flujo de navegación.
+
+\subsection*{Gestión de sesión y control de acceso}
+
+El diseño del frontend incorpora un control de sesión basado en tokens JWT, que permite mantener la autenticación del usario entre vistas y restringir el acceso a las páginas de monitorización. Tras un inicio de sesión correcto, el token almacena en el navegador (\textit{localStorage}) y se utiliza posteriormente en las peticiones al backend mediante la cabecera \texttt{Authorization: Bearer \{token\}}.
+
+Para reforzar el control de acceso, las vistas principales verifican la existencia del token y, en caso de no estar disponible, redirigen automáticamente a la pantalla de autenticación. Adicionalmente, el email del usuario se muestra en la barra de navegación decodificando el contenido del token.
+
+\subsection*{Interacción con el backend}
+
+La comunicación con el backend se ha diseñado siguiendo un patrón basado en peticiones REST. Las vistas del frontend realizan consultas al servidor para obtener datos de monitorización (por ejemplo, resumen de \textit{uptime}, estado del router, métricas de CPU y memoria, estado de interfaces, tráfico y erroes), y reciben respuestas estructuradas en JSON que se integran directamente en el modelo reactivo de Vue.
+
+Este enfoque desacopla la lógica de adquisición de métricas (responsabilidad del backend) de la representación visual (responsabilidad del frontend), facilitando el mantenimiento y la evolución del sistema.
+
+\subsection*{Diseño de la vista de Interfaces}
+
+La vista se ha diseñado para proporcionar un control operativo sobre las interfaces del router seleccionado. El usuario puede elegir el router a monitorizar mediante un selector, persistiendo dicha selección para mantener continuidad en la navegación. A partir de la selección el sistema muestra:
+
+\begin{itemize}
+    \item Tabla principal de interfaces con atributos relevantes (nombre, IP, método,
+    estado, protocolo y descripción).
+    \item Representación semántica del estado y del protocolo mediante iconos e indicación
+    visual de \textit{up}, \textit{down} o \textit{administratively down}, facilitando una lectura
+    rápida.
+    \item Acciones administrativas contextualizadas por interfaz (apagado/encendido y
+    modificación controlada de parámetros como dirección IP o descripción).
+    \item Tabla de detalles para interfaces activas, incluyendo tráfico entrante/saliente,
+    contadores de errores, velocidad y modo dúplex.
+\end{itemize}
+
+En esta vista se incorporán, además, mecanismos visuales para apoyar la interpretación de métricas: barras de progreso para comparar tráfico relativo y señalización clara de la presencia o ausencia de errores mediante iconografía.
+
+\subsection*{Visualización gráfica de métricas}
+
+El frontend incluye representación gráfica de métricas mediante \textit{Vue.js}. En el módulo de interfaces se generan gráficos por interfaz para comparar tráfico entrante y saliente. En el módulo de estado el router se representa el uso de memoria mediante un gráfico tipo \textit{doughnut}. Para asegurar estabilidad en un entorno de monitorización con refresco periódico, el diseño contempla la destrucción y recreación controlada de instancias de gráficos antes de su actualización, evitando errores de renderizado y manteniendo la consistencia visual.
+
+\subsection*{Diseño de la vista de Estado del Router}
+
+La vista se centra en ofrecer una visión general del dispositivo y sus recursos. Incluye un resumen de \textit{uptime} para todos los routers y un selector para consultar en detalle el router elegido. Entre los elementos presentados se incluyen: disponibilidad del router (en línea/fuera de línea), información de versión y modelo, \textit{uptime}, uso de CPU (en ventanas temporales) y uso de memoria.
+
+Además, esta vista incorpora formularios de gestión para ejecutar cambios controlados en el dispositivo (por ejemplo, modificar \textit{hostname} o parámetros de \textit{timeout}) y un mecanismo para guardar la configuración en el router. El diseño mantiene estas acciones separadas de la monitorización, mostrando formularios únicamente cuando el usuario decide realizar una modificación.
+
+\subsection*{Actulización automática y parametrización mediante fichero de configuración}
+
+El sistema se ha diseñado para funcionar en modo de monitorización continua, realizando actualizaciones periódicas de los datos visualizados. Para ello, el frontend implementa un mecanismo de refresco automático basado en temporizadores, que lanza consultas periódicas al backend en función de un interfalo configurable.
+
+Con el objetivo de facilitar la adaptación del sistema sin modificar el código, diversos parámetros del frontend (títulos, color de fondo, router por defecto, intervalo de refresco y activación de gráficas, entre otros) se cargan desde un fichero de configuración externo (\texttt{environment.json}). Este enfoque permite ajustar el comportamiento de la interfaz y su apariencia de forma centralizada, mejorando la flexibilidad del sistema.
+
+\section{Diseño de seguridad, alertas e informes.}
+
+El sistema de monitorización desarrollado incorpora mecanismo de seguridad y supervisión diseñados para garantizar un acceso controlado a la información, así como para detectar eventos relevantes en la red y notificar al usuario de forma automática.
+
+\subsection*{Diseño de la seguridad y control de acceso.}
+
+La seguridad del sistema se ha planteado desde un enfoque de autenticación centralizada y control de acceso basado en sesiones. El acceso al sistema web se realiza exclusivamente a través de un proceso de autentiación, que permite identificar al usuario y restringir el uso de las funcionalidades de monitorización a usuarios autorizados.
+
+Para la gestión de la sesión se emplea un mecanismo basado en \textit{JSON Web Tokens}(JWT). Tras un inicio de sesión satisfactorio, el sistema genera un token firmado que identifica al usuario autenticado y que se utiliza como credencial en las peticioñnes posteriores al backend. Este token se almacena en al cliente y se adjunta automáticamente a las solicitudes dirigidas a los endpoints protegidos, permitiendo validar la identidad del usuario en cada operación.
+
+Desde el punto de vista del diseño, este enfoque presenta varias ventajas: evita la necesidad de mantenter el estado de sesión en el servidor, facilita la escalabilidad del sistema y permite aplicar políticas de acceso de forma homogénea en todas las vistas del frontend. Adicionalmente, las vistas de monitorización incorporan verificaciones previas que impiden el acceso directo a las mismas si no existe una sesión válida, redirigiendo al usuario a la pantalla de autenticación.
+
+\subsection*{Diseño del sistema de alertas.}
+
+El sistema de alertas se ha diseñado con el objetivo de destectar automáticamente anómalas en la red, centrándose principalmente en la aparición de errores en las interfaces de los routers monitorizados. Para ello, el backend consulta periódicamente el estado de las interfaces y analiza los contadores de erroes proporcionados por los dispositivos de red.
+
+A nivel de diseño, se define un criterio de alerta basado en la detección de cambios significativos en los contadores de errores de las interfaces. Cuando se identifica la presencia de errores nuevos o un incremento relevante respecto a una consulta anterior, el sistema considera que se ha producido un evento susceptible de notificación.
+
+El frontend se integra con este mecanismo de supervisión solicitando de forma periódica el estado de las interfaces, de modo que las alertas detectadas por el backend se reflejan en la interfaz del usuario mediante indicadores visuales claros. De esta forma, el usuario puede identificar rápidamente que interfaces presentan problemas y acceder a su información detallada.
+
+\subsection*{Diseño de la generación de informes y notificaciones.}
+
+Como complemento al sistema de alertas, el diseño del sistema contempla la generación automática de informes cuando se detectan incidencias relevantes den la red. Estos informes tienen como objetivo proporcionar un resumen estructurado de los errores detectados, incluyendo información sobre el router afectado, las interfaces implicadas y el tipo de error identificado.
+
+El formato elegido por los informes es PDF, debido a su portabilidad y facilidad de distribución. Desde el punto de vista del diseño, la generación del informe se realiza de forma automática cuando el sistema detecta errores nuevos en las interfaces monitorizadas, sin requerir la intervención directa del usuario.
+
+Una vez generado el informe, este se envía por correo electrónico al usuario autenticado, permitiendo que el sitema actúe como un mecanismo activo de supervisión. De este modo, el usuario puede recibir notificaciones de incidencias incluso cuando no está interactuando directamente con la interfaz web.
+
+La Figura~\ref{fig:flujo-alertas-informes} muestra de forma esquemática el flujo completo del
+sistema de alertas e informes, desde la detección de errores en los dispositivos de red hasta
+la notificación final al usuario mediante correo electrónico.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{canva/diagrama_alertas_informes.png}
+    \caption{Flujo de funcionamiento del sistema de alertas e informes automáticos.}
+    \label{fig:flujo-alertas-informes}
+\end{figure}

@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API Endpoints — Export PNG por secciones</title>
+
+  <!-- Exportar a PNG -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <style>
+    body{
+      margin:0;
+      background:#f2f2f2;
+      font-family: Arial, Helvetica, sans-serif;
+      color:#111;
+    }
+
+    .topbar{
+      max-width:1100px;
+      margin:20px auto 10px auto;
+      padding:0 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    .topbar h1{
+      margin:0;
+      font-size:18px;
+      font-weight:700;
+    }
+
+    .topbar .note{
+      margin:4px 0 0 0;
+      font-size:12px;
+      color:#555;
+      line-height:1.35;
+    }
+
+    .btn{
+      border:1px solid #333;
+      background:#fff;
+      padding:8px 12px;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .layout{
+      max-width:1100px;
+      margin:0 auto 30px auto;
+      padding:0 16px;
+      display:grid;
+      gap:14px;
+    }
+
+    /* Cada sección es una "figura" exportable */
+    .export-block{
+      width:1100px;
+      background:#fff;
+      border:1px solid #cfcfcf;
+      padding:18px 18px 14px 18px;
+    }
+
+    .header{
+      border-bottom:2px solid #111;
+      padding-bottom:10px;
+      margin-bottom:14px;
+    }
+
+    .header .title{
+      font-size:16px;
+      font-weight:800;
+      margin:0;
+    }
+
+    .header .subtitle{
+      font-size:12px;
+      color:#444;
+      margin:6px 0 0 0;
+      line-height:1.35;
+    }
+
+    .meta{
+      margin-top:10px;
+      font-size:12px;
+      color:#333;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      border:1px solid #bbb;
+      padding:3px 8px;
+      border-radius:999px;
+      background:#fafafa;
+    }
+
+    h2{
+      font-size:13px;
+      margin:0 0 8px 0;
+    }
+
+    .tbl{
+      width:100%;
+      border-collapse:collapse;
+      font-size:12px;
+    }
+
+    .tbl th, .tbl td{
+      border:1px solid #d7d7d7;
+      padding:8px 8px;
+      vertical-align:top;
+    }
+
+    .tbl th{
+      background:#f3f3f3;
+      font-weight:800;
+      text-align:left;
+    }
+
+    .method{
+      display:inline-block;
+      font-weight:800;
+      font-size:11px;
+      border:1px solid #111;
+      padding:2px 6px;
+      border-radius:4px;
+      margin-right:6px;
+      min-width:54px;
+      text-align:center;
+    }
+    .get{ background:#e9f7ee; }
+    .post{ background:#e8f1ff; }
+    .patch{ background:#fff6e5; }
+
+    code{
+      font-family: "Courier New", Courier, monospace;
+      font-size:11.5px;
+      color:#111;
+    }
+
+    .muted{ color:#555; }
+
+    .json{
+      margin-top:6px;
+      background:#fcfcfc;
+      border:1px solid #e0e0e0;
+      padding:6px 8px;
+      border-radius:4px;
+      white-space:pre-wrap;
+      font-family: "Courier New", Courier, monospace;
+      font-size:11px;
+      line-height:1.25;
+    }
+
+    .foot{
+      margin-top:12px;
+      font-size:11px;
+      color:#444;
+      border-top:1px solid #ddd;
+      padding-top:10px;
+      line-height:1.35;
+    }
+
+    /* Para que en pantalla se vea centrado, manteniendo ancho fijo exportable */
+    .center{
+      display:flex;
+      justify-content:center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div>
+      <h1>Exportación a PNG por secciones (para LaTeX)</h1>
+      <div class="note">
+        Al pulsar el botón se descargarán varios PNG: Autenticación, Interfaces, Monitorización, Estado/Recursos y Administración.
+        Cada imagen tiene fondo blanco y se exporta con ancho fijo para insertarla como figura en la memoria.
+      </div>
+    </div>
+    <button class="btn" id="btnExportAll">Exportar PNG por secciones</button>
+  </div>
+
+  <div class="layout">
+
+    <!-- 1) Autenticación -->
+    <div class="center">
+      <section class="export-block" id="sec-auth" data-filename="01_autenticacion.png">
+        <div class="header">
+          <p class="title">Diseño de la API — 1) Autenticación</p>
+          <p class="subtitle">
+            Endpoints para registro, login y confirmación de correo. Formato de intercambio: JSON.
+          </p>
+          <div class="meta">
+            <span class="chip"><b>Formato:</b> JSON</span>
+            <span class="chip"><b>Acceso:</b> Público</span>
+          </div>
+        </div>
+
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:18%">Endpoint</th>
+              <th style="width:28%">Descripción</th>
+              <th style="width:27%">Request (ejemplo)</th>
+              <th style="width:27%">Response (ejemplo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method post">POST</span><code>/register</code></td>
+              <td>Registro de usuario y envío de enlace de confirmación por email.</td>
+              <td>
+                <div class="json">{
+  "email": "usuario@dominio.com",
+  "password": "********"
+}</div>
+              </td>
+              <td>
+                <div class="json">{
+  "mensaje": "Usuario creado. Revisa tu correo para activarlo."
+}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="method post">POST</span><code>/login</code></td>
+              <td>Login y obtención de token JWT (Bearer).</td>
+              <td>
+                <div class="json">{
+  "email": "usuario@dominio.com",
+  "password": "********"
+}</div>
+              </td>
+              <td>
+                <div class="json">{
+  "access_token": "&lt;jwt&gt;",
+  "token_type": "bearer"
+}</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/confirmar-correo?token=&lt;jwt&gt;</code></td>
+              <td>Confirmación del correo a partir del token.</td>
+              <td class="muted">—</td>
+              <td>
+                <div class="json">{
+  "mensaje": "Correo confirmado correctamente. Ya puedes iniciar sesión."
+}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- 2) Interfaces de red -->
+    <div class="center">
+      <section class="export-block" id="sec-interfaces" data-filename="02_interfaces.png">
+        <div class="header">
+          <p class="title">Diseño de la API — 2) Interfaces de red</p>
+          <p class="subtitle">
+            Consulta y diagnóstico de interfaces (listado, detalle, errores) y acciones remotas sobre interfaces.
+          </p>
+          <div class="meta">
+            <span class="chip"><b>Routers:</b> R1 · R2 · R3</span>
+            <span class="chip"><b>Nota:</b> en path, “/” se codifica como <code>%2F</code></span>
+          </div>
+        </div>
+
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:18%">Endpoint</th>
+              <th style="width:28%">Descripción</th>
+              <th style="width:27%">Request (ejemplo)</th>
+              <th style="width:27%">Response (ejemplo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method get">GET</span><code>/interfaces</code></td>
+              <td>Listado agregado de interfaces (todos los routers): IP + estado físico/protocolo.</td>
+              <td class="muted">—</td>
+              <td>
+                <div class="json">[
+  {
+    "router": "R1",
+    "ip": "192.168.56.11",
+    "interfaces": [
+      {
+        "nombre": "FastEthernet0/0",
+        "direccion_ip": "192.168.1.1",
+        "metodo": "manual",
+        "estatus": "up",
+        "protocolo": "up"
+      }
+    ]
+  }
+]</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/interfaces/{router_id}</code></td>
+              <td>Interfaces de un router incluyendo descripción por interfaz.</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Devuelve objeto con <code>interfaces[]</code> y campo <code>descripcion</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/interfaces/{router_id}/detalles</code></td>
+              <td>Diagnóstico profundo (UP/UP): tráfico, errores, BW/MTU y dúplex.</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Incluye <code>trafico_in</code>, <code>trafico_out</code>, <code>errores</code>, <code>velocidad</code>, <code>duplex</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method post">POST</span><code>/interfaces/{router_id}/{nombre}/shutdown</code></td>
+              <td>Deshabilita administrativamente una interfaz.</td>
+              <td class="muted">Path: <code>router_id</code>, <code>nombre</code> (p.ej. <code>FastEthernet0%2F1</code>)</td>
+              <td class="muted">Devuelve salida CLI (<code>salida</code>).</td>
+            </tr>
+
+            <tr>
+              <td><span class="method post">POST</span><code>/interfaces/{router_id}/{nombre}/noshutdown</code></td>
+              <td>Habilita administrativamente una interfaz.</td>
+              <td class="muted">Path: <code>router_id</code>, <code>nombre</code> (p.ej. <code>FastEthernet0%2F1</code>)</td>
+              <td class="muted">Respuesta análoga a shutdown.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method patch">PATCH</span><code>/interfaces/{router_id}/{nombre}/description</code></td>
+              <td>Modifica la descripción de la interfaz.</td>
+              <td><div class="json">{ "descripcion": "Enlace a switch planta 2" }</div></td>
+              <td class="muted">Incluye salida CLI y descripción aplicada.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method patch">PATCH</span><code>/interfaces/{router_id}/{nombre}/ip</code></td>
+              <td>Modifica IP y máscara de la interfaz.</td>
+              <td>
+                <div class="json">{
+  "nueva_ip": "192.168.56.50",
+  "mascara": "255.255.255.0"
+}</div>
+              </td>
+              <td class="muted">Devuelve mensaje + salida CLI.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/interfaces/errors/{router_id}</code></td>
+              <td>Devuelve únicamente interfaces con errores &gt; 0 (entrada/salida).</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Devuelve <code>errores_interfaces[]</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- 3) Monitorización -->
+    <div class="center">
+      <section class="export-block" id="sec-monitorizacion" data-filename="03_monitorizacion.png">
+        <div class="header">
+          <p class="title">Diseño de la API — 3) Monitorización, alertas e informes</p>
+          <p class="subtitle">
+            Detección de nuevos errores y envío de informe PDF por correo al usuario autenticado (BackgroundTasks).
+          </p>
+          <div class="meta">
+            <span class="chip"><b>Acceso:</b> JWT (explícito en el endpoint)</span>
+            <span class="chip"><b>Modo prueba:</b> <code>simulado=true</code></span>
+          </div>
+        </div>
+
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:18%">Endpoint</th>
+              <th style="width:28%">Descripción</th>
+              <th style="width:27%">Request (ejemplo)</th>
+              <th style="width:27%">Response (ejemplo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method get">GET</span><code>/monitorizar-errores/{router_id}</code></td>
+              <td>
+                Compara errores actuales vs previos; si hay cambios y existen errores, genera un PDF y lo envía por email.
+                Recupera el destinatario desde el usuario autenticado (<code>get_current_user</code>).
+              </td>
+              <td class="muted">
+                Path: <code>router_id</code><br/>
+                Query: <code>simulado</code> (bool)
+              </td>
+              <td>
+                <div class="json">{
+  "errores": [
+    { "interfaz": "FastEthernet0/1", "errores_entrada": 3, "errores_salida": 2 }
+  ]
+}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="foot">
+          El endpoint está definido en un <code>APIRouter</code> y se añade al servidor con <code>app.include_router(router)</code>.
+        </div>
+      </section>
+    </div>
+
+    <!-- 4) Estado y recursos -->
+    <div class="center">
+      <section class="export-block" id="sec-estado" data-filename="04_estado_recursos.png">
+        <div class="header">
+          <p class="title">Diseño de la API — 4) Estado del router y recursos</p>
+          <p class="subtitle">
+            Endpoints para información general, CPU/RAM, conectividad, uptime y tráfico agregado.
+          </p>
+          <div class="meta">
+            <span class="chip"><b>Routers:</b> R1 · R2 · R3</span>
+            <span class="chip"><b>Diagnóstico:</b> show version / show processes / show interfaces</span>
+          </div>
+        </div>
+
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:18%">Endpoint</th>
+              <th style="width:28%">Descripción</th>
+              <th style="width:27%">Request (ejemplo)</th>
+              <th style="width:27%">Response (ejemplo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method get">GET</span><code>/router/{router_id}</code></td>
+              <td>Información general (modelo, versión, uptime, CPU, memoria, nº interfaces).</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Campos: <code>modelo</code>, <code>version</code>, <code>uptime</code>, <code>cpu</code>, <code>memoria</code>, <code>interfaces</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/resources/cpu/{router_id}</code></td>
+              <td>CPU utilization (5s/1m/5m) parseada por regex.</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Campos: <code>cpu_5s</code>, <code>cpu_1m</code>, <code>cpu_5m</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/resources/memory/{router_id}</code></td>
+              <td>Uso RAM (Processor Pool): total/usado/libre y % usado.</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Devuelve objeto <code>memoria</code> con total/usado/libre/porcentaje.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/ping/{router_id}</code></td>
+              <td>Comprueba conectividad mediante ping al router.</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Devuelve <code>activo</code> (bool).</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/uptime-summary</code></td>
+              <td>Resumen de uptime para todos los routers.</td>
+              <td class="muted">—</td>
+              <td class="muted">Lista con <code>router</code>, <code>ip</code>, <code>uptime</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method get">GET</span><code>/traffic-summary/{router_id}</code></td>
+              <td>Resumen de tráfico total input/output y detalle por interfaz (packets).</td>
+              <td class="muted">Path: <code>router_id</code></td>
+              <td class="muted">Devuelve <code>trafico_total</code> y <code>detalle_interfaces</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- 5) Administración -->
+    <div class="center">
+      <section class="export-block" id="sec-admin" data-filename="05_administracion.png">
+        <div class="header">
+          <p class="title">Diseño de la API — 5) Administración y cambios de configuración</p>
+          <p class="subtitle">
+            Endpoints para aplicar cambios remotos (hostname, timeout) y guardar configuración.
+          </p>
+          <div class="meta">
+            <span class="chip"><b>Operación:</b> SSH + comandos IOS</span>
+            <span class="chip"><b>Persistencia:</b> <code>write memory</code></span>
+          </div>
+        </div>
+
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:18%">Endpoint</th>
+              <th style="width:28%">Descripción</th>
+              <th style="width:27%">Request (ejemplo)</th>
+              <th style="width:27%">Response (ejemplo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method patch">PATCH</span><code>/router/{router_id}/hostname</code></td>
+              <td>Cambia el hostname del router (configure terminal → hostname).</td>
+              <td><div class="json">{ "nuevo_hostname": "R1-CORE" }</div></td>
+              <td class="muted">Devuelve salida CLI en <code>resultado</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method patch">PATCH</span><code>/router/{router_id}/timeout</code></td>
+              <td>Configura <code>exec-timeout</code> en líneas VTY 0–4.</td>
+              <td><div class="json">{ "minutos": 10, "segundos": 0 }</div></td>
+              <td class="muted">Devuelve salida CLI en <code>resultado</code>.</td>
+            </tr>
+
+            <tr>
+              <td><span class="method post">POST</span><code>/router/{router_id}/save-config</code></td>
+              <td>Fuerza guardado de la configuración (write memory).</td>
+              <td class="muted">—</td>
+              <td class="muted">Devuelve salida en <code>resultado</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="foot">
+          Si en tu memoria decides proteger todos los endpoints con JWT, indica aquí el mecanismo (dependencia global / middleware).
+          En el código aportado, la autenticación explícita se muestra en <code>/monitorizar-errores</code>.
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <script>
+    async function exportSectionToPng(sectionEl, filename){
+      // Para evitar capturar sombras externas, forzamos background blanco.
+      const canvas = await html2canvas(sectionEl, {
+        scale: 2,
+        backgroundColor: "#ffffff",
+        useCORS: true
+      });
+
+      const link = document.createElement("a");
+      link.download = filename;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+
+      // Pequeño delay para no saturar descargas (especialmente en Chrome)
+      await new Promise(r => setTimeout(r, 350));
+    }
+
+    document.getElementById("btnExportAll").addEventListener("click", async () => {
+      const btn = document.getElementById("btnExportAll");
+      btn.disabled = true;
+      const oldText = btn.textContent;
+      btn.textContent = "Exportando...";
+
+      try{
+        const sections = Array.from(document.querySelectorAll(".export-block"));
+        for (const sec of sections){
+          const filename = sec.getAttribute("data-filename") || "export.png";
+          await exportSectionToPng(sec, filename);
+        }
+      } finally{
+        btn.disabled = false;
+        btn.textContent = oldText;
+      }
+    });
+  </script>
+</body>
+</html>

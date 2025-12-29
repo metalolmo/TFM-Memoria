@@ -35,6 +35,14 @@
 \contentsline {figure}{\numberline {7.1}{\ignorespaces \xpg@aux {}{spanish}Arquitectura general del sistema: interacción entre frontend, backend y routers Cisco.}}{43}{figure.caption.54}%
 \contentsline {figure}{\numberline {7.2}{\ignorespaces \xpg@aux {}{spanish}Topología de red empleada en GNS3 para la monitorización de los routers Cisco.}}{45}{figure.caption.58}%
 \contentsline {figure}{\numberline {7.3}{\ignorespaces \xpg@aux {}{spanish}Diagrama del flujo de comunicación entre el usuario, el backend y los routers Cisco.}}{49}{figure.caption.65}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces \xpg@aux {}{spanish}Arquitectura lógica del backend del sistema de monitorización}}{51}{figure.caption.68}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces \xpg@aux {}{spanish}Diseño de la API: endpoints de autenticación y gestión de usuario.}}{57}{figure.caption.96}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces \xpg@aux {}{spanish}Diseño de la API: endpoints para la consulta y gestión de interfaces de red.}}{57}{figure.caption.97}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces \xpg@aux {}{spanish}Diseño de la API: endpoint de monitorización de errores, generación de informes y envío de alertas.}}{58}{figure.caption.98}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces \xpg@aux {}{spanish}Diseño de la API: endpoints para la obtención del estado del router y uso de recursos.}}{58}{figure.caption.99}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces \xpg@aux {}{spanish}Diseño de la API: endpoints de administración y modificación remota de la configuración.}}{58}{figure.caption.100}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces \xpg@aux {}{spanish}Diagrama de navegación del frontend del sistema de monitorización.}}{60}{figure.caption.102}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces \xpg@aux {}{spanish}Flujo de funcionamiento del sistema de alertas e informes automáticos.}}{63}{figure.caption.112}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

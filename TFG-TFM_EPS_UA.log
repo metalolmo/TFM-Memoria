@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  30 NOV 2025 19:30
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  29 DEC 2025 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2266,27 +2266,27 @@ chapter without number
 
 
 
-[12] (TFG-TFM_EPS_UA.lof)
+[12] (TFG-TFM_EPS_UA.lof
+
+[13
+
+
+])
 \tf@lof=\write8
 \openout8 = `TFG-TFM_EPS_UA.lof'.
 
 
 
-[13
-
-
-]
-
-[14
-
-
-] (TFG-TFM_EPS_UA.lot)
+[14] (TFG-TFM_EPS_UA.lot)
 \tf@lot=\write9
 \openout9 = `TFG-TFM_EPS_UA.lot'.
 
 
 
-[15]
+[15
+
+
+]
 
 [16
 
@@ -2619,54 +2619,124 @@ Underfull \vbox (badness 3623) has occurred while \output is active []
 
 [48]
 
-[49]) (capitulos/implementacion.tex
+[49]
+File: canva/diagrama_backend_tfm.png Graphic file (type bmp)
+<canva/diagrama_backend_tfm.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [50]
-chapter 8.
-) (capitulos/pruebas.tex
 
-[51
+[51]
+
+[52]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 292.
+
+
+[53]
+
+[54]
+Overfull \hbox (2.48392pt too wide) in paragraph at lines 399--401
+[] []\TU/lmtt/b/n/10.95 POST /interfaces/{router_id}/{interfaz}/shutdown  \TU/l
+mss/bx/n/10.95 y  \TU/lmtt/b/n/10.95 /noshutdown[] \TU/lmr/m/n/10.95 Permiten d
+es-
+ []
+
+
+
+[55]
+
+[56]
+File: canva/01_autenticacion.png Graphic file (type bmp)
+<canva/01_autenticacion.png>
+File: canva/02_interfaces.png Graphic file (type bmp)
+<canva/02_interfaces.png>
+File: canva/03_monitorizacion.png Graphic file (type bmp)
+<canva/03_monitorizacion.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[57
+
+]
+File: canva/04_estado_recursos.png Graphic file (type bmp)
+<canva/04_estado_recursos.png>
+File: canva/05_administracion.png Graphic file (type bmp)
+<canva/05_administracion.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[58]
+File: canva/diagrama_navegacion_frontend.png Graphic file (type bmp)
+<canva/diagrama_navegacion_frontend.png>
+
+
+[59]
+
+[60]
+
+[61]
+
+[62]
+File: canva/diagrama_alertas_informes.png Graphic file (type bmp)
+<canva/diagrama_alertas_informes.png>
+) (capitulos/implementacion.tex
+
+[63]
+
+[64
 
 
 ]
+chapter 8.
+) (capitulos/pruebas.tex
 
-[52
+[65]
+
+[66
 
 
 ]
 chapter 9.
 ) (capitulos/resultados.tex
 
-[53]
+[67]
 
-[54
+[68
 
 
 ]
 chapter 10.
 ) (capitulos/conclusiones.tex
 
-[55]
+[69]
 
-[56
+[70
 
 
 ]
 chapter 11.
 ) (capitulos/trabajo futuro.tex
 
-[57]
+[71]
 
-[58
+[72
 
 
 ]
 chapter 12.
 ) (TFG-TFM_EPS_UA.bbl
 
-[59]
+[73]
 
-[60
+[74
 
 
 ]
@@ -2686,7 +2756,7 @@ d de contenedores en azure kubernetes
 
 
 
-[61]
+[75]
 Underfull \hbox (badness 10000) in paragraph at lines 387--403
 [][][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][] [] [][] [] [][][][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][] [] [][][][]
@@ -2703,23 +2773,23 @@ l.684 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
 No file TFG-TFM_EPS_UA.acr.
 (anexos/anexo_I.tex
 
-[62]
+[76]
 chapter A.
 ) (anexos/anexo_2.tex
 
-[63
+[77
 
 
 ]
 
-[64
+[78
 
 
 ]
 chapter B.
 )
 
-[65] (TFG-TFM_EPS_UA.aux)
+[79] (TFG-TFM_EPS_UA.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2730,12 +2800,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 60829 strings out of 403249
- 1455383 string characters out of 5465214
- 2705172 words of memory out of 5000000
- 88172 multiletter control sequences out of 15000+600000
- 644972 words of font info for 147 fonts, out of 8000000 for 9000
+ 60932 strings out of 403249
+ 1458643 string characters out of 5465214
+ 2706122 words of memory out of 5000000
+ 88265 multiletter control sequences out of 15000+600000
+ 644980 words of font info for 148 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  113i,21n,114p,11008b,2139s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TFG-TFM_EPS_UA.pdf (83 pages).
+Output written on TFG-TFM_EPS_UA.pdf (97 pages).

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diagrama de arquitectura del backend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap (solo para maquetación básica) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Mermaid (diagramas) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- Exportar a PNG -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <style>
+      /* Estética formal/académica */
+      body {
+        background: #ffffff;
+        font-family: "Times New Roman", Times, serif;
+        color: #111;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 12px;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #444;
+        margin-bottom: 14px;
+      }
+
+      /* Botón discreto (no “app-like”) */
+      .actions {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+
+      /* Marco tipo figura de memoria */
+      .figure-card {
+        border: 1px solid #cfcfcf;
+        border-radius: 6px;
+        padding: 14px;
+        background: #fff;
+      }
+
+      .figure-caption {
+        margin-top: 10px;
+        font-size: 0.95rem;
+        color: #333;
+        text-align: center;
+      }
+
+      /* Contenedor a exportar */
+      #exportArea {
+        background: #ffffff;
+      }
+
+      /* Mermaid */
+      .mermaid {
+        border: 1px solid #9a9a9a;
+        border-radius: 4px;
+        padding: 12px;
+        background: #ffffff;
+      }
+
+      /* Evitar que el diagrama quede “aplastado” en pantallas pequeñas */
+      .mermaid svg {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* En impresión: ocultar botón */
+      @media print {
+        .actions {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <h2 class="title">Diagrama de arquitectura del backend</h2>
+      <p class="subtitle">
+        Sistema web de monitorización de red basado en API REST y comunicación SSH
+      </p>
+
+      <div class="actions">
+        <button id="btnPng" class="btn btn-outline-secondary btn-sm">
+          Exportar figura a PNG
+        </button>
+      </div>
+
+      <!-- ZONA EXPORTABLE (solo esto se convierte a PNG) -->
+      <div id="exportArea" class="figure-card">
+        <div class="mermaid">
+flowchart TB
+  FE[Frontend Web<br/>Vue + Bootstrap + Chart.js] -->|HTTP REST + JSON<br/>JWT| API[FastAPI Backend]
+
+  subgraph BACK[Backend]
+    API --> AUTH[Autenticación JWT]
+    API --> MON[Monitorización]
+    API --> CFG[Configuración remota]
+    API --> ALERT[Alertas e informes]
+
+    MON --> INTF[Interfaces<br/>Tráfico y errores]
+    MON --> RES[CPU RAM Uptime]
+
+    CFG --> ACT1[Shutdown y No shutdown]
+    CFG --> ACT2[Cambio de IP y descripción]
+    CFG --> ACT3[Hostname Timeout Guardado]
+
+    ALERT --> DET[Detección de nuevos errores]
+    ALERT --> PDF[Generación de informe PDF]
+    ALERT --> MAIL[Envío por correo electrónico]
+  end
+
+  API -->|SSH Paramiko| SSH[Gestor SSH]
+
+  SSH --> R1[Router R1]
+  SSH --> R2[Router R2]
+  SSH --> R3[Router R3]
+        </div>
+
+        <div class="figure-caption">
+          Figura: Arquitectura lógica del backend (FastAPI) y comunicación con routers Cisco mediante SSH.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Inicializar Mermaid
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+      });
+
+      // Exportar a PNG con html2canvas
+      document.getElementById("btnPng").addEventListener("click", async () => {
+        const exportArea = document.getElementById("exportArea");
+
+        // Esperar un instante para asegurar render completo del SVG de Mermaid
+        await new Promise((r) => setTimeout(r, 300));
+
+        const canvas = await html2canvas(exportArea, {
+          scale: 2, // mejora resolución
+          useCORS: true,
+          backgroundColor: "#ffffff",
+        });
+
+        const link = document.createElement("a");
+        link.download = "diagrama_backend_tfm.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    </script>
+  </body>
+</html>
