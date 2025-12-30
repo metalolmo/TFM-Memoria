@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  29 DEC 2025 18:52
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  30 DEC 2025 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2696,16 +2696,11 @@ File: canva/diagrama_alertas_informes.png Graphic file (type bmp)
 
 ]
 chapter 8.
-) (capitulos/pruebas.tex
+
 
 [65]
 
-[66
-
-
-]
-chapter 9.
-) (capitulos/resultados.tex
+[66]) (capitulos/pruebas.tex
 
 [67]
 
@@ -2713,8 +2708,8 @@ chapter 9.
 
 
 ]
-chapter 10.
-) (capitulos/conclusiones.tex
+chapter 9.
+) (capitulos/resultados.tex
 
 [69]
 
@@ -2722,8 +2717,8 @@ chapter 10.
 
 
 ]
-chapter 11.
-) (capitulos/trabajo futuro.tex
+chapter 10.
+) (capitulos/conclusiones.tex
 
 [71]
 
@@ -2731,12 +2726,21 @@ chapter 11.
 
 
 ]
-chapter 12.
-) (TFG-TFM_EPS_UA.bbl
+chapter 11.
+) (capitulos/trabajo futuro.tex
 
 [73]
 
 [74
+
+
+]
+chapter 12.
+) (TFG-TFM_EPS_UA.bbl
+
+[75]
+
+[76
 
 
 ]
@@ -2756,7 +2760,7 @@ d de contenedores en azure kubernetes
 
 
 
-[75]
+[77]
 Underfull \hbox (badness 10000) in paragraph at lines 387--403
 [][][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][] [] [][] [] [][][][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][] [] [][][][]
@@ -2773,23 +2777,23 @@ l.684 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
 No file TFG-TFM_EPS_UA.acr.
 (anexos/anexo_I.tex
 
-[76]
+[78]
 chapter A.
 ) (anexos/anexo_2.tex
 
-[77
+[79
 
 
 ]
 
-[78
+[80
 
 
 ]
 chapter B.
 )
 
-[79] (TFG-TFM_EPS_UA.aux)
+[81] (TFG-TFM_EPS_UA.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2800,12 +2804,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 60932 strings out of 403249
- 1458643 string characters out of 5465214
+ 60937 strings out of 403249
+ 1458673 string characters out of 5465214
  2706122 words of memory out of 5000000
- 88265 multiletter control sequences out of 15000+600000
+ 88270 multiletter control sequences out of 15000+600000
  644980 words of font info for 148 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  113i,21n,114p,11008b,2139s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TFG-TFM_EPS_UA.pdf (97 pages).
+Output written on TFG-TFM_EPS_UA.pdf (99 pages).

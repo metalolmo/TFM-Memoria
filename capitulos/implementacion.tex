@@ -7,3 +7,48 @@
 
 \chapter{Implementación}
 
+En este capítulo se describe el proceso de implementación del sistema de monitorización de red desarrollado, a partir del diseño definido en el capítulo anterior. El objetivo no es detallar el código fuente ni profundizar en aspectos de bajo nivel, sino explicar de forma general cómo se han materializado las decisiones de diseño y cómo se han integrado los distintos componentes del sistema para obetener una solución funcional.
+
+La implementación se ha llevado a cabo de manera incremental, validando progresivamente cada uno de los módulos principales. Este enfoque permitió detectar errores de forma temprana y asegurar que la comunicación entre el frontend, el backend y los dispositivos de red funcionaba de manera correcta antes de avanzar hacia fases más complejas del sistema.
+
+\section{Consideraciones generales de implementación}
+
+El sistema se ha implementado siguiendo una arquitectura cliente-servidor claramente diferenciada, en la que el backend actúa como núcle lógio y de comunicación con los routers, mientras que el frontend se encarga exclusivamente de la presentación y de la interacción con el usuario. Esta separación ha permitido desarrollar y depurar cada parte de forma independiente, manteniendo una estructura facilmente extensible.
+
+Durante la implementación se priorizó la estabilidad de la comunicación con los dispositivos de red, dado que el acceso a los routers mediante SSH constituye la base del sistema. Una vez garantizada esta conectividad, se procedió a integrar progresivamente las funcionalidades de monitorización, gestión y visualización de datos, asegurando en todo momento la coherencia con los requisitos funcionales definicos previamente.
+
+Asimismo, se tuvo en cuenta desde el inicio la necesidad de un acceso seguro a la aplicación, integrando los mecanismos de autentiación y control de sesión antes de exponer funcionalidades sensibles de gestión de red.
+
+\section{Implementación del backend}
+
+El backend se ha implementado utilizando el framework FastAPI, que proporciona una estructura clara para la definición de servicios REST y facilita la validación de datos de entrada y salida. Este componente actúa como intermediario entre el frontend web y los routers Cisco simulados en GNS3, centralizando toda la lógica de negocio del sistema.
+
+La comunicación con los dispositivos de red se realiza mediante conexiones SSH, establecidas de forma dinámica oen función del router solicitado por el usuario. A través de estas conexiones, el backend ejecuta comandos del sistema operativo Cisco IOS para obtener información sobre el estado del dispositivo, las interfaces de red, el tráfico, los errores y el uso de recursos como CPU y memoria. La salida textual de estos comandos es posteriormente procesada y estructurada en formato JSON, de manera que pueda ser consumida facilmente por el frontend.
+
+Además de las operaciones de consulta, el backend implementa funcionalidades de gestión remota, permitiendo ejecutar acciones administrativas controladas, como la habilitación o deshabillitación de interfaces, la modificación de parámetros de configuración o el guardado de la configuración activa del router. Estas operaciones se realizan siempre tras verificar la autenticación del usuario y siguiendo un flujo controlado para evitar inconsistencias en el dispositivo.
+
+El backend también integra un módulo específico para la detección de errores en las interfaces de red. Este módulo compara periódicamente los contadores de errores obtenidos de los routers y detecta incrementos relevantes que pueden indicar anomalías en el funcionamiento. Cuando se identifica una nueva incidencia, el sistema dessencadena de forma automática la generación de un informe en formato PDF y su envío por correo electrónico al usuario autenticado, ejecutando estas tareas en segundo plano para no bloquear la respuesta principal del servicio.
+
+\section{Implementación del frontend}
+
+El frontend se ha desarrollado como una aplicación web basada en Vue.js, utilizando Axios para la comunicación con el backend y Boostrap para el diseño visual. La implementación se ha organizado en distintas vistas independientes, cada una asociada a un módulo funcional concreto del sistema, lo que facilita la comprensión del flujo de navegación y el mantenimiento del código.
+
+Desde el punto de vista de la implementación, el frontend se limita a consumir los endpoints expuestos por el backend y a represtenar la información recibida de forma clara e interactiva. Todas las peticiones a la API incluyen el token de autenticación generado tras el inicio de sesión, garantizando que únicamente los usuarios autoraizados pueden acceder a los datos de monitorización y a las acciones de gestión.
+
+Para simular un entorno de monitorización en tiempo real, el frontend implementa un mecanismo de actualización periódica de los datos, realizando consultas automáticas al backend a intervalos configurables. Este enforque permite que la información mostrada en las tablas y gráficos refleje de forma continua el estado actual de los dispositivos sin necesidad de recargar manualmente la página.
+
+La visualización de métricas apoya en representaciones gráficas que facilitan la interpretación de los datos, como gráficos de tráfico o indicadores de uso de recursos. La implementación contempla la gestión controlada de estas visualizacipones para evitar consistencias durante las actualizaciones periódicas, garantizando así una experiencia de usuario estable.
+
+\section{Ejemplo representativo de funcionamiento}
+
+Como ejemplo ilustrativo del funcionamiento del sistema implementado, se puede considerar el proceso de consulta y monitorización de las interfaces de router. En este escenario, el usuario autenticado selecciona un dispositivo desde la interfaz web, lo que desencadena una petición al bakcend para obtener el estado actual de sus interfaces.
+
+El backend establece una conexión SSH con el router correspondiente, ejecuta los comandos necesarios para recopilar la información de las interfaces y procesa los resultados para extraer datos relevantes como el estado administrativo, el estado operativo, el tráfico y los contadores de erroes. Esta información se devuelve al frontend en formato estructurado, permitiendo su representación inmediata en la interfaz web.
+
+De forma paralela, el sistema analiza los contadores de erroes recibidos y, en caso de detectar nuevos valores anómalos respecto a consultas anteriores, activa el mecanismo de alertas. Este proceso demuestra la integración completa entre adquisición de datos, procesamiento, visualización y notificación, reflejando el funcionamiento end-to-end del sistema.
+
+La validación visual y funcional de este tipo de escenarios se presenta de forma detallada en los capítulos de Pruebas y Resultados, donde se muestran evidencias del comportamiento del sistema en ejecución.
+
+\section{Consideraciones finales de implementación}
+
+La implementación realizada permite afirmar que el sistema diseñado ha sido materializado de forma satisfactoria, cumpliendo con los requisitos funcionales y no funcionales definidos al inicio del proyecto. La separación clara entre frontend y backend, junto con el uso de tecnologías ampliamente adoptadas, ha facilitado el desarrollo de una solución modular, comprensible y extensible.

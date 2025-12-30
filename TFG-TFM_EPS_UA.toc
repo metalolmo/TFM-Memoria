@@ -36,11 +36,16 @@
 \contentsline {section}{\numberline {7.5}Diseño del frontend.}{59}{section.7.5}%
 \contentsline {section}{\numberline {7.6}Diseño de seguridad, alertas e informes.}{62}{section.7.6}%
 \contentsline {chapter}{\numberline {8}Implementación}{65}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Pruebas}{67}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Resultados}{69}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{71}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Trabajo Futuro}{73}{chapter.12}%
-\contentsline {chapter}{\nonumberline Bibliografía}{75}{chapter*.113}%
-\contentsline {chapter}{\numberline {A}Anexo I}{77}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Páginas horizontales}{79}{appendix.B}%
+\contentsline {section}{\numberline {8.1}Consideraciones generales de implementación}{65}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Implementación del backend}{65}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Implementación del frontend}{66}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Ejemplo representativo de funcionamiento}{66}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Consideraciones finales de implementación}{67}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Pruebas}{69}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Resultados}{71}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{73}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Trabajo Futuro}{75}{chapter.12}%
+\contentsline {chapter}{\nonumberline Bibliografía}{77}{chapter*.113}%
+\contentsline {chapter}{\numberline {A}Anexo I}{79}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Páginas horizontales}{81}{appendix.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
