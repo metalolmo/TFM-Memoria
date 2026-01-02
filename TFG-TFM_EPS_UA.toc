@@ -42,10 +42,22 @@
 \contentsline {section}{\numberline {8.4}Ejemplo representativo de funcionamiento}{66}{section.8.4}%
 \contentsline {section}{\numberline {8.5}Consideraciones finales de implementación}{67}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Pruebas}{69}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Resultados}{71}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{73}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Trabajo Futuro}{75}{chapter.12}%
-\contentsline {chapter}{\nonumberline Bibliografía}{77}{chapter*.113}%
-\contentsline {chapter}{\numberline {A}Anexo I}{79}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Páginas horizontales}{81}{appendix.B}%
+\contentsline {section}{\numberline {9.1}Entorno de pruebas}{69}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Pruebas de funcionalidad end-to-end}{69}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Prueba de autenticación de usuario}{69}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Prueba de monitorización del estado del router}{70}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Prueba de detección de errores en interfaces}{70}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Prueba del sistema de alertas e informes}{71}{subsection.9.2.4}%
+\contentsline {section}{\numberline {9.3}Pruebas desde el punto de vista del usuario}{72}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Resultados}{73}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Vista de estado del router}{73}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Vista de interfaces de red}{73}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Visualización del tráfico de red}{74}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Sistema de alertas e informes}{75}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Valoración global de los resultados}{75}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{77}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Trabajo Futuro}{79}{chapter.12}%
+\contentsline {chapter}{\nonumberline Bibliografía}{81}{chapter*.120}%
+\contentsline {chapter}{\numberline {A}Anexo I}{83}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Páginas horizontales}{85}{appendix.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

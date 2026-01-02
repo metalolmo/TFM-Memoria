@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  30 DEC 2025 17:27
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.13)  2 JAN 2026 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2258,35 +2258,35 @@ chapter without number
 [10
 
 
-] (TFG-TFM_EPS_UA.toc
-
-[11])
+] (TFG-TFM_EPS_UA.toc)
 \tf@toc=\write7
 \openout7 = `TFG-TFM_EPS_UA.toc'.
 
 
 
-[12] (TFG-TFM_EPS_UA.lof
+[11]
 
-[13
+[12
 
 
-])
+] (TFG-TFM_EPS_UA.lof)
 \tf@lof=\write8
 \openout8 = `TFG-TFM_EPS_UA.lof'.
 
 
 
-[14] (TFG-TFM_EPS_UA.lot)
+[13]
+
+[14
+
+
+] (TFG-TFM_EPS_UA.lot)
 \tf@lot=\write9
 \openout9 = `TFG-TFM_EPS_UA.lot'.
 
 
 
-[15
-
-
-]
+[15]
 
 [16
 
@@ -2305,11 +2305,34 @@ chapter without number
 ] (capitulos/Introduccion.tex
 chapter 1.
 
+Package natbib Warning: Citation `Schummer2024' on page 1 undefined on input li
+ne 14.
+
+
+Package natbib Warning: Citation `Schummer2024' on page 1 undefined on input li
+ne 24.
+
+
 
 [1
 
 
-]) (capitulos/estudio de la viabuilidad.tex
+]
+
+Package natbib Warning: Citation `GNS3' on page 2 undefined on input line 37.
+
+
+Package natbib Warning: Citation `SSH' on page 2 undefined on input line 38.
+
+
+Package natbib Warning: Citation `FastAPI' on page 2 undefined on input line 39
+.
+
+
+Package natbib Warning: Citation `Bootstrap' on page 2 undefined on input line 
+40.
+
+) (capitulos/estudio de la viabuilidad.tex
 
 [2]
 chapter 2.
@@ -2346,8 +2369,32 @@ chapter 3.
 
 [6]
 chapter 4.
+
+Package natbib Warning: Citation `nagios2014' on page 7 undefined on input line
+ 15.
+
+
+Package natbib Warning: Citation `nagios2014' on page 7 undefined on input line
+ 15.
+
 File: imagenes/image2.png Graphic file (type bmp)
 <imagenes/image2.png>
+
+Package natbib Warning: Citation `nagios2014' on page 7 undefined on input line
+ 20.
+
+
+Package natbib Warning: Citation `nagios2014' on page 7 undefined on input line
+ 20.
+
+
+Package natbib Warning: Citation `nagios2014' on page 7 undefined on input line
+ 24.
+
+
+Package natbib Warning: Citation `nagios2014' on page 7 undefined on input line
+ 24.
+
 
 
 [7
@@ -2356,8 +2403,37 @@ File: imagenes/image2.png Graphic file (type bmp)
 ]
 File: imagenes/image3.png Graphic file (type bmp)
 <imagenes/image3.png>
+
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 29.
+
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 29.
+
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 33.
+
 File: imagenes/image4.png Graphic file (type bmp)
 <imagenes/image4.png>
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 38.
+
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 38.
+
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 42.
+
+
+Package natbib Warning: Citation `nagios2014' on page 8 undefined on input line
+ 42.
+
 
 Underfull \vbox (badness 7151) has occurred while \output is active []
 
@@ -2366,21 +2442,81 @@ Underfull \vbox (badness 7151) has occurred while \output is active []
 [8]
 File: imagenes/image5.png Graphic file (type bmp)
 <imagenes/image5.png>
+
+
+Package natbib Warning: Citation `nagios2014' on page 9 undefined on input line
+ 47.
+
+
+Package natbib Warning: Citation `nagios2014' on page 9 undefined on input line
+ 47.
+
 File: imagenes/image17.png Graphic file (type bmp)
 <imagenes/image17.png>
+
+Package natbib Warning: Citation `zabbix2024' on page 9 undefined on input line
+ 62.
+
+
+Package natbib Warning: Citation `zabbix2024' on page 9 undefined on input line
+ 62.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [9]
+
+Package natbib Warning: Citation `zabbix2024' on page 10 undefined on input lin
+e 66.
+
+
+Package natbib Warning: Citation `nagios2014' on page 10 undefined on input lin
+e 66.
+
 File: imagenes/image6.png Graphic file (type bmp)
 <imagenes/image6.png>
 
+Package natbib Warning: Citation `zabbix2024' on page 10 undefined on input lin
+e 71.
+
+
+Package natbib Warning: Citation `zabbix2024' on page 10 undefined on input lin
+e 71.
+
+
+Package natbib Warning: Citation `zabbix2024' on page 10 undefined on input lin
+e 75.
+
+
 
 [10]
+
+Package natbib Warning: Citation `zabbix2024' on page 11 undefined on input lin
+e 77.
+
+
+Package natbib Warning: Citation `zabbix2024' on page 11 undefined on input lin
+e 79.
+
 File: imagenes/image7.png Graphic file (type bmp)
 <imagenes/image7.png>
+
+Package natbib Warning: Citation `zabbix2024' on page 11 undefined on input lin
+e 84.
+
+
+Package natbib Warning: Citation `zabbix2024' on page 11 undefined on input lin
+e 84.
+
+
+Package natbib Warning: Citation `zabbix2024' on page 11 undefined on input lin
+e 88.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 [11]
@@ -2389,8 +2525,20 @@ File: imagenes/image8.png Graphic file (type bmp)
 
 
 [12]
+
+Package natbib Warning: Citation `solarwinds2025' on page 13 undefined on input
+ line 120.
+
 File: imagenes/image9.png Graphic file (type bmp)
 <imagenes/image9.png>
+
+Package natbib Warning: Citation `solarwinds2025' on page 13 undefined on input
+ line 125.
+
+
+Package natbib Warning: Citation `solarwinds2025' on page 13 undefined on input
+ line 125.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2398,23 +2546,47 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13]
 
+Package natbib Warning: Citation `solarwindsdatasheet2025' on page 14 undefined
+ on input line 129.
+
+
+Package natbib Warning: Citation `solarwindsdatasheet2025' on page 14 undefined
+ on input line 131.
+
+
+Package natbib Warning: Citation `solarwinds2025' on page 14 undefined on input
+ line 133.
+
+
+Package natbib Warning: Citation `solarwinds2025' on page 14 undefined on input
+ line 135.
+
+
+Package natbib Warning: Citation `solarwindsdatasheet2025' on page 14 undefined
+ on input line 137.
+
+
+
 [14]
+
+Package natbib Warning: Citation `solarwindsdatasheet2025' on page 15 undefined
+ on input line 139.
+
 File: imagenes/image10.png Graphic file (type bmp)
 <imagenes/image10.png>
-
-
-[15]
 File: imagenes/image11.png Graphic file (type bmp)
 <imagenes/image11.png>
 
-Underfull \vbox (badness 1789) has occurred while \output is active []
+
+[15]
+File: imagenes/image12.png Graphic file (type bmp)
+<imagenes/image12.png>
+
+Underfull \vbox (badness 1184) has occurred while \output is active []
 
 
 
 [16]
-File: imagenes/image12.png Graphic file (type bmp)
-<imagenes/image12.png>
-
 
 [17]
 Underfull \hbox (badness 2165) in paragraph at lines 300--300
@@ -2471,6 +2643,33 @@ File: imagenes/image15.png Graphic file (type bmp)
 
 
 [23]
+
+Package natbib Warning: Citation `GNS3' on page 24 undefined on input line 37.
+
+
+Package natbib Warning: Citation `SSH' on page 24 undefined on input line 37.
+
+
+Package natbib Warning: Citation `Santos2021' on page 24 undefined on input lin
+e 37.
+
+
+Package natbib Warning: Citation `FastAPI' on page 24 undefined on input line 3
+9.
+
+
+Package natbib Warning: Citation `Tolo2022' on page 24 undefined on input line 
+39.
+
+
+Package natbib Warning: Citation `Mwaura2023' on page 24 undefined on input lin
+e 39.
+
+
+Package natbib Warning: Citation `Bootstrap' on page 24 undefined on input line
+ 41.
+
+
 
 [24]
 
@@ -2709,38 +2908,72 @@ chapter 8.
 
 ]
 chapter 9.
-) (capitulos/resultados.tex
+File: imagenes/Autenticación.png Graphic file (type bmp)
+<imagenes/Autenticación.png>
+
+Underfull \vbox (badness 1701) has occurred while \output is active []
+
+
 
 [69]
+File: imagenes/Estado del Router.jpg Graphic file (type bmp)
+<imagenes/Estado del Router.jpg>
 
-[70
+
+[70]
+File: imagenes/Ejemplo_Errores.jpg Graphic file (type bmp)
+<imagenes/Ejemplo_Errores.jpg>
+File: imagenes/Errores_Correo.png Graphic file (type bmp)
+<imagenes/Errores_Correo.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[71]) (capitulos/resultados.tex
+
+[72]
+chapter 10.
+File: imagenes/Estado del Router_dos.jpg Graphic file (type bmp)
+<imagenes/Estado del Router_dos.jpg>
+
+
+[73
 
 
 ]
-chapter 10.
-) (capitulos/conclusiones.tex
+File: imagenes/Interfaces de Red_dos.jpg Graphic file (type bmp)
+<imagenes/Interfaces de Red_dos.jpg>
+File: imagenes/Interfaces de Red_tres.jpg Graphic file (type bmp)
+<imagenes/Interfaces de Red_tres.jpg>
 
-[71]
+Underfull \vbox (badness 1424) has occurred while \output is active []
 
-[72
+
+
+[74]) (capitulos/conclusiones.tex
+
+[75]
+
+[76
 
 
 ]
 chapter 11.
 ) (capitulos/trabajo futuro.tex
 
-[73]
+[77]
 
-[74
+[78
 
 
 ]
 chapter 12.
 ) (TFG-TFM_EPS_UA.bbl
 
-[75]
+[79]
 
-[76
+[80
 
 
 ]
@@ -2760,7 +2993,7 @@ d de contenedores en azure kubernetes
 
 
 
-[77]
+[81]
 Underfull \hbox (badness 10000) in paragraph at lines 387--403
 [][][][][][][] [] [][][][][][][][] [] [][][][][][][][][][][] [] [][] [] [][][][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][] [] [][][][]
@@ -2777,23 +3010,32 @@ l.684 ... \APACbVolEdTR{}{\BTR{}\ \BNUM\ RFC 4251}
 No file TFG-TFM_EPS_UA.acr.
 (anexos/anexo_I.tex
 
-[78]
+[82]
 chapter A.
 ) (anexos/anexo_2.tex
 
-[79
+[83
 
 
 ]
 
-[80
+[84
 
 
 ]
 chapter B.
 )
 
-[81] (TFG-TFM_EPS_UA.aux)
+Package natbib Warning: There were undefined citations.
+
+
+
+[85] (TFG-TFM_EPS_UA.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2804,12 +3046,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 60937 strings out of 403249
- 1458673 string characters out of 5465214
- 2706122 words of memory out of 5000000
- 88270 multiletter control sequences out of 15000+600000
+ 61008 strings out of 403249
+ 1460816 string characters out of 5465214
+ 2706318 words of memory out of 5000000
+ 88333 multiletter control sequences out of 15000+600000
  644980 words of font info for 148 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,21n,114p,11008b,2139s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,21n,110p,11008b,2139s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TFG-TFM_EPS_UA.pdf (99 pages).
+Output written on TFG-TFM_EPS_UA.pdf (103 pages).
